@@ -1,0 +1,479 @@
+{
+  "widgetTokens": [{
+    "name": "defaultDeviceGroup",
+    "value": "*"
+  }],
+  "name": "Local Network Latency",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "extra": "",
+        "name": "Top 25 by ICMP Ping Latency",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "average",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Ping",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "average",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##*"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 6,
+        "sizey": 4
+      },
+      "config": {
+        "extra": "",
+        "name": "Top 25 by HTTP Latency",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ResponseTime",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "HTTP-",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME## - ##DATASOURCENAME####INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "HTTPResponseTime",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##*"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 8,
+        "sizey": 5
+      },
+      "config": {
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "ResponseTime",
+          "displayType": "percent",
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 250,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 350,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 450,
+              "relation": ">"
+            }
+          ],
+          "columnName": "Response Time (ms)",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##HOSTNAME## port ##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultDeviceGroup##*"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "HTTP-",
+        "extra": "{\"pageSize\":\"10\",\"columns\":[{\"columnKey\":\"device-name-1452842526600\",\"columnLabel\":\"\\n        Name\\n        \\n    \",\"visible\":true,\"columnSize\":208},{\"columnKey\":\"0\",\"columnLabel\":\"\\n            average\\n            \\n        \",\"visible\":true,\"columnSize\":157}]}",
+        "sortOrder": "descending",
+        "name": "Top 10 by HTTP Latency",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 5
+      },
+      "config": {
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "average",
+          "displayType": "percent",
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 25,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 40,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 55,
+              "relation": ">"
+            }
+          ],
+          "columnName": "Latency (ms)",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##HOSTNAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultDeviceGroup##*"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Ping",
+        "extra": "{\"pageSize\":\"10\",\"columns\":[{\"columnKey\":\"device-name-1452842526600\",\"columnLabel\":\"\\n        Name\\n        \\n    \",\"visible\":true,\"columnSize\":280},{\"columnKey\":\"0\",\"columnLabel\":\"\\n            Latency (ms)\\n            \\n        \",\"visible\":true,\"columnSize\":85}]}",
+        "sortOrder": "descending",
+        "name": "Top 10 by ICMP Ping Latency",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 5
+      },
+      "config": {
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "ResponseTime",
+          "displayType": "percent",
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 250,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 350,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 500,
+              "relation": ">"
+            }
+          ],
+          "columnName": "Response Time (ms)",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##HOSTNAME## port ##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultDeviceGroup##*"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "HTTPS-",
+        "extra": "{\"pageSize\":\"10\",\"columns\":[{\"columnKey\":\"device-name-1452842526600\",\"columnLabel\":\"\\n        Name\\n        \\n    \",\"visible\":true,\"columnSize\":210},{\"columnKey\":\"0\",\"columnLabel\":\"\\n            Response Time (ms)\\n            \\n        \",\"visible\":true,\"columnSize\":168}]}",
+        "sortOrder": "descending",
+        "name": "Top 10 by HTTPS Latency",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 6,
+        "sizey": 4
+      },
+      "config": {
+        "extra": "",
+        "name": "Top 25 by HTTPS Latency",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ResponseTime",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "HTTPS-",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME## - ##DATASOURCENAME####INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "HTTPSResponseTime",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##*"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 10,
+        "sizey": 3
+      },
+      "config": {
+        "extra": "",
+        "name": "Top 25 by Port Response Latency",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ResponseTime",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Port-",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME## - Port ##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "ResponseTime",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##*"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 8,
+        "sizey": 5
+      },
+      "config": {
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "ResponseTime",
+          "displayType": "percent",
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 25,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 40,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 55,
+              "relation": ">"
+            }
+          ],
+          "columnName": "ResponseTime",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##HOSTNAME## port ##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultDeviceGroup##*"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Port-",
+        "extra": "{\"pageSize\":\"10\",\"columns\":[{\"columnKey\":\"device-name-1452842526600\",\"columnLabel\":\"\\n        Name\\n        \\n    \",\"visible\":true,\"columnSize\":280},{\"columnKey\":\"0\",\"columnLabel\":\"\\n            Latency (ms)\\n            \\n        \",\"visible\":true,\"columnSize\":85}]}",
+        "sortOrder": "descending",
+        "name": "Top 10 by Port Response Latency",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "extra": "",
+        "name": "Local Network Latency",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "text",
+        "timescale": "day",
+        "version": 2,
+        "content": "<p>When&nbsp;LogicMonitor&nbsp;doesn&#39;t have credentials for a device, we still monitor it from a collector in a number of ways. These include ICMP pings, HTTP and HTTPS&nbsp;response tests, DNS resolution, and a scan for commonly-used Ports. This dashboard helps identify the slowest performers in each respective area.<\/p>"
+      }
+    }
+  ],
+  "version": 2
+}
