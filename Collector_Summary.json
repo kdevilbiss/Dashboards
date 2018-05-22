@@ -1,0 +1,466 @@
+{
+  "widgetTokens": [{
+    "name": "defaultDeviceGroup",
+    "value": "Devices by Type/Collectors"
+  }],
+  "name": "Collector Summary",
+  "description": "Status and critical metrics of your LogicMonitor Collectors.",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "Collectors",
+              "appliesTo": "hasCategory(\"Collector\")"
+            },
+            {
+              "name": "Linux",
+              "appliesTo": "hasCategory(\"Collector\") && isLinux()"
+            },
+            {
+              "name": "Windows",
+              "appliesTo": "hasCategory(\"Collector\") && isWindows()"
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "Collectors",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Collectors",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "Linux",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "Linux",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "Windows",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 3,
+              "rightLabel": "Windows",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "extra": "",
+        "name": "Collector Count",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 4
+      },
+      "config": {
+        "extra": "",
+        "name": "Top Collectors by CPU Utilization",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "ProcessCPUPercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Collector JVM Status (LogicMonitor_Collector_JVMStatus)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "ProcessCPUPercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 4
+      },
+      "config": {
+        "extra": "",
+        "name": "Top Collectors by Heap Utilization",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "HeapPercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Collector JVM Status (LogicMonitor_Collector_JVMStatus)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "HeapPercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "HostCount",
+              "instanceName": "*",
+              "dataSourceFullName": "Collector Global Stats (LogicMonitor_Collector_GlobalStats)",
+              "name": "HostCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultDeviceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "DSICount",
+              "instanceName": "*",
+              "dataSourceFullName": "Collector Global Stats (LogicMonitor_Collector_GlobalStats)",
+              "name": "DSICount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultDeviceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "HostCount",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Hosts",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "DSICount",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "Instances",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "extra": "",
+        "name": "Monitoring Statistics",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "extra": "",
+        "name": "Breakdown of Devices Monitored",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [
+            {
+              "name": "Windows",
+              "appliesTo": "isWindows()"
+            },
+            {
+              "name": "Linux",
+              "appliesTo": "isLinux()"
+            },
+            {
+              "name": "Network",
+              "appliesTo": "isNetwork()"
+            },
+            {
+              "name": "AWS",
+              "appliesTo": "system.devicetype == \"2\""
+            },
+            {
+              "name": "Azure",
+              "appliesTo": "system.devicetype == \"4\""
+            }
+          ],
+          "dataPoints": [],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [
+            {
+              "dataPointName": "Windows",
+              "color": "AUTO",
+              "legend": "Windows"
+            },
+            {
+              "dataPointName": "Linux",
+              "color": "AUTO",
+              "legend": "Linux"
+            },
+            {
+              "dataPointName": "Network",
+              "color": "AUTO",
+              "legend": "Network"
+            },
+            {
+              "dataPointName": "AWS",
+              "color": "AUTO",
+              "legend": "AWS"
+            },
+            {
+              "dataPointName": "Azure",
+              "color": "AUTO",
+              "legend": "Azure"
+            }
+          ],
+          "title": "Breakdown of Devices Monitored"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "extra": "",
+        "name": "Top Collectors by Devices Monitored",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "HostCount",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Collector Global Stats (LogicMonitor_Collector_GlobalStats)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "HostCount",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "HostCount",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "extra": "{\"displayAs\":\"table\",\"showTypeIcon\":true}",
+        "displayColumn": 4,
+        "name": "Collector Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##HOSTNAME##",
+          "dataSourceDisplayName": "Collector*",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "extra": "",
+        "name": "Top Collectors by Instances Monitored",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "InstanceCount",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Collector Data Collecting Task (LogicMonitor_Collector_DataCollectingTasks)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "InstanceCount",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "InstanceCount",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1hour",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
