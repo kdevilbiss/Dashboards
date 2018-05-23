@@ -1,0 +1,750 @@
+{
+  "widgetTokens": [{
+    "name": "defaultDeviceGroup",
+    "value": "*"
+  }],
+  "name": "Cisco ASA Overview",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "extra": "",
+        "name": "Top ASAs by CPU",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [
+            {
+              "dataPointName": "CPU",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "consolidateFunction": 1,
+              "dataSourceFullName": "CPU- (CiscoCPU-)",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## - ##INSTANCE## CPU",
+                "type": 1,
+                "option": "custom"
+              },
+              "name": "CPU",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            },
+            {
+              "dataPointName": "Cpu",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "consolidateFunction": 1,
+              "dataSourceFullName": "CPU (CiscoASAcpu-)",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## - ##INSTANCE## CPU",
+                "type": 1,
+                "option": "custom"
+              },
+              "name": "ASAcpu",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "extra": "",
+        "name": "Top ASAs by Memory",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "MemoryPoolUsed",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "consolidateFunction": 1,
+              "dataSourceFullName": "Memory Pools- (CiscoMem-)",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## - Memory Pools",
+                "type": 1,
+                "option": "custom"
+              },
+              "name": "MemoryPoolUsed",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            },
+            {
+              "dataPointName": "Used",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "consolidateFunction": 1,
+              "dataSourceFullName": "AIP Memory Pools- (Cisco AIP SSM Memory Pools-)",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## - AIP Memory Pools",
+                "type": 1,
+                "option": "custom"
+              },
+              "name": "Used",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 6,
+        "sizey": 5
+      },
+      "config": {
+        "ackChecked": true,
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "extra": "{\"displayAs\":\"list\",\"showTypeIcon\":true}",
+        "displayColumn": 1,
+        "name": "ASA Component Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "sortBy": "name",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##HOSTNAME## - ##INSTANCE##",
+          "dataSourceDisplayName": "Device Component Inventory",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 5
+      },
+      "config": {
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "Temperature",
+          "displayType": "percent",
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 60,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 65,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 70,
+              "relation": ">"
+            }
+          ],
+          "columnName": "Temperature",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##HOSTNAME## - ##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultDeviceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "Cisco ASA Temperature Sensors (Cisco_ASA_Temperature)",
+        "extra": "{\"pageSize\":\"25\"}",
+        "sortOrder": "descending",
+        "name": "Top ASA Temperatures",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "extra": "",
+        "name": "Top ASAs by Connections",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "Connections",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "consolidateFunction": 1,
+            "dataSourceFullName": "Global PIX/ASA Stats (CiscoASA)",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": 1,
+              "option": "custom"
+            },
+            "name": "Connections",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "connections",
+          "aggregate": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "extra": "",
+        "name": "Top ASAs by Sessions",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "NumSessions",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "consolidateFunction": 1,
+            "dataSourceFullName": "Global PIX/ASA Stats (CiscoASA)",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": 1,
+              "option": "custom"
+            },
+            "name": "NumSessions",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "sessions",
+          "aggregate": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "extra": "",
+        "name": "Top ASAs by Active Tunnels",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ipSecActiveTunnels",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "consolidateFunction": 1,
+            "dataSourceFullName": "Global PIX/ASA Stats (CiscoASA)",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": 1,
+              "option": "custom"
+            },
+            "name": "ipSecActiveTunnels",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "tunnels",
+          "aggregate": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 9,
+        "sizey": 2
+      },
+      "config": {
+        "extra": "",
+        "name": "Top ASA by Users",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "NumUsers",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "consolidateFunction": 1,
+            "dataSourceFullName": "Global PIX/ASA Stats (CiscoASA)",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": 1,
+              "option": "custom"
+            },
+            "name": "NumUsers",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "users",
+          "aggregate": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 6,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "extra": "",
+        "name": "Top ASAs by Interface Throughput",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "InOctets",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "consolidateFunction": 1,
+              "dataSourceFullName": "Interfaces (64 bit)- (snmp64_If-)",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## ##INSTANCE## In",
+                "type": 1,
+                "option": "custom"
+              },
+              "name": "InOctets",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            },
+            {
+              "dataPointName": "OutOctets",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "consolidateFunction": 1,
+              "dataSourceFullName": "Interfaces (64 bit)- (snmp64_If-)",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## ##INSTANCE## Out",
+                "type": 1,
+                "option": "custom"
+              },
+              "name": "OutOctets",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bits per second",
+          "aggregate": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "extra": "",
+        "name": "Top ASAs by Ping Response Time",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "average",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "consolidateFunction": 1,
+            "dataSourceFullName": "Ping",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": 1,
+              "option": "custom"
+            },
+            "name": "average",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "extra": "",
+        "name": "Top ASAs by Tunnel Throughput",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "(InOctets*8) + (OutOctets*8)",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": 1,
+              "option": "custom"
+            },
+            "name": "TotalOctets"
+          }],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "InOctets",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "consolidateFunction": 1,
+              "dataSourceFullName": "Cisco IPSec Tunnels (Cisco IPSec Tunnel-)",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": 0,
+                "option": "none"
+              },
+              "name": "InOctets",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            },
+            {
+              "dataPointName": "OutOctets",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "consolidateFunction": 1,
+              "dataSourceFullName": "Cisco IPSec Tunnels (Cisco IPSec Tunnel-)",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": 0,
+                "option": "none"
+              },
+              "name": "OutOctets",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bits per second",
+          "aggregate": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "sizex": 6,
+        "sizey": 2
+      },
+      "config": {
+        "extra": "",
+        "name": "Top ASAs by Port Response Time",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ResponseTime",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "consolidateFunction": 1,
+            "dataSourceFullName": "Port-",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME## port ##INSTANCE##",
+              "type": 1,
+              "option": "custom"
+            },
+            "name": "ResponseTime",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
