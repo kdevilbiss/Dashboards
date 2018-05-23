@@ -6,20 +6,24 @@ Most of these dashboards rely on dynamic groups in the 'Devices by Type' device 
 
 **Dashboard Names | Expected dynamic group names | Group definitions:**
 
-Active Directory Overview | Device by Type/ Domain Controllers | hasCategory("MicrosoftDomainController")
-        
-Collector Summary | Device by Type/ Collectors | hasCategory("Collectors")
+Active Directory Overview | Devices by Type/ Domain Controllers | hasCategory("MicrosoftDomainController")
 
-Exchange Server Overview | Device by Type/ Exchange Servers | hasCategory("MSExchange")
+Cisco ASA Overview | Devices by Type/ Cisco ASA | hasCategory("CiscoASA")
+        
+Collector Summary | Devices by Type/ Collectors | hasCategory("Collectors")
+
+EMC VNX Overview | Devices by Type/ EMC | hasCategory("EMC") || hasCategory("EMC_VNX") || hasCategory("EMC_VNX2")
+
+Exchange Server Overview | Devices by Type/ Exchange Servers | hasCategory("MSExchange")
 
 Local Network Latency | * | (Works without credentials for all devices)
 
-Palo Alto Overview | Device by Type/ Palo Alto | hasCategory("PaloAlto")
+Palo Alto Overview | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
 
-SQL Server Overview | Device by Type/ SQL Servers | hasCategory("MSSQL")
+SQL Server Overview | Devices by Type/ SQL Servers | hasCategory("MSSQL")
 
 Under Utilized Devices - On-Prem | * | (Point at the device group you wish to target)
 
 Under Utilized Devices - Public Cloud | AWS or Azure account | (Requires a local collector to be installed and monitoring cloud VMs)
 
-Web Server Overview | Device by Type/ Web Servers | hasCategory("MicrosoftIIS")
+Web Server Overview | Devices by Type/ Web Servers | hasCategory("MicrosoftIIS")
