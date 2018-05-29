@@ -1,0 +1,2988 @@
+{
+  "widgetTokens" : [ {
+    "name" : "defaultDeviceGroup",
+    "value" : "*"
+  }, {
+    "name" : "defaultWebsiteGroup",
+    "value" : "*"
+  } ],
+  "name" : "LogicMonitor Dashboards",
+  "subGroups" : [ ],
+  "description" : "Auto-Dashboards included with the provisioning of every new LogicMonitor account.",
+  "type" : "dashboardgroup",
+  "dashboards" : [ {
+    "widgetTokens" : [ {
+      "name" : "defaultDeviceGroup",
+      "value" : "Devices by Type/VMware ESXi Hosts*"
+    } ],
+    "name" : "VMware Overview",
+    "description" : "",
+    "widgetsConfigVersion" : 2,
+    "widgets" : [ {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 17,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top VMware VMs by Available Memory %",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ {
+            "rpn" : "MemoryActive/1000000",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##_##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "MB"
+          } ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : "NaN",
+          "dataPoints" : [ {
+            "dataPointName" : "MemoryActive",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "VMware VM Performance (VMware_vSphere_VMperformance)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : null,
+              "legend" : null,
+              "type" : "line",
+              "option" : "none"
+            },
+            "name" : "MemoryActive",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "MB",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1hour",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 9,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top VMware VMs by CPU Utilization %",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "CpuUsagePercent",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "VMware VM Performance (VMware_vSphere_VMperformance)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##_##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "CpuUsagePercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 4,
+        "row" : 3,
+        "sizey" : 6
+      },
+      "config" : {
+        "ackChecked" : true,
+        "displayWarnAlert" : true,
+        "description" : "",
+        "type" : "noc",
+        "version" : 2,
+        "displayErrorAlert" : true,
+        "extra" : "{\"showTypeIcon\":true,\"displayAs\":\"table\"}",
+        "displayColumn" : 3,
+        "name" : "VMware Host Status",
+        "displayCriticalAlert" : true,
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "sortBy" : "alertSeverity",
+        "timescale" : "day",
+        "sdtChecked" : true,
+        "items" : [ {
+          "dataPointName" : "*",
+          "instanceName" : "*",
+          "name" : "##HOSTNAME##",
+          "dataSourceDisplayName" : "VMware Host Performance",
+          "groupBy" : "device",
+          "type" : "device",
+          "deviceGroupFullPath" : "##defaultDeviceGroup##",
+          "deviceDisplayName" : "*"
+        } ]
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 12,
+        "row" : 1,
+        "sizey" : 2
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Dashboard Summary",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "text",
+        "timescale" : "day",
+        "version" : 2,
+        "content" : "<p><span style=\"font-size:20.16px\">Welcome to the VMware Overview Dashboard! </span></p>\n\n<p><span style=\"font-size:14px\">Overview dashboards provide quick and easy access to high-level metrics that facilitate rapid issue identification and resolution.&nbsp;</span><span style=\"font-size:14px\">As you add VMware&nbsp;devices, this dashboard will auto-populate with vital statistics about their health and activity.&nbsp;</span></p>"
+      }
+    }, {
+      "position" : {
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 7,
+        "sizey" : 2
+      },
+      "config" : {
+        "bigNumberInfo" : {
+          "virtualDataPoints" : [ ],
+          "counters" : [ ],
+          "dataPoints" : [ {
+            "dataPointName" : "esxVmCount",
+            "instanceName" : "*",
+            "dataSourceFullName" : "vCenter Object Count (VMware_vCenter_ObjectCount)",
+            "name" : "esxVmCount",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "*",
+            "deviceDisplayName" : "*"
+          }, {
+            "dataPointName" : "vmOnCount",
+            "instanceName" : "*",
+            "dataSourceFullName" : "vCenter Object Count (VMware_vCenter_ObjectCount)",
+            "name" : "esxVmCount_On",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "*",
+            "deviceDisplayName" : "*"
+          }, {
+            "dataPointName" : "vmOffCount",
+            "instanceName" : "*",
+            "dataSourceFullName" : "vCenter Object Count (VMware_vCenter_ObjectCount)",
+            "name" : "esxVmCount_Off",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "*",
+            "deviceDisplayName" : "*"
+          } ],
+          "bigNumberItems" : [ {
+            "dataPointName" : "esxVmCount",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 1,
+            "rightLabel" : "Virtual Machines",
+            "colorThresholds" : null
+          }, {
+            "dataPointName" : "esxVmCount_On",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 2,
+            "rightLabel" : "Powered On VMs",
+            "colorThresholds" : null
+          }, {
+            "dataPointName" : "esxVmCount_Off",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 3,
+            "rightLabel" : "Powered Off VMs",
+            "colorThresholds" : null
+          } ]
+        },
+        "extra" : "",
+        "name" : "Managed by vCenter",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "bigNumber",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 9,
+        "sizex" : 4,
+        "row" : 3,
+        "sizey" : 6
+      },
+      "config" : {
+        "ackChecked" : true,
+        "displayWarnAlert" : true,
+        "description" : "",
+        "type" : "noc",
+        "version" : 2,
+        "displayErrorAlert" : true,
+        "extra" : "{\"showTypeIcon\":true,\"displayAs\":\"table\"}",
+        "displayColumn" : 2,
+        "name" : "VMware Virtual Machine Status",
+        "displayCriticalAlert" : true,
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "sortBy" : "alertSeverity",
+        "timescale" : "day",
+        "sdtChecked" : true,
+        "items" : [ {
+          "dataPointName" : "*",
+          "instanceName" : "*",
+          "name" : "##INSTANCE##",
+          "dataSourceDisplayName" : "VMware VM Status",
+          "groupBy" : "instance",
+          "type" : "device",
+          "deviceGroupFullPath" : "##defaultDeviceGroup##",
+          "deviceDisplayName" : "*"
+        } ]
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 17,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top VMware VMs by CPU Ready %",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "CPUReadyPercent",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "VMware VM Performance (VMware_vSphere_VMperformance)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##_##INSTANCE##",
+              "type" : "area",
+              "option" : "custom"
+            },
+            "name" : "CPUReadyPercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 3,
+        "sizey" : 4
+      },
+      "config" : {
+        "bigNumberInfo" : {
+          "virtualDataPoints" : [ ],
+          "counters" : [ {
+            "name" : "Devices",
+            "appliesTo" : "system.virtualization=~\"VMware ESX host\""
+          }, {
+            "name" : "vCenter",
+            "appliesTo" : "system.virtualization =~ \"VMware ESX vcenter\""
+          } ],
+          "dataPoints" : [ {
+            "dataPointName" : "esxDatastoreCount",
+            "instanceName" : "*",
+            "dataSourceFullName" : "vCenter Object Count (VMware_vCenter_ObjectCount)",
+            "name" : "esxDatastoreCount",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "*",
+            "deviceDisplayName" : "*"
+          }, {
+            "dataPointName" : "esxNetCount",
+            "instanceName" : "*",
+            "dataSourceFullName" : "vCenter Object Count (VMware_vCenter_ObjectCount)",
+            "name" : "esxNetCount",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "*",
+            "deviceDisplayName" : "*"
+          } ],
+          "bigNumberItems" : [ {
+            "dataPointName" : "vCenter",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 1,
+            "rightLabel" : "vCenter Servers",
+            "colorThresholds" : null
+          }, {
+            "dataPointName" : "Devices",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 2,
+            "rightLabel" : "ESXi Hosts",
+            "colorThresholds" : null
+          }, {
+            "dataPointName" : "esxDatastoreCount",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 3,
+            "rightLabel" : "Datastores",
+            "colorThresholds" : null
+          }, {
+            "dataPointName" : "esxNetCount",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 4,
+            "rightLabel" : "Networks",
+            "colorThresholds" : null
+          } ]
+        },
+        "extra" : "",
+        "name" : "You have...",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "bigNumber",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 13,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top VMware Hosts by Memory Utilization %",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "MemoryUsagePercent",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "VMware Host Performance (VMware_vSphere_HostPerformance)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##",
+              "type" : "area",
+              "option" : "custom"
+            },
+            "name" : "MemoryUsagePercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1hour",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 9,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top VMware Hosts by CPU Utilization %",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "CPUUtilizationPercent",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "VMware Host Performance (VMware_vSphere_HostPerformance)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##",
+              "type" : "area",
+              "option" : "custom"
+            },
+            "name" : "CPUUtilizationPercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1hour",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 13,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top VMware VMs by Memory Utilization %",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "MemoryUsagePercent",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "VMware VM Performance (VMware_vSphere_VMperformance)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##_##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "MemoryUsagePercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    } ],
+    "version" : 2
+  }, {
+    "widgetTokens" : [ {
+      "name" : "defaultDeviceGroup",
+      "value" : "Devices by Type/Windows*"
+    } ],
+    "name" : "Windows Overview",
+    "description" : "",
+    "widgetsConfigVersion" : 2,
+    "widgets" : [ {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 11,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Windows Servers by CPU Utilization %",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "CPUBusyPercent",
+            "instanceName" : {
+              "isGlob" : false,
+              "value" : "WinCPU"
+            },
+            "dataSourceFullName" : "CPU (WinCPU)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "",
+              "type" : "line",
+              "option" : "default"
+            },
+            "name" : "CPUBusyPercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 19,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Windows Disks by Read Operations",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : "NaN",
+          "dataPoints" : [ {
+            "dataPointName" : "DiskReadsPerSec",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Physical Disks- (WinPhysicalDrive-)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##_##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "DiskReadsPerSec",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "ReadOperations",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 11,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Windows Servers by Memory Utilization %",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "MemoryUtilizationPercent",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Memory and Processes (WinOS)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "MemoryUtilizationPercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 9,
+        "sizex" : 4,
+        "row" : 5,
+        "sizey" : 6
+      },
+      "config" : {
+        "ackChecked" : true,
+        "displayWarnAlert" : true,
+        "description" : "",
+        "type" : "gmap",
+        "version" : 2,
+        "displayErrorAlert" : true,
+        "extra" : "{\"mapStyle\":\"standard\"}",
+        "name" : "Alerts by Device Location",
+        "displayCriticalAlert" : true,
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "timescale" : "day",
+        "sdtChecked" : true,
+        "mapPoints" : [ {
+          "type" : "device",
+          "deviceGroupFullPath" : "##defaultDeviceGroup##",
+          "deviceDisplayName" : "*"
+        } ]
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 4,
+        "row" : 5,
+        "sizey" : 6
+      },
+      "config" : {
+        "ackChecked" : true,
+        "displayWarnAlert" : true,
+        "description" : "",
+        "type" : "noc",
+        "version" : 2,
+        "displayErrorAlert" : true,
+        "extra" : "{\"displayAs\":\"table\",\"showTypeIcon\":true}",
+        "displayColumn" : 2,
+        "name" : "Alert Status by Device",
+        "displayCriticalAlert" : true,
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "sortBy" : "alertSeverity",
+        "timescale" : "day",
+        "sdtChecked" : true,
+        "items" : [ {
+          "dataPointName" : "*",
+          "instanceName" : "*",
+          "name" : "##HOSTNAME##",
+          "dataSourceDisplayName" : "*",
+          "groupBy" : "device",
+          "type" : "device",
+          "deviceGroupFullPath" : "##defaultDeviceGroup##",
+          "deviceDisplayName" : "*"
+        } ]
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 10,
+        "row" : 3,
+        "sizey" : 2
+      },
+      "config" : {
+        "extra" : "{\"columns\":[{\"columnKey\":\"alert-severity\",\"columnLabel\":\"Severity\",\"visible\":false},{\"columnKey\":\"alert-began\",\"columnLabel\":\"Began\",\"visible\":true,\"columnSize\":192.01},{\"columnKey\":\"alert-device\",\"columnLabel\":\"\\n    Device/Service\\n\\n    \",\"visible\":true,\"columnSize\":165.01},{\"columnKey\":\"alert-datasource\",\"columnLabel\":\"DataSource\",\"visible\":true,\"columnSize\":138.01},{\"columnKey\":\"alert-datasource-instance\",\"columnLabel\":\"Instance\",\"visible\":true,\"columnSize\":121.01},{\"columnKey\":\"alert-datapoint\",\"columnLabel\":\"Datapoint\",\"visible\":true,\"columnSize\":125.01},{\"columnKey\":\"alert-value\",\"columnLabel\":\"Value\",\"visible\":true,\"columnSize\":85},{\"columnKey\":\"alert-thresholds\",\"columnLabel\":\"Effective Thresholds\",\"visible\":true},{\"columnKey\":\"alert-rule-name\",\"columnLabel\":\"Alert Rule\",\"visible\":true},{\"columnKey\":\"alert-escalation-chain\",\"columnLabel\":\"Escalation Chain\",\"visible\":true},{\"columnKey\":\"alert-acked-by\",\"columnLabel\":\"Acknowledged By\",\"visible\":true},{\"columnKey\":\"alert-acked-on\",\"columnLabel\":\"Acknowledged On\",\"visible\":true},{\"columnKey\":\"alert-notes\",\"columnLabel\":\"Notes\",\"visible\":true},{\"columnKey\":\"alert-group\",\"columnLabel\":\"Group\",\"visible\":false},{\"columnKey\":\"alert-cleared-on\",\"columnLabel\":\"Cleared On\",\"visible\":false},{\"columnKey\":\"alert-in-sdt\",\"columnLabel\":\"In SDT\",\"visible\":false},{\"columnKey\":\"alert-datasource-instance-description\",\"columnLabel\":\"Instance Description\",\"visible\":false},{\"columnKey\":\"alert-full-path\",\"columnLabel\":\"Full Path\",\"visible\":false}],\"showFilter\":false,\"fontsize\":\"normal-font\",\"sortBy\":\"startEpoch\",\"sortDirection\":\"desc\",\"playSound\":{\"shouldPlay\":false,\"criticalAlertAudioFileName\":\"\",\"errorAlertAudioFileName\":\"\",\"warningAlertAudioFileName\":\"\"},\"isShowAll\":true}",
+        "name" : "All Windows Device Alerts",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "filters" : {
+          "severity" : "",
+          "sdted" : "all",
+          "chain" : "",
+          "instance" : "",
+          "dataPoint" : "",
+          "host" : "",
+          "rule" : "",
+          "keyword" : "",
+          "dataSource" : "",
+          "acked" : "all",
+          "cleared" : "no",
+          "group" : "%23%23defaultDeviceGroup%23%23*"
+        },
+        "type" : "alert",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 12,
+        "row" : 1,
+        "sizey" : 2
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Dashboard Summary",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "text",
+        "timescale" : "day",
+        "version" : 2,
+        "content" : "<p><span style=\"font-size:20.16px\">Welcome to the Windows Overview Dashboard! </span></p>\n\n<p><span style=\"font-size:14px\">Overview dashboards provide quick and easy access to high-level metrics that facilitate rapid issue identification and resolution.&nbsp;</span><span style=\"font-size:14px\">As you add Windows devices, this dashboard will auto-populate with&nbsp;vital statistics about their health and activity.&nbsp;</span></p>"
+      }
+    }, {
+      "position" : {
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 9,
+        "sizey" : 2
+      },
+      "config" : {
+        "bigNumberInfo" : {
+          "virtualDataPoints" : [ {
+            "rpn" : "Capacity/1024/1024/1024",
+            "name" : "CapacityGB"
+          }, {
+            "rpn" : "FreeSpace /1024/1024/1024",
+            "name" : "FreeSpaceGB"
+          } ],
+          "counters" : [ ],
+          "dataPoints" : [ {
+            "dataPointName" : "Capacity",
+            "instanceName" : "*",
+            "dataSourceFullName" : "Volume Capacity (WinVolumeUsage-)",
+            "name" : "Capacity",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "##defaultDeviceGroup##",
+            "deviceDisplayName" : "*"
+          }, {
+            "dataPointName" : "FreeSpace",
+            "instanceName" : "*",
+            "dataSourceFullName" : "Volume Capacity (WinVolumeUsage-)",
+            "name" : "FreeSpace",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "##defaultDeviceGroup##",
+            "deviceDisplayName" : "*"
+          } ],
+          "bigNumberItems" : [ {
+            "dataPointName" : "FreeSpaceGB",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 1,
+            "rightLabel" : "Available (GB)",
+            "colorThresholds" : null
+          }, {
+            "dataPointName" : "CapacityGB",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 2,
+            "rightLabel" : "Capacity (GB)",
+            "colorThresholds" : null
+          } ]
+        },
+        "extra" : "",
+        "name" : "Total Disk Space across all Windows devices",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "bigNumber",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 5,
+        "sizey" : 4
+      },
+      "config" : {
+        "legend" : "",
+        "maxValue" : 100,
+        "dataPoint" : {
+          "rpn" : "",
+          "dataPointName" : "CPUBusyPercent",
+          "instanceName" : "*",
+          "dataSourceFullName" : "CPU (WinCPU)",
+          "dataSeries" : "average",
+          "aggregateFunction" : "AVERAGE",
+          "deviceGroupFullPath" : "##defaultDeviceGroup##",
+          "deviceDisplayName" : "*"
+        },
+        "description" : "",
+        "displayUnit" : "",
+        "type" : "gauge",
+        "version" : 2,
+        "minValue" : 0,
+        "displayType" : 0,
+        "peakTimeRange" : "1day",
+        "extra" : "",
+        "showPeak" : true,
+        "name" : "Average CPU across all Windows devices",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "timescale" : "day",
+        "colorThresholds" : null
+      }
+    }, {
+      "position" : {
+        "col" : 11,
+        "sizex" : 2,
+        "row" : 3,
+        "sizey" : 2
+      },
+      "config" : {
+        "bigNumberInfo" : {
+          "virtualDataPoints" : [ ],
+          "counters" : [ {
+            "name" : "Devices",
+            "appliesTo" : "isWindows()"
+          } ],
+          "dataPoints" : [ ],
+          "bigNumberItems" : [ {
+            "dataPointName" : "Devices",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 1,
+            "rightLabel" : "Windows Devices",
+            "colorThresholds" : null
+          } ]
+        },
+        "extra" : "",
+        "name" : "You have...",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "bigNumber",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 15,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Windows Network Interfaces by Outbound Bandwidth",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ {
+            "rpn" : "OutboundBitsPerSec/1000000",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "",
+              "type" : "line",
+              "option" : "default"
+            },
+            "name" : "Mbps"
+          } ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : "NaN",
+          "dataPoints" : [ {
+            "dataPointName" : "OutboundBitsPerSec",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Interfaces- (WinIf-)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : null,
+              "legend" : null,
+              "type" : "line",
+              "option" : "none"
+            },
+            "name" : "OutboundBitsPerSec",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "Mbps",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 15,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Windows Network Interfaces by Inbound Bandwidth",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ {
+            "rpn" : "ReceivedBitsPerSec/1000000",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "",
+              "type" : "line",
+              "option" : "default"
+            },
+            "name" : "Mbps"
+          } ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : "NaN",
+          "dataPoints" : [ {
+            "dataPointName" : "ReceivedBitsPerSec",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Interfaces- (WinIf-)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : null,
+              "legend" : null,
+              "type" : "line",
+              "option" : "none"
+            },
+            "name" : "ReceivedBitsPerSec",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "Mbps",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 19,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Windows Disks by Write Operations",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : "NaN",
+          "dataPoints" : [ {
+            "dataPointName" : "DiskWritesPerSec",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Physical Disks- (WinPhysicalDrive-)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##_##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "DiskWritesPerSec",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "WriteOperations",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    } ],
+    "version" : 2
+  }, {
+    "widgetTokens" : [ {
+      "name" : "defaultDeviceGroup",
+      "value" : "Devices by Type/Collectors"
+    } ],
+    "name" : "Collector Summary",
+    "description" : "Status and critical metrics of your LogicMonitor Collectors.",
+    "widgetsConfigVersion" : 2,
+    "widgets" : [ {
+      "position" : {
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 3,
+        "sizey" : 4
+      },
+      "config" : {
+        "bigNumberInfo" : {
+          "virtualDataPoints" : [ ],
+          "counters" : [ {
+            "name" : "Collectors",
+            "appliesTo" : "hasCategory(\"Collector\")"
+          }, {
+            "name" : "Linux",
+            "appliesTo" : "hasCategory(\"Collector\") && isLinux()"
+          }, {
+            "name" : "Windows",
+            "appliesTo" : "hasCategory(\"Collector\") && isWindows()"
+          } ],
+          "dataPoints" : [ ],
+          "bigNumberItems" : [ {
+            "dataPointName" : "Collectors",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 1,
+            "rightLabel" : "Collectors",
+            "colorThresholds" : null
+          }, {
+            "dataPointName" : "Linux",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 2,
+            "rightLabel" : "Linux",
+            "colorThresholds" : null
+          }, {
+            "dataPointName" : "Windows",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 3,
+            "rightLabel" : "Windows",
+            "colorThresholds" : null
+          } ]
+        },
+        "extra" : "",
+        "name" : "Collector Count",
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "type" : "bigNumber",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 13,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Collectors by CPU Utilization",
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "ProcessCPUPercent",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Collector JVM Status (LogicMonitor_Collector_JVMStatus)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "ProcessCPUPercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1hour",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 13,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Collectors by Heap Utilization",
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 25,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "HeapPercent",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Collector JVM Status (LogicMonitor_Collector_JVMStatus)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "HeapPercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1hour",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 7,
+        "sizey" : 2
+      },
+      "config" : {
+        "bigNumberInfo" : {
+          "virtualDataPoints" : [ ],
+          "counters" : [ ],
+          "dataPoints" : [ {
+            "dataPointName" : "HostCount",
+            "instanceName" : "*",
+            "dataSourceFullName" : "Collector Global Stats (LogicMonitor_Collector_GlobalStats)",
+            "name" : "HostCount",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "##defaultDeviceGroup##",
+            "deviceDisplayName" : "*"
+          }, {
+            "dataPointName" : "DSICount",
+            "instanceName" : "*",
+            "dataSourceFullName" : "Collector Global Stats (LogicMonitor_Collector_GlobalStats)",
+            "name" : "DSICount",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "##defaultDeviceGroup##",
+            "deviceDisplayName" : "*"
+          } ],
+          "bigNumberItems" : [ {
+            "dataPointName" : "HostCount",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 1,
+            "rightLabel" : "Hosts",
+            "colorThresholds" : null
+          }, {
+            "dataPointName" : "DSICount",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 2,
+            "rightLabel" : "Instances",
+            "colorThresholds" : null
+          } ]
+        },
+        "extra" : "",
+        "name" : "Monitoring Statistics",
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "type" : "bigNumber",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 9,
+        "sizex" : 4,
+        "row" : 3,
+        "sizey" : 6
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Breakdown of Devices Monitored",
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "type" : "pieChart",
+        "timescale" : "day",
+        "pieChartInfo" : {
+          "maxSlicesCanBeShown" : 25,
+          "virtualDataPoints" : [ ],
+          "showLabelsAndLinesOnPC" : true,
+          "counters" : [ {
+            "name" : "Windows",
+            "appliesTo" : "isWindows()"
+          }, {
+            "name" : "Linux",
+            "appliesTo" : "isLinux()"
+          }, {
+            "name" : "Network",
+            "appliesTo" : "isNetwork()"
+          }, {
+            "name" : "AWS",
+            "appliesTo" : "system.devicetype == \"2\""
+          }, {
+            "name" : "Azure",
+            "appliesTo" : "system.devicetype == \"4\""
+          } ],
+          "dataPoints" : [ ],
+          "hideZeroPercentSlices" : false,
+          "groupRemainingAsOthers" : false,
+          "pieChartItems" : [ {
+            "dataPointName" : "Windows",
+            "color" : "AUTO",
+            "legend" : "Windows"
+          }, {
+            "dataPointName" : "Linux",
+            "color" : "AUTO",
+            "legend" : "Linux"
+          }, {
+            "dataPointName" : "Network",
+            "color" : "AUTO",
+            "legend" : "Network"
+          }, {
+            "dataPointName" : "AWS",
+            "color" : "AUTO",
+            "legend" : "AWS"
+          }, {
+            "dataPointName" : "Azure",
+            "color" : "AUTO",
+            "legend" : "Azure"
+          } ],
+          "title" : "Breakdown of Devices Monitored"
+        },
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 9,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Collectors by Devices Monitored",
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : "NaN",
+          "dataPoints" : [ {
+            "dataPointName" : "HostCount",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Collector Global Stats (LogicMonitor_Collector_GlobalStats)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##",
+              "type" : "stack",
+              "option" : "custom"
+            },
+            "name" : "HostCount",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "HostCount",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1hour",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 4,
+        "row" : 3,
+        "sizey" : 6
+      },
+      "config" : {
+        "ackChecked" : true,
+        "displayWarnAlert" : true,
+        "description" : "",
+        "type" : "noc",
+        "version" : 2,
+        "displayErrorAlert" : true,
+        "extra" : "{\"displayAs\":\"table\",\"showTypeIcon\":true}",
+        "displayColumn" : 4,
+        "name" : "Collector Status",
+        "displayCriticalAlert" : true,
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "sortBy" : "alertSeverity",
+        "timescale" : "day",
+        "sdtChecked" : true,
+        "items" : [ {
+          "dataPointName" : "*",
+          "instanceName" : "*",
+          "name" : "##HOSTNAME##",
+          "dataSourceDisplayName" : "Collector*",
+          "groupBy" : "device",
+          "type" : "device",
+          "deviceGroupFullPath" : "##defaultDeviceGroup##",
+          "deviceDisplayName" : "*"
+        } ]
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 9,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Collectors by Instances Monitored",
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : "NaN",
+          "dataPoints" : [ {
+            "dataPointName" : "InstanceCount",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Collector Data Collecting Task (LogicMonitor_Collector_DataCollectingTasks)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##_##INSTANCE##",
+              "type" : "stack",
+              "option" : "custom"
+            },
+            "name" : "InstanceCount",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "InstanceCount",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1hour",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 12,
+        "row" : 1,
+        "sizey" : 2
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Dashboard Summary",
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 15,
+        "type" : "text",
+        "timescale" : "day",
+        "version" : 2,
+        "content" : "<p><span style=\"color:#f2f4fc\"><span style=\"font-size:20.16px\">Welcome to the Collector Summary Dashboard! </span></span></p>\n\n<p><span style=\"color:#f2f4fc\"><span style=\"font-size:14px\">As you add Collectors to your LogicMonitor account - and monitor the devices on which they&#39;re installed - this dashboard will provide vital statistics about Collector activity and the composition of your monitoring environment.</span></span></p>"
+      }
+    } ],
+    "version" : 2
+  }, {
+    "widgetTokens" : [ ],
+    "name" : "LogicMonitor Architecture",
+    "description" : "",
+    "widgetsConfigVersion" : 2,
+    "widgets" : [ {
+      "position" : {
+        "col" : 1,
+        "sizex" : 12,
+        "row" : 1,
+        "sizey" : 11
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "SaaS Architecture",
+        "isCustom" : false,
+        "description" : "",
+        "resources" : [ {
+          "type" : "iframe",
+          "URL" : "<iframe src=\"https://logicmonitor.com/utilities/responsive-images?fit=auto&url=http%3A%2F%2Fwestbeachservices.com%2Flm-architecture.png\" width=\"100%\" height=\"100%\"></iframe>"
+        } ],
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 15,
+        "type" : "html",
+        "timescale" : "day",
+        "version" : 2
+      }
+    } ],
+    "version" : 2
+  }, {
+    "widgetTokens" : [ ],
+    "name" : "Alert Overview",
+    "description" : "",
+    "widgetsConfigVersion" : 2,
+    "widgets" : [ {
+      "position" : {
+        "col" : 1,
+        "sizex" : 12,
+        "row" : 9,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "{\"columns\":[{\"columnKey\":\"alert-severity\",\"columnLabel\":\"Severity\",\"visible\":false},{\"columnKey\":\"alert-began\",\"columnLabel\":\"Began\",\"visible\":true},{\"columnKey\":\"alert-device\",\"columnLabel\":\"\\n    Device/Service\\n\\n    \",\"visible\":true},{\"columnKey\":\"alert-datasource\",\"columnLabel\":\"DataSource\",\"visible\":true},{\"columnKey\":\"alert-datasource-instance\",\"columnLabel\":\"Instance\",\"visible\":true},{\"columnKey\":\"alert-datapoint\",\"columnLabel\":\"Datapoint\",\"visible\":true},{\"columnKey\":\"alert-value\",\"columnLabel\":\"Value\",\"visible\":true},{\"columnKey\":\"alert-thresholds\",\"columnLabel\":\"Effective Thresholds\",\"visible\":true},{\"columnKey\":\"alert-group\",\"columnLabel\":\"Group\",\"visible\":false},{\"columnKey\":\"alert-notes\",\"columnLabel\":\"Notes\",\"visible\":false},{\"columnKey\":\"alert-acked-by\",\"columnLabel\":\"Acknowledged By\",\"visible\":false},{\"columnKey\":\"alert-acked-on\",\"columnLabel\":\"Acknowledged On\",\"visible\":false},{\"columnKey\":\"alert-cleared-on\",\"columnLabel\":\"Cleared On\",\"visible\":false},{\"columnKey\":\"alert-in-sdt\",\"columnLabel\":\"In SDT\",\"visible\":false},{\"columnKey\":\"alert-rule-name\",\"columnLabel\":\"Alert Rule\",\"visible\":false},{\"columnKey\":\"alert-escalation-chain\",\"columnLabel\":\"Escalation Chain\",\"visible\":false},{\"columnKey\":\"alert-datasource-instance-description\",\"columnLabel\":\"Instance Description\",\"visible\":false},{\"columnKey\":\"alert-full-path\",\"columnLabel\":\"Full Path\",\"visible\":false}],\"showFilter\":false,\"fontsize\":\"normal-font\",\"sortBy\":\"startEpoch\",\"sortDirection\":\"desc\",\"playSound\":{},\"isShowAll\":false}",
+        "name" : "All Alerts",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "filters" : {
+          "severity" : "",
+          "sdted" : "all",
+          "chain" : "",
+          "instance" : "*",
+          "dataPoint" : "",
+          "host" : "",
+          "rule" : "",
+          "keyword" : "",
+          "dataSource" : "*",
+          "acked" : "all",
+          "cleared" : "no",
+          "group" : ""
+        },
+        "type" : "alert",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 3,
+        "sizey" : 6
+      },
+      "config" : {
+        "ackChecked" : true,
+        "displayWarnAlert" : true,
+        "description" : "",
+        "type" : "noc",
+        "version" : 2,
+        "displayErrorAlert" : true,
+        "extra" : "{\"showTypeIcon\":true,\"displayAs\":\"table\"}",
+        "displayColumn" : 3,
+        "name" : "Alert Status by Device Group",
+        "displayCriticalAlert" : true,
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "sortBy" : "alertSeverity",
+        "timescale" : "day",
+        "sdtChecked" : true,
+        "items" : [ {
+          "dataPointName" : "*",
+          "instanceName" : "*",
+          "name" : "##DEVICEGROUP##",
+          "dataSourceDisplayName" : "*",
+          "groupBy" : "deviceGroup",
+          "type" : "device",
+          "deviceGroupFullPath" : "*",
+          "deviceDisplayName" : "*"
+        } ]
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 3,
+        "sizey" : 6
+      },
+      "config" : {
+        "ackChecked" : true,
+        "displayWarnAlert" : true,
+        "description" : "",
+        "type" : "gmap",
+        "version" : 2,
+        "displayErrorAlert" : true,
+        "extra" : "{\"mapStyle\":\"standard\"}",
+        "name" : "Alerts by Device Location",
+        "displayCriticalAlert" : true,
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "timescale" : "day",
+        "sdtChecked" : true,
+        "mapPoints" : [ {
+          "type" : "device",
+          "deviceGroupFullPath" : "*",
+          "deviceDisplayName" : "*"
+        } ]
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 12,
+        "row" : 1,
+        "sizey" : 2
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Dashboard Summary",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "text",
+        "timescale" : "day",
+        "version" : 2,
+        "content" : "<p>Welcome to the Alerts Overview Dashboard!</p>\n\n<p><span style=\"font-size:14px\">Overview dashboards provide quick and easy access to high-level metrics that facilitate rapid issue identification and resolution.&nbsp;</span><span style=\"font-size:14px\">As alerts are triggered within your environment, this dashboard&nbsp;will auto-populate and display the alerts in a variety of ways.&nbsp;</span></p>"
+      }
+    } ],
+    "version" : 2
+  }, {
+    "widgetTokens" : [ {
+      "name" : "defaultDeviceGroup",
+      "value" : "Devices by Type/Linux"
+    } ],
+    "name" : "Linux Overview",
+    "description" : "",
+    "widgetsConfigVersion" : 2,
+    "widgets" : [ {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 11,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Linux Servers by CPU Utilization %",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "CPUBusyPercent",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "CPU Overview (NetSNMPCPUwithCores)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "CPUBusyPercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 19,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Linux Disks by Read Operations",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : "NaN",
+          "dataPoints" : [ {
+            "dataPointName" : "ReadOperations",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Disk IO- (NetSNMPdiskIO-)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##_##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "ReadOperations",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "ReadOperations",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 11,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Linux Servers by Memory Utilization %",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "ActiveMemoryPercent",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Memory Usage (NetSNMPMem)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "ActiveMemoryPercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 9,
+        "sizex" : 4,
+        "row" : 5,
+        "sizey" : 6
+      },
+      "config" : {
+        "ackChecked" : true,
+        "displayWarnAlert" : true,
+        "description" : "",
+        "type" : "gmap",
+        "version" : 2,
+        "displayErrorAlert" : true,
+        "extra" : "{\"mapStyle\":\"standard\"}",
+        "name" : "Alerts by Device Location",
+        "displayCriticalAlert" : true,
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "timescale" : "day",
+        "sdtChecked" : true,
+        "mapPoints" : [ {
+          "type" : "device",
+          "deviceGroupFullPath" : "##defaultDeviceGroup##",
+          "deviceDisplayName" : "*"
+        } ]
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 4,
+        "row" : 5,
+        "sizey" : 6
+      },
+      "config" : {
+        "ackChecked" : true,
+        "displayWarnAlert" : true,
+        "description" : "",
+        "type" : "noc",
+        "version" : 2,
+        "displayErrorAlert" : true,
+        "extra" : "{\"showTypeIcon\":true,\"displayAs\":\"table\"}",
+        "displayColumn" : 2,
+        "name" : "Alert Status by Device",
+        "displayCriticalAlert" : true,
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "sortBy" : "alertSeverity",
+        "timescale" : "day",
+        "sdtChecked" : true,
+        "items" : [ {
+          "dataPointName" : "*",
+          "instanceName" : "*",
+          "name" : "##HOSTNAME##",
+          "dataSourceDisplayName" : "*",
+          "groupBy" : "device",
+          "type" : "device",
+          "deviceGroupFullPath" : "##defaultDeviceGroup##",
+          "deviceDisplayName" : "*"
+        } ]
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 10,
+        "row" : 3,
+        "sizey" : 2
+      },
+      "config" : {
+        "extra" : "{\"columns\":[{\"columnKey\":\"alert-severity\",\"columnLabel\":\"Severity\",\"visible\":false},{\"columnKey\":\"alert-began\",\"columnLabel\":\"Began\",\"visible\":true,\"columnSize\":192.01},{\"columnKey\":\"alert-device\",\"columnLabel\":\"\\n    Device/Service\\n\\n    \",\"visible\":true,\"columnSize\":165.01},{\"columnKey\":\"alert-datasource\",\"columnLabel\":\"DataSource\",\"visible\":true,\"columnSize\":138.01},{\"columnKey\":\"alert-datasource-instance\",\"columnLabel\":\"Instance\",\"visible\":true,\"columnSize\":121.01},{\"columnKey\":\"alert-datapoint\",\"columnLabel\":\"Datapoint\",\"visible\":true,\"columnSize\":125.01},{\"columnKey\":\"alert-value\",\"columnLabel\":\"Value\",\"visible\":true,\"columnSize\":85},{\"columnKey\":\"alert-thresholds\",\"columnLabel\":\"Effective Thresholds\",\"visible\":true},{\"columnKey\":\"alert-rule-name\",\"columnLabel\":\"Alert Rule\",\"visible\":true},{\"columnKey\":\"alert-escalation-chain\",\"columnLabel\":\"Escalation Chain\",\"visible\":true},{\"columnKey\":\"alert-acked-by\",\"columnLabel\":\"Acknowledged By\",\"visible\":true},{\"columnKey\":\"alert-acked-on\",\"columnLabel\":\"Acknowledged On\",\"visible\":true},{\"columnKey\":\"alert-notes\",\"columnLabel\":\"Notes\",\"visible\":true},{\"columnKey\":\"alert-group\",\"columnLabel\":\"Group\",\"visible\":false},{\"columnKey\":\"alert-cleared-on\",\"columnLabel\":\"Cleared On\",\"visible\":false},{\"columnKey\":\"alert-in-sdt\",\"columnLabel\":\"In SDT\",\"visible\":false},{\"columnKey\":\"alert-datasource-instance-description\",\"columnLabel\":\"Instance Description\",\"visible\":false},{\"columnKey\":\"alert-full-path\",\"columnLabel\":\"Full Path\",\"visible\":false}],\"showFilter\":false,\"fontsize\":\"normal-font\",\"sortBy\":\"startEpoch\",\"sortDirection\":\"desc\",\"playSound\":{\"shouldPlay\":false,\"criticalAlertAudioFileName\":\"\",\"errorAlertAudioFileName\":\"\",\"warningAlertAudioFileName\":\"\"},\"isShowAll\":true}",
+        "name" : "All Linux Device Alerts",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "filters" : {
+          "severity" : "",
+          "sdted" : "all",
+          "chain" : "",
+          "instance" : "",
+          "dataPoint" : "",
+          "host" : "",
+          "rule" : "",
+          "keyword" : "",
+          "dataSource" : "",
+          "acked" : "all",
+          "cleared" : "no",
+          "group" : "%23%23defaultDeviceGroup%23%23*"
+        },
+        "type" : "alert",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 12,
+        "row" : 1,
+        "sizey" : 2
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Dashboard Summary",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "text",
+        "timescale" : "day",
+        "version" : 2,
+        "content" : "<p><span style=\"font-size:20.16px\">Welcome to the Linux Overview Dashboard! </span></p>\n\n<p><span style=\"font-size:14px\">Overview dashboards provide quick and easy access to high-level metrics that facilitate rapid issue identification and resolution.&nbsp;</span><span style=\"font-size:14px\">As you add Linux devices, this dashboard will auto-populate with&nbsp;vital statistics about their health and activity.&nbsp;</span></p>"
+      }
+    }, {
+      "position" : {
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 9,
+        "sizey" : 2
+      },
+      "config" : {
+        "bigNumberInfo" : {
+          "virtualDataPoints" : [ {
+            "rpn" : "GBSize- GBUsed",
+            "name" : "Free"
+          } ],
+          "counters" : [ ],
+          "dataPoints" : [ {
+            "dataPointName" : "GBSize",
+            "instanceName" : "*",
+            "dataSourceFullName" : "Filesystem Capacity (snmpHRDisk-)",
+            "name" : "GBSize",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "##defaultDeviceGroup##",
+            "deviceDisplayName" : "*"
+          }, {
+            "dataPointName" : "GBUsed",
+            "instanceName" : "*",
+            "dataSourceFullName" : "Filesystem Capacity (snmpHRDisk-)",
+            "name" : "GBUsed",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "##defaultDeviceGroup##",
+            "deviceDisplayName" : "*"
+          } ],
+          "bigNumberItems" : [ {
+            "dataPointName" : "Free",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 1,
+            "rightLabel" : "Available (GB)",
+            "colorThresholds" : null
+          }, {
+            "dataPointName" : "GBSize",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 2,
+            "rightLabel" : "Capacity (GB)",
+            "colorThresholds" : null
+          } ]
+        },
+        "extra" : "",
+        "name" : "Total Disk Space across all Linux devices",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "bigNumber",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 5,
+        "sizey" : 4
+      },
+      "config" : {
+        "legend" : "",
+        "maxValue" : 100,
+        "dataPoint" : {
+          "rpn" : "",
+          "dataPointName" : "CPUBusyPercent",
+          "instanceName" : "*",
+          "dataSourceFullName" : "CPU Overview (NetSNMPCPUwithCores)",
+          "dataSeries" : "average",
+          "aggregateFunction" : "AVERAGE",
+          "deviceGroupFullPath" : "##defaultDeviceGroup##",
+          "deviceDisplayName" : "*"
+        },
+        "description" : "",
+        "displayUnit" : "",
+        "type" : "gauge",
+        "version" : 2,
+        "minValue" : 0,
+        "displayType" : 0,
+        "peakTimeRange" : "1day",
+        "extra" : "",
+        "showPeak" : true,
+        "name" : "Average CPU across all Linux devices",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "timescale" : "day",
+        "colorThresholds" : null
+      }
+    }, {
+      "position" : {
+        "col" : 11,
+        "sizex" : 2,
+        "row" : 3,
+        "sizey" : 2
+      },
+      "config" : {
+        "bigNumberInfo" : {
+          "virtualDataPoints" : [ ],
+          "counters" : [ {
+            "name" : "Linux Devices",
+            "appliesTo" : "isLinux()"
+          } ],
+          "dataPoints" : [ ],
+          "bigNumberItems" : [ {
+            "dataPointName" : "Linux Devices",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 1,
+            "rightLabel" : "Linux Devices",
+            "colorThresholds" : null
+          } ]
+        },
+        "extra" : "",
+        "name" : "You have...",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "bigNumber",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 15,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Linux Network Interfaces by Outbound Bandwidth",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : "NaN",
+          "dataPoints" : [ {
+            "dataPointName" : "OutMbps",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Interfaces (64 bit)- (snmp64_If-)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##_##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "OutMbps",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "Mbps",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 15,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Linux Network Interfaces by Inbound Bandwidth",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : "NaN",
+          "dataPoints" : [ {
+            "dataPointName" : "InMbps",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Interfaces (64 bit)- (snmp64_If-)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##_##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "InMbps",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "Mbps",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 19,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Linux Disks by Write Operations",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : "NaN",
+          "dataPoints" : [ {
+            "dataPointName" : "WriteOperations",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Disk IO- (NetSNMPdiskIO-)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##_##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "WriteOperations",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "WriteOperations",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    } ],
+    "version" : 2
+  }, {
+    "widgetTokens" : [ {
+      "name" : "defaultDeviceGroup",
+      "value" : "*"
+    } ],
+    "name" : "Network Overview",
+    "description" : "",
+    "widgetsConfigVersion" : 2,
+    "widgets" : [ {
+      "position" : {
+        "col" : 9,
+        "sizex" : 4,
+        "row" : 5,
+        "sizey" : 4
+      },
+      "config" : {
+        "ackChecked" : true,
+        "displayWarnAlert" : true,
+        "description" : "",
+        "type" : "gmap",
+        "version" : 2,
+        "displayErrorAlert" : true,
+        "extra" : "{\"mapStyle\":\"standard\"}",
+        "name" : "Alerts by Device Location",
+        "displayCriticalAlert" : true,
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "timescale" : "day",
+        "sdtChecked" : true,
+        "mapPoints" : [ {
+          "type" : "device",
+          "deviceGroupFullPath" : "##defaultDeviceGroup##",
+          "deviceDisplayName" : "*"
+        } ]
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 4,
+        "row" : 5,
+        "sizey" : 4
+      },
+      "config" : {
+        "ackChecked" : true,
+        "displayWarnAlert" : true,
+        "description" : "",
+        "type" : "noc",
+        "version" : 2,
+        "displayErrorAlert" : true,
+        "extra" : "{\"showTypeIcon\":true,\"displayAs\":\"table\"}",
+        "displayColumn" : 4,
+        "name" : "Alert Status by Device",
+        "displayCriticalAlert" : true,
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "sortBy" : "alertSeverity",
+        "timescale" : "day",
+        "sdtChecked" : true,
+        "items" : [ {
+          "dataPointName" : "*",
+          "instanceName" : "*",
+          "name" : "##HOSTNAME##",
+          "dataSourceDisplayName" : "*",
+          "groupBy" : "device",
+          "type" : "device",
+          "deviceGroupFullPath" : "##defaultDeviceGroup##",
+          "deviceDisplayName" : "*"
+        } ]
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 9,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Network Interfaces by Outbound Bandwidth",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : "NaN",
+          "dataPoints" : [ {
+            "dataPointName" : "OutMbps",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Interfaces (64 bit)- (snmp64_If-)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##_##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "OutMbps",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "Mbps",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1hour",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 9,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Network Interfaces by Inbound Bandwidth",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : "NaN",
+          "dataPoints" : [ {
+            "dataPointName" : "InMbps",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "Interfaces (64 bit)- (snmp64_If-)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##HOSTNAME##_##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "InMbps",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultDeviceGroup##"
+            }
+          } ],
+          "verticalLabel" : "Mbps",
+          "aggregate" : false,
+          "desc" : true,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "default"
+        },
+        "type" : "cgraph",
+        "timescale" : "1hour",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 13,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Network Interfaces by Relative Outbound Bandwidth",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "pieChart",
+        "timescale" : "day",
+        "pieChartInfo" : {
+          "maxSlicesCanBeShown" : 10,
+          "virtualDataPoints" : [ ],
+          "showLabelsAndLinesOnPC" : true,
+          "counters" : [ ],
+          "dataPoints" : [ {
+            "dataPointName" : "OutMbps",
+            "top10" : true,
+            "instanceName" : "*",
+            "dataSourceFullName" : "Interfaces (64 bit)- (snmp64_If-)",
+            "name" : "OutMbps",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "##defaultDeviceGroup##",
+            "deviceDisplayName" : "*",
+            "aggregate" : false
+          } ],
+          "hideZeroPercentSlices" : false,
+          "groupRemainingAsOthers" : true,
+          "pieChartItems" : [ {
+            "dataPointName" : "OutMbps",
+            "color" : "Auto",
+            "legend" : "##HOSTNAME##_##INSTANCE##"
+          } ],
+          "title" : "Top Network Interfaces by Relative Outbound Bandwidth"
+        },
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 13,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Top Network Interfaces by Relative Inbound Bandwidth",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "pieChart",
+        "timescale" : "day",
+        "pieChartInfo" : {
+          "maxSlicesCanBeShown" : 10,
+          "virtualDataPoints" : [ ],
+          "showLabelsAndLinesOnPC" : true,
+          "counters" : [ ],
+          "dataPoints" : [ {
+            "dataPointName" : "InMbps",
+            "top10" : true,
+            "instanceName" : "*",
+            "dataSourceFullName" : "Interfaces (64 bit)- (snmp64_If-)",
+            "name" : "InMbps",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "##defaultDeviceGroup##",
+            "deviceDisplayName" : "*",
+            "aggregate" : false
+          } ],
+          "hideZeroPercentSlices" : false,
+          "groupRemainingAsOthers" : true,
+          "pieChartItems" : [ {
+            "dataPointName" : "InMbps",
+            "color" : "Auto",
+            "legend" : "##HOSTNAME##_##INSTANCE##"
+          } ],
+          "title" : "Top Network Interfaces by Relative Inbound Bandwidth"
+        },
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 11,
+        "sizex" : 2,
+        "row" : 1,
+        "sizey" : 4
+      },
+      "config" : {
+        "bigNumberInfo" : {
+          "virtualDataPoints" : [ ],
+          "counters" : [ {
+            "name" : "Network",
+            "appliesTo" : "isNetwork()"
+          } ],
+          "dataPoints" : [ ],
+          "bigNumberItems" : [ {
+            "dataPointName" : "Network",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "Network Devices",
+            "rounding" : 0,
+            "position" : 1,
+            "rightLabel" : "",
+            "colorThresholds" : null
+          } ]
+        },
+        "extra" : "",
+        "name" : "You have...",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "bigNumber",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 5,
+        "sizey" : 4
+      },
+      "config" : {
+        "bigNumberInfo" : {
+          "virtualDataPoints" : [ ],
+          "counters" : [ ],
+          "dataPoints" : [ {
+            "dataPointName" : "OutMbps",
+            "instanceName" : "*",
+            "dataSourceFullName" : "Interfaces (64 bit)- (snmp64_If-)",
+            "name" : "OutMbps",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "##defaultDeviceGroup##",
+            "deviceDisplayName" : "*"
+          }, {
+            "dataPointName" : "InMbps",
+            "instanceName" : "*",
+            "dataSourceFullName" : "Interfaces (64 bit)- (snmp64_If-)",
+            "name" : "InMbps",
+            "aggregateFunction" : "SUM",
+            "deviceGroupFullPath" : "##defaultDeviceGroup##",
+            "deviceDisplayName" : "*"
+          } ],
+          "bigNumberItems" : [ {
+            "dataPointName" : "OutMbps",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "Outbound Mbps",
+            "rounding" : 0,
+            "position" : 1,
+            "rightLabel" : "",
+            "colorThresholds" : null
+          }, {
+            "dataPointName" : "InMbps",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "Inbound Mbps",
+            "rounding" : 0,
+            "position" : 2,
+            "rightLabel" : "",
+            "colorThresholds" : null
+          } ]
+        },
+        "extra" : "",
+        "name" : "Total Bandwidth across all Network Devices",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "type" : "bigNumber",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 10,
+        "row" : 1,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "{\"columns\":[{\"columnKey\":\"alert-severity\",\"columnLabel\":\"Severity\",\"visible\":false},{\"columnKey\":\"alert-began\",\"columnLabel\":\"Began\",\"visible\":true,\"columnSize\":192.01},{\"columnKey\":\"alert-device\",\"columnLabel\":\"\\n    Device/Service\\n\\n    \",\"visible\":true,\"columnSize\":165.01},{\"columnKey\":\"alert-datasource\",\"columnLabel\":\"DataSource\",\"visible\":true,\"columnSize\":138.01},{\"columnKey\":\"alert-datasource-instance\",\"columnLabel\":\"Instance\",\"visible\":true,\"columnSize\":121.01},{\"columnKey\":\"alert-datapoint\",\"columnLabel\":\"Datapoint\",\"visible\":true,\"columnSize\":125.01},{\"columnKey\":\"alert-value\",\"columnLabel\":\"Value\",\"visible\":true,\"columnSize\":85},{\"columnKey\":\"alert-thresholds\",\"columnLabel\":\"Effective Thresholds\",\"visible\":true},{\"columnKey\":\"alert-rule-name\",\"columnLabel\":\"Alert Rule\",\"visible\":true},{\"columnKey\":\"alert-escalation-chain\",\"columnLabel\":\"Escalation Chain\",\"visible\":true},{\"columnKey\":\"alert-acked-by\",\"columnLabel\":\"Acknowledged By\",\"visible\":true},{\"columnKey\":\"alert-acked-on\",\"columnLabel\":\"Acknowledged On\",\"visible\":true},{\"columnKey\":\"alert-notes\",\"columnLabel\":\"Notes\",\"visible\":true},{\"columnKey\":\"alert-group\",\"columnLabel\":\"Group\",\"visible\":false},{\"columnKey\":\"alert-cleared-on\",\"columnLabel\":\"Cleared On\",\"visible\":false},{\"columnKey\":\"alert-in-sdt\",\"columnLabel\":\"In SDT\",\"visible\":false},{\"columnKey\":\"alert-datasource-instance-description\",\"columnLabel\":\"Instance Description\",\"visible\":false},{\"columnKey\":\"alert-full-path\",\"columnLabel\":\"Full Path\",\"visible\":false}],\"showFilter\":false,\"fontsize\":\"normal-font\",\"sortBy\":\"startEpoch\",\"sortDirection\":\"desc\",\"playSound\":{\"shouldPlay\":false,\"criticalAlertAudioFileName\":\"\",\"errorAlertAudioFileName\":\"\",\"warningAlertAudioFileName\":\"\"},\"isShowAll\":true}",
+        "name" : "All Network Device Alerts",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 3,
+        "filters" : {
+          "severity" : "",
+          "sdted" : "all",
+          "chain" : "",
+          "instance" : "",
+          "dataPoint" : "",
+          "host" : "",
+          "rule" : "",
+          "keyword" : "",
+          "dataSource" : "",
+          "acked" : "all",
+          "cleared" : "no",
+          "group" : "%23%23defaultDeviceGroup%23%23*"
+        },
+        "type" : "alert",
+        "timescale" : "day",
+        "version" : 2
+      }
+    } ],
+    "version" : 2
+  }, {
+    "widgetTokens" : [ ],
+    "name" : "Welcome",
+    "description" : "",
+    "widgetsConfigVersion" : 2,
+    "widgets" : [ {
+      "position" : {
+        "col" : 7,
+        "sizex" : 3,
+        "row" : 1,
+        "sizey" : 6
+      },
+      "config" : {
+        "bigNumberInfo" : {
+          "virtualDataPoints" : [ ],
+          "counters" : [ {
+            "name" : "Collectors",
+            "appliesTo" : "system.collector=~\"true\""
+          }, {
+            "name" : "Devices",
+            "appliesTo" : "True()"
+          } ],
+          "dataPoints" : [ ],
+          "bigNumberItems" : [ {
+            "dataPointName" : "Collectors",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 1,
+            "rightLabel" : "Collectors",
+            "colorThresholds" : null
+          }, {
+            "dataPointName" : "Devices",
+            "useCommaSeparators" : false,
+            "bottomLabel" : "",
+            "rounding" : 0,
+            "position" : 2,
+            "rightLabel" : "Devices",
+            "colorThresholds" : null
+          } ]
+        },
+        "extra" : "",
+        "name" : "You have....",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 1,
+        "type" : "bigNumber",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 1,
+        "sizey" : 6
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "About LogicMonitor",
+        "isCustom" : false,
+        "description" : "",
+        "resources" : [ {
+          "type" : "html",
+          "URL" : "https://www.logicmonitor.com/platform/"
+        } ],
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 15,
+        "type" : "html",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 10,
+        "sizex" : 3,
+        "row" : 1,
+        "sizey" : 6
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Device Breakdown",
+        "description" : "",
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 1,
+        "type" : "pieChart",
+        "timescale" : "day",
+        "pieChartInfo" : {
+          "maxSlicesCanBeShown" : 10,
+          "virtualDataPoints" : [ ],
+          "showLabelsAndLinesOnPC" : true,
+          "counters" : [ {
+            "name" : "Network",
+            "appliesTo" : "isNetwork()"
+          }, {
+            "name" : "Windows",
+            "appliesTo" : "isWindows()"
+          }, {
+            "name" : "Linux",
+            "appliesTo" : "isLinux()"
+          }, {
+            "name" : "NetApp",
+            "appliesTo" : "isNetApp()"
+          }, {
+            "name" : "AWS",
+            "appliesTo" : "system.devicetype=~\"2\""
+          }, {
+            "name" : "Azure",
+            "appliesTo" : "system.devicetype=~\"4\""
+          } ],
+          "dataPoints" : [ ],
+          "hideZeroPercentSlices" : false,
+          "groupRemainingAsOthers" : false,
+          "pieChartItems" : [ {
+            "dataPointName" : "Network",
+            "color" : "Auto",
+            "legend" : "Network"
+          }, {
+            "dataPointName" : "Azure",
+            "color" : "Auto",
+            "legend" : "Azure"
+          }, {
+            "dataPointName" : "AWS",
+            "color" : "Auto",
+            "legend" : "AWS"
+          }, {
+            "dataPointName" : "NetApp",
+            "color" : "Auto",
+            "legend" : "NetApp"
+          }, {
+            "dataPointName" : "Linux",
+            "color" : "Auto",
+            "legend" : "Linux"
+          }, {
+            "dataPointName" : "Windows",
+            "color" : "Auto",
+            "legend" : "Windows"
+          } ],
+          "title" : "Device Breakdown"
+        },
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 7,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "How the Collector Works",
+        "isCustom" : false,
+        "description" : "",
+        "resources" : [ {
+          "type" : "html",
+          "URL" : "https://logicmonitor.wistia.com/embed/medias/5z2uo1vsx3"
+        } ],
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 15,
+        "type" : "html",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 4,
+        "row" : 11,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Intro to the Devices Page",
+        "isCustom" : false,
+        "description" : "",
+        "resources" : [ {
+          "type" : "html",
+          "URL" : "https://logicmonitor.wistia.com/embed/medias/5kq82nmpma"
+        } ],
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 15,
+        "type" : "html",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 4,
+        "row" : 7,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Intro to Dashboards",
+        "isCustom" : false,
+        "description" : "",
+        "resources" : [ {
+          "type" : "html",
+          "URL" : "https://logicmonitor.wistia.com/embed/medias/36iku5zzaf"
+        } ],
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 15,
+        "type" : "html",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 9,
+        "sizex" : 4,
+        "row" : 7,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Intro to Settings",
+        "isCustom" : false,
+        "description" : "",
+        "resources" : [ {
+          "type" : "html",
+          "URL" : "https://logicmonitor.wistia.com/embed/medias/knds239zae"
+        } ],
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 15,
+        "type" : "html",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 9,
+        "sizex" : 4,
+        "row" : 11,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Intro to Reports",
+        "isCustom" : false,
+        "description" : "",
+        "resources" : [ {
+          "type" : "html",
+          "URL" : "https://logicmonitor.wistia.com/embed/medias/s6xylw14hr"
+        } ],
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 15,
+        "type" : "html",
+        "timescale" : "day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 11,
+        "sizey" : 4
+      },
+      "config" : {
+        "extra" : "",
+        "name" : "Intro to Service Checks",
+        "isCustom" : false,
+        "description" : "",
+        "resources" : [ {
+          "type" : "html",
+          "URL" : "https://logicmonitor.wistia.com/embed/medias/o0g6dte52r"
+        } ],
+        "theme" : "newSimpleDarkBlue",
+        "interval" : 15,
+        "type" : "html",
+        "timescale" : "day",
+        "version" : 2
+      }
+    } ],
+    "version" : 2
+  } ],
+  "version" : 1
+}
