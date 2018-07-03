@@ -1,0 +1,222 @@
+{
+  "widgetTokens": [],
+  "name": "Alert Overview",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "sortDirection": "desc",
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n    Device/Service\n\n    ",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "DataSource",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Effective Thresholds",
+              "columnKey": "alert-thresholds"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sortBy": "startEpoch"
+        },
+        "name": "All Alerts",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "*",
+          "dataPoint": "",
+          "host": "",
+          "rule": "",
+          "keyword": "",
+          "dataSource": "*",
+          "acked": "all",
+          "cleared": "no",
+          "group": ""
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {"displayAs": "table"},
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 3,
+        "name": "Alert Status by Device Group",
+        "displayCriticalAlert": true,
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##DEVICEGROUP##",
+          "dataSourceDisplayName": "*",
+          "groupBy": "deviceGroup",
+          "type": "device",
+          "deviceGroupFullPath": "*",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 7,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {"mapStyle": "standard"},
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "gmap",
+        "version": 2,
+        "displayErrorAlert": true,
+        "name": "Alerts by Device Location",
+        "displayCriticalAlert": true,
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "timescale": "day",
+        "sdtChecked": true,
+        "mapPoints": [{
+          "type": "device",
+          "deviceGroupFullPath": "*",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Dashboard Summary",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 15,
+        "type": "text",
+        "timescale": "day",
+        "version": 2,
+        "content": "<p>Welcome to the Alert&nbsp;Overview Dashboard!<\/p>\n\n<p><span style=\"font-size:14px\">Overview dashboards provide quick and easy access to high-level metrics that facilitate rapid issue identification and resolution.&nbsp;<\/span><span style=\"font-size:14px\">As alerts are triggered within your environment, this dashboard&nbsp;will auto-populate with contextual alert information.<\/span><\/p>"
+      }
+    }
+  ],
+  "version": 2
+}

@@ -12,7 +12,7 @@
         "col": 5,
         "sizex": 4,
         "row": 3,
-        "sizey": 4
+        "sizey": 3
       },
       "config": {
         "bigNumberInfo": {
@@ -20,15 +20,15 @@
           "counters": [
             {
               "name": "Collectors",
-              "appliesTo": "hasCategory(\"Collector\")"
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultDeviceGroup##\""
             },
             {
               "name": "Linux",
-              "appliesTo": "hasCategory(\"Collector\") && isLinux()"
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultDeviceGroup##\" && system.collectorplatform==\"linux\""
             },
             {
               "name": "Windows",
-              "appliesTo": "hasCategory(\"Collector\") && isWindows()"
+              "appliesTo": "join(system.groups,\",\") =~ \"##defaultDeviceGroup##\" && system.collectorplatform==\"windows\""
             }
           ],
           "dataPoints": [],
@@ -62,7 +62,7 @@
             }
           ]
         },
-        "extra": "",
+        "displaySettings": {},
         "name": "Collector Count",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -76,11 +76,11 @@
       "position": {
         "col": 1,
         "sizex": 6,
-        "row": 13,
+        "row": 12,
         "sizey": 4
       },
       "config": {
-        "extra": "",
+        "displaySettings": {},
         "name": "Top Collectors by CPU Utilization",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -130,11 +130,11 @@
       "position": {
         "col": 7,
         "sizex": 6,
-        "row": 13,
+        "row": 12,
         "sizey": 4
       },
       "config": {
-        "extra": "",
+        "displaySettings": {},
         "name": "Top Collectors by Heap Utilization",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -184,7 +184,7 @@
       "position": {
         "col": 5,
         "sizex": 4,
-        "row": 7,
+        "row": 6,
         "sizey": 2
       },
       "config": {
@@ -218,7 +218,7 @@
               "bottomLabel": "",
               "rounding": 0,
               "position": 1,
-              "rightLabel": "Hosts",
+              "rightLabel": "Devices",
               "colorThresholds": null
             },
             {
@@ -232,7 +232,7 @@
             }
           ]
         },
-        "extra": "",
+        "displaySettings": {},
         "name": "Monitoring Statistics",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -247,10 +247,10 @@
         "col": 9,
         "sizex": 4,
         "row": 3,
-        "sizey": 6
+        "sizey": 5
       },
       "config": {
-        "extra": "",
+        "displaySettings": {},
         "name": "Breakdown of Devices Monitored",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -322,11 +322,11 @@
       "position": {
         "col": 1,
         "sizex": 6,
-        "row": 9,
+        "row": 8,
         "sizey": 4
       },
       "config": {
-        "extra": "",
+        "displaySettings": {},
         "name": "Top Collectors by Devices Monitored",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -377,17 +377,17 @@
         "col": 1,
         "sizex": 4,
         "row": 3,
-        "sizey": 6
+        "sizey": 5
       },
       "config": {
         "ackChecked": true,
+        "displaySettings": {"displayAs": "table"},
         "displayWarnAlert": true,
         "description": "",
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
-        "extra": "{\"displayAs\":\"table\",\"showTypeIcon\":true}",
-        "displayColumn": 4,
+        "displayColumn": 2,
         "name": "Collector Status",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
@@ -411,11 +411,11 @@
       "position": {
         "col": 7,
         "sizex": 6,
-        "row": 9,
+        "row": 8,
         "sizey": 4
       },
       "config": {
-        "extra": "",
+        "displaySettings": {},
         "name": "Top Collectors by Instances Monitored",
         "description": "",
         "theme": "newSolidDarkBlue",
@@ -451,6 +451,133 @@
             }
           }],
           "verticalLabel": "InstanceCount",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Dashboard Summary",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 15,
+        "type": "text",
+        "timescale": "day",
+        "version": 2,
+        "content": "<p><span style=\"color:#f2f4fc\"><span style=\"font-size:20.16px\">Welcome to the Collector Summary Dashboard! <\/span><\/span><\/p>\n\n<p><span style=\"color:#f2f4fc\"><span style=\"font-size:14px\">As you add Collectors to your LogicMonitor account - and monitor the devices on which they&#39;re installed - this dashboard will provide vital statistics about Collector activity and the composition of your monitoring environment.&nbsp;<\/span><\/span><\/p>"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 16,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Collectors by Tasks Failed to Schedule",
+        "description": "This is a clear indication that the workload of a collector needs tuning, as data is not being collected in accordance with the datasource schedule. This may result in gaps in graphs when >0.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 8,
+          "dataPoints": [{
+            "dataPointName": "UnavailableScheduleTaskRate",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Collector Data Collecting Task (LogicMonitor_Collector_DataCollectingTasks)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "UnavailableScheduleTaskRate",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "Tasks/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 16,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Collectors by Tasks in Queue",
+        "description": "Tasks in queue indicate that the collector is having to wait to schedule tasks, but that they are still completing in the appropriate time. This is a leading indicator of a collector approaching its capacity.",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "TasksCountInQueue",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Collector Data Collecting Task (LogicMonitor_Collector_DataCollectingTasks)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "TasksCountInQueue",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "Tasks",
           "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,

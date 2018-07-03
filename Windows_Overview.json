@@ -1,0 +1,720 @@
+{
+  "widgetTokens": [{
+    "name": "defaultDeviceGroup",
+    "value": "Devices by Type/Windows Servers"
+  }],
+  "name": "Windows Overview",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 12,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Windows Servers by CPU Utilization",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "CPUBusyPercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "CPU (WinCPU)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "CPUBusyPercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 20,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Windows Disks by Read Operations",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "DiskReadsPerSec",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Physical Disks- (WinPhysicalDrive-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "DiskReadsPerSec",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "ReadOperations",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 12,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Windows Servers by Memory Utilization",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "MemoryUtilizationPercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Memory and Processes (WinOS)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "MemoryUtilizationPercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 6,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {"mapStyle": "standard"},
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "gmap",
+        "version": 2,
+        "displayErrorAlert": true,
+        "name": "Alerts by Device Location",
+        "displayCriticalAlert": true,
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "timescale": "day",
+        "sdtChecked": true,
+        "mapPoints": [{
+          "type": "device",
+          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 6,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {"displayAs": "table"},
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 2,
+        "name": "Alert Status by Device",
+        "displayCriticalAlert": true,
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##HOSTNAME##",
+          "dataSourceDisplayName": "*",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 10,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "sortDirection": "desc",
+          "isShowAll": true,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnSize": 192.01,
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n    Device/Service\n\n    ",
+              "columnSize": 165.01,
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "DataSource",
+              "columnSize": 138.01,
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnSize": 121.01,
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnSize": 125.01,
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnSize": 85,
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Effective Thresholds",
+              "columnKey": "alert-thresholds"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            }
+          ],
+          "playSound": {
+            "criticalAlertAudioFileName": "",
+            "errorAlertAudioFileName": "",
+            "warningAlertAudioFileName": "",
+            "shouldPlay": false
+          },
+          "fontsize": "normal-font",
+          "sortBy": "startEpoch"
+        },
+        "name": "All Windows Device Alerts",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "host": "",
+          "rule": "",
+          "keyword": "",
+          "dataSource": "",
+          "acked": "all",
+          "cleared": "no",
+          "group": "%23%23defaultDeviceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Dashboard Summary",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 15,
+        "type": "text",
+        "timescale": "day",
+        "version": 2,
+        "content": "<p><span style=\"font-size:20.16px\">Welcome to the Windows Overview Dashboard! <\/span><\/p>\n\n<p><span style=\"font-size:14px\">Overview dashboards provide quick and easy access to high-level metrics that facilitate rapid issue identification and resolution.&nbsp;<\/span><span style=\"font-size:14px\">As you add Windows devices, this dashboard will auto-populate with&nbsp;vital statistics about their health and activity.&nbsp;<\/span><\/p>"
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 10,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [
+            {
+              "rpn": "Capacity/1024/1024/1024",
+              "name": "CapacityGB"
+            },
+            {
+              "rpn": "FreeSpace /1024/1024/1024",
+              "name": "FreeSpaceGB"
+            }
+          ],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "Capacity",
+              "instanceName": "*",
+              "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
+              "name": "Capacity",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultDeviceGroup##",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "FreeSpace",
+              "instanceName": "*",
+              "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
+              "name": "FreeSpace",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultDeviceGroup##",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "FreeSpaceGB",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Available (GB)",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "CapacityGB",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "Capacity (GB)",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "Total Disk Space across all Windows Devices",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 6,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "legend": "",
+        "maxValue": 100,
+        "dataPoint": {
+          "rpn": "",
+          "dataPointName": "CPUBusyPercent",
+          "instanceName": "*",
+          "dataSourceFullName": "CPU (WinCPU)",
+          "dataSeries": "average",
+          "aggregateFunction": "AVERAGE",
+          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceDisplayName": "*"
+        },
+        "description": "",
+        "displayUnit": "",
+        "type": "gauge",
+        "version": 2,
+        "minValue": 0,
+        "displayType": 0,
+        "peakTimeRange": "1day",
+        "showPeak": true,
+        "name": "Average CPU across all Windows Devices",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "timescale": "day",
+        "colorThresholds": null
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "Devices",
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultDeviceGroup##\" && isWindows()"
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "Devices",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Windows Devices",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "You have...",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 16,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Windows Network Interfaces by Outbound Bandwidth",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "OutboundBitsPerSec/1000000",
+            "display": {
+              "color": "Auto",
+              "legend": "",
+              "type": "line",
+              "option": "default"
+            },
+            "name": "Mbps"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "OutboundBitsPerSec",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Interfaces- (WinIf-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": null,
+              "legend": null,
+              "type": "line",
+              "option": "none"
+            },
+            "name": "OutboundBitsPerSec",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "Mbps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 16,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Windows Network Interfaces by Inbound Bandwidth",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "ReceivedBitsPerSec/1000000",
+            "display": {
+              "color": "Auto",
+              "legend": "",
+              "type": "line",
+              "option": "default"
+            },
+            "name": "Mbps"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ReceivedBitsPerSec",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Interfaces- (WinIf-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": null,
+              "legend": null,
+              "type": "line",
+              "option": "none"
+            },
+            "name": "ReceivedBitsPerSec",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "Mbps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 20,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Windows Disks by Write Operations",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "DiskWritesPerSec",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Physical Disks- (WinPhysicalDrive-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "DiskWritesPerSec",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "WriteOperations",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}

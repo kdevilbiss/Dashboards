@@ -4,14 +4,29 @@ A collection of (tokenized) LogicMonitor dashboards that can be re-used across a
 
 Most of these dashboards rely on dynamic groups in the 'Devices by Type' device group - which can be created using the out-of-box PropertySources from LogicMonitor. (So make sure you have the latest PropertySources from the repository!)
 
-**Dashboard Names | Expected dynamic group names | Group definitions:**
+**Out-of-Box Dashboard Names | Expected dynamic group names | Group definitions:**
+
+Alert Overview | * | (Works without credentials for all devices)
+
+Collector Summary | Devices by Type/ Collectors | hasCategory("Collectors")
+
+Linux Overview | Devices by Type/ Linux Servers | isLinux() 
+
+Network Overview | Devices by Type/ Network | isNetwork()
+
+VMware Overview | Devices by Type/ VMware Hosts | system.virtualization =~ "VMware ESX Host"
+
+Welcome | * | (Works without credentials for all devices)
+
+Windows Overview | Devices by Type/ Windows Servers | isWindows()
+
+
+**Custom Dashboard Names | Expected dynamic group names | Group definitions:**
 
 Active Directory Overview | Devices by Type/ Domain Controllers | hasCategory("MicrosoftDomainController")
 
 Cisco ASA Overview | Devices by Type/ Cisco ASA | hasCategory("CiscoASA")
         
-Collector Summary | Devices by Type/ Collectors | hasCategory("Collectors")
-
 EMC VNX Overview | Devices by Type/ EMC | hasCategory("EMC") || hasCategory("EMC_VNX") || hasCategory("EMC_VNX2")
 
 Exchange Server Overview | Devices by Type/ Exchange Servers | hasCategory("MSExchange")
@@ -27,3 +42,4 @@ Under Utilized Devices - On-Prem | * | (Point at the device group you wish to ta
 Under Utilized Devices - Public Cloud | AWS or Azure account | (Requires a local collector to be installed and monitoring cloud VMs)
 
 Web Server Overview | Devices by Type/ Web Servers | hasCategory("MicrosoftIIS")
+

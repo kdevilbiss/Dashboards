@@ -1,0 +1,610 @@
+{
+  "widgetTokens": [{
+    "name": "defaultDeviceGroup",
+    "value": "Devices by Type/VMware Hosts"
+  }],
+  "name": "VMware Overview",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 17,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top VMware VMs by Available Memory",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "MemoryActive/1024",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "MB"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "MemoryActive",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "VMware VM Performance (VMware_vSphere_VMperformance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": null,
+              "legend": null,
+              "type": "line",
+              "option": "none"
+            },
+            "name": "MemoryActive",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "MB",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top VMware VMs by CPU Utilization",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "CpuUsagePercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "VMware VM Performance (VMware_vSphere_VMperformance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "CpuUsagePercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {"displayAs": "table"},
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 3,
+        "name": "VMware Host Status",
+        "displayCriticalAlert": true,
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##HOSTNAME##",
+          "dataSourceDisplayName": "vmware host*",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Dashboard Summary",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 15,
+        "type": "text",
+        "timescale": "day",
+        "version": 2,
+        "content": "<p><span style=\"font-size:20.16px\">Welcome to the VMware Overview Dashboard! <\/span><\/p>\n\n<p><span style=\"font-size:14px\">Overview dashboards provide quick and easy access to high-level metrics that facilitate rapid issue identification and resolution.&nbsp;<\/span><span style=\"font-size:14px\">As you add VMware&nbsp;devices, this dashboard will auto-populate with vital statistics about their health and activity.&nbsp;<\/span><\/p>"
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "esxVmCount",
+              "instanceName": "*",
+              "dataSourceFullName": "vCenter Object Count (VMware_vCenter_ObjectCount)",
+              "name": "esxVmCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "*",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "vmOnCount",
+              "instanceName": "*",
+              "dataSourceFullName": "vCenter Object Count (VMware_vCenter_ObjectCount)",
+              "name": "esxVmCount_On",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "*",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "esxVmCount",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Virtual Machines",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "esxVmCount_On",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "Powered On VMs",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "Managed by vCenter",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 6
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {"displayAs": "table"},
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 2,
+        "name": "VMware Virtual Machine Status",
+        "displayCriticalAlert": true,
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE##",
+          "dataSourceDisplayName": "VMware VM*",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 17,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top VMware VMs by CPU Ready %",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "CPUReadyPercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "VMware VM Performance (VMware_vSphere_VMperformance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##INSTANCE##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "CPUReadyPercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "esxDatastoreCount",
+              "instanceName": "*",
+              "dataSourceFullName": "vCenter Object Count (VMware_vCenter_ObjectCount)",
+              "name": "esxDatastoreCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "*",
+              "deviceDisplayName": "*"
+            },
+            {
+              "dataPointName": "esxNetCount",
+              "instanceName": "*",
+              "dataSourceFullName": "vCenter Object Count (VMware_vCenter_ObjectCount)",
+              "name": "esxNetCount",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "*",
+              "deviceDisplayName": "*"
+            }
+          ],
+          "bigNumberItems": [
+            {
+              "dataPointName": "esxDatastoreCount",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 3,
+              "rightLabel": "Datastores",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "esxNetCount",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 4,
+              "rightLabel": "Networks",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "Available Resources",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top VMware Hosts by Memory Utilization",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "MemoryUsagePercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "VMware Host Performance (VMware_vSphere_HostPerformance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "MemoryUsagePercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 9,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top VMware Hosts by CPU Utilization",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "CPUUtilizationPercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "VMware Host Performance (VMware_vSphere_HostPerformance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "CPUUtilizationPercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top VMware VMs by Memory Utilization",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "MemoryUsagePercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "VMware VM Performance (VMware_vSphere_VMperformance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##_##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "MemoryUsagePercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "Devices",
+              "appliesTo": "system.virtualization=~\"VMware ESX host\""
+            },
+            {
+              "name": "vCenter",
+              "appliesTo": "system.virtualization =~ \"VMware ESX vcenter\""
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "Devices",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "ESXi Hosts",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "vCenter",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "vCenter Servers",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "You have...",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}

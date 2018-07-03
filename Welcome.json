@@ -1,0 +1,326 @@
+{
+  "widgetTokens": [],
+  "name": "Welcome",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 8,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Dashboard Summary",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 15,
+        "type": "text",
+        "timescale": "day",
+        "version": 2,
+        "content": "<p><span style=\"font-size:20.16px\">Welcome to LogicMonitor!<\/span><\/p>\n\n<p><span style=\"background-color:rgb(255, 255, 255); color:rgb(51, 51, 51); font-size:14px\">We built these dashboards to help you get started. Feel free to clone, edit, or remove widgets using the controls in their top right corner, or re-scope dashboards completely by changing the default token values. <\/span><\/p>\n\n<p><span style=\"background-color:rgb(255, 255, 255); color:rgb(51, 51, 51); font-size:14px\">Ready to get started? Check out the training videos below!<\/span><\/p>"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 4,
+        "sizey": 4
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [
+            {
+              "name": "Collectors",
+              "appliesTo": "system.collector=~\"true\""
+            },
+            {
+              "name": "Devices",
+              "appliesTo": "True()"
+            }
+          ],
+          "dataPoints": [],
+          "bigNumberItems": [
+            {
+              "dataPointName": "Collectors",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 1,
+              "rightLabel": "Collectors",
+              "colorThresholds": null
+            },
+            {
+              "dataPointName": "Devices",
+              "useCommaSeparators": false,
+              "bottomLabel": "",
+              "rounding": 0,
+              "position": 2,
+              "rightLabel": "Devices",
+              "colorThresholds": null
+            }
+          ]
+        },
+        "displaySettings": {},
+        "name": "You have...",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 1,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 7
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "About LogicMonitor",
+        "isCustom": false,
+        "description": "",
+        "resources": [{
+          "type": "html",
+          "URL": "https://www.logicmonitor.com/platform/"
+        }],
+        "theme": "newSimpleDarkBlue",
+        "interval": 15,
+        "type": "html",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 4,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Device Breakdown",
+        "description": "",
+        "theme": "newSimpleDarkBlue",
+        "interval": 1,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 10,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [
+            {
+              "name": "Network",
+              "appliesTo": "isNetwork()"
+            },
+            {
+              "name": "Windows",
+              "appliesTo": "isWindows()"
+            },
+            {
+              "name": "Linux",
+              "appliesTo": "isLinux()"
+            },
+            {
+              "name": "NetApp",
+              "appliesTo": "isNetApp()"
+            },
+            {
+              "name": "AWS",
+              "appliesTo": "system.devicetype=~\"2\""
+            },
+            {
+              "name": "Azure",
+              "appliesTo": "system.devicetype=~\"4\""
+            }
+          ],
+          "dataPoints": [],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [
+            {
+              "dataPointName": "Network",
+              "color": "Auto",
+              "legend": "Network"
+            },
+            {
+              "dataPointName": "Azure",
+              "color": "Auto",
+              "legend": "Azure"
+            },
+            {
+              "dataPointName": "AWS",
+              "color": "Auto",
+              "legend": "AWS"
+            },
+            {
+              "dataPointName": "NetApp",
+              "color": "Auto",
+              "legend": "NetApp"
+            },
+            {
+              "dataPointName": "Linux",
+              "color": "Auto",
+              "legend": "Linux"
+            },
+            {
+              "dataPointName": "Windows",
+              "color": "Auto",
+              "legend": "Windows"
+            }
+          ],
+          "title": "Device Breakdown"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 8,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "How the Collector Works",
+        "isCustom": false,
+        "description": "",
+        "resources": [{
+          "type": "html",
+          "URL": "https://logicmonitor.wistia.com/embed/medias/5z2uo1vsx3"
+        }],
+        "theme": "newSimpleDarkBlue",
+        "interval": 15,
+        "type": "html",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 12,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Intro to the Devices Page",
+        "isCustom": false,
+        "description": "",
+        "resources": [{
+          "type": "html",
+          "URL": "https://logicmonitor.wistia.com/embed/medias/5kq82nmpma"
+        }],
+        "theme": "newSimpleDarkBlue",
+        "interval": 15,
+        "type": "html",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 8,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Intro to Dashboards",
+        "isCustom": false,
+        "description": "",
+        "resources": [{
+          "type": "html",
+          "URL": "https://logicmonitor.wistia.com/embed/medias/36iku5zzaf"
+        }],
+        "theme": "newSimpleDarkBlue",
+        "interval": 15,
+        "type": "html",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 8,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Intro to Settings",
+        "isCustom": false,
+        "description": "",
+        "resources": [{
+          "type": "html",
+          "URL": "https://logicmonitor.wistia.com/embed/medias/knds239zae"
+        }],
+        "theme": "newSimpleDarkBlue",
+        "interval": 15,
+        "type": "html",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 12,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Intro to Reports",
+        "isCustom": false,
+        "description": "",
+        "resources": [{
+          "type": "html",
+          "URL": "https://logicmonitor.wistia.com/embed/medias/s6xylw14hr"
+        }],
+        "theme": "newSimpleDarkBlue",
+        "interval": 15,
+        "type": "html",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 12,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Intro to Service Checks",
+        "isCustom": false,
+        "description": "",
+        "resources": [{
+          "type": "html",
+          "URL": "https://logicmonitor.wistia.com/embed/medias/o0g6dte52r"
+        }],
+        "theme": "newSimpleDarkBlue",
+        "interval": 15,
+        "type": "html",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
