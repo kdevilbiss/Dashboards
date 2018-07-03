@@ -4,6 +4,8 @@ A collection of (tokenized) LogicMonitor dashboards that can be re-used across a
 
 Most of these dashboards rely on dynamic groups in the 'Devices by Type' device group - which can be created using the out-of-box PropertySources from LogicMonitor. (So make sure you have the latest PropertySources from the repository!)
 
+To see a preview of what these dashboards look like, visit the [LogicMonitor Dashboard Portfolio](https://www.logicmonitor.com/sales/dashboards/index.html)
+
 **Out-of-Box Dashboard Names | Expected dynamic group names | Group definitions:**
 
 - Alert Overview | * | (Works without credentials for all devices)
