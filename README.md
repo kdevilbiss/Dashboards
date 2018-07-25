@@ -20,12 +20,14 @@ To see a preview of what these dashboards look like, visit the [LogicMonitor Das
 **Custom Dashboard Names | Expected dynamic group names | Group definitions:**
 
 - Active Directory Overview | Devices by Type/ Domain Controllers | hasCategory("MicrosoftDomainController")
+- Checkpoint Overview | Devices by Type/ Checkpoint | system.sysoid == "1.3.6.1.4.1.2620.1.6.123.1.49"
 - Cisco ASA Overview | Devices by Type/ Cisco ASA | hasCategory("CiscoASA")
 - EMC VNX Overview | Devices by Type/ EMC | hasCategory("EMC") || hasCategory("EMC_VNX") || hasCategory("EMC_VNX2")
 - Exchange Server Overview | Devices by Type/ Exchange Servers | hasCategory("MSExchange")
 - Local Network Latency | * | (Works without credentials for all devices)
 - Palo Alto Overview | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
 - SQL Server Overview | Devices by Type/ SQL Servers | hasCategory("MSSQL")
+- Ubiquiti Unifi Overview | Devices by Type/ Ubiquiti Unifi | unifi.user && unifi.pass
 - Under Utilized Devices - On-Prem | * | (Point at the device group you wish to target)
 - Under Utilized Devices - Public Cloud | AWS or Azure account | (Requires a local collector to be installed and monitoring cloud VMs)
 - Web Server Overview | Devices by Type/ Web Servers | hasCategory("MicrosoftIIS")
