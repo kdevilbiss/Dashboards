@@ -1,0 +1,1023 @@
+{
+  "santabaRelease": 107,
+  "widgetTokens": [{
+    "name": "defaultDeviceGroup",
+    "value": "Devices by Type/SonicWall"
+  }],
+  "name": "SonicWall Overview",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 7,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "Top 10 Interfaces by Egress Throughput",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "OutOctets * 8",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##DSIDESCRIPTION##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "egress_bps"
+          }],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "OutOctets",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Interfaces (64 bit)- (snmp64_If-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": null,
+              "legend": null,
+              "type": "line",
+              "option": "none"
+            },
+            "name": "OutOctets",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "bps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "Top 10 Interfaces by Ingress Throughput",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "InOctets * 8",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##DSIDESCRIPTION##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "ingress_bps"
+          }],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "InOctets",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Interfaces (64 bit)- (snmp64_If-)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": null,
+              "legend": null,
+              "type": "line",
+              "option": "none"
+            },
+            "name": "InOctets",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "bps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "Ping Round-Trip Time",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "average",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Ping",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "average",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "CPU Utilization",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "CPU",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "SonicWall Global Stats (SonicWall_Firewall_GlobalStats)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "CPU",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "Memory Utilization",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "Memory",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "SonicWall Global Stats (SonicWall_Firewall_GlobalStats)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "Memory",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "Current Connections",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ConnectionsCurrent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "SonicWall Global Stats (SonicWall_Firewall_GlobalStats)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "ConnectionsCurrent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "connections",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "Connection Utilization",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "ConnectionsUtilized",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "SonicWall Global Stats (SonicWall_Firewall_GlobalStats)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "ConnectionsUtilized",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "day",
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 204,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Days\n            \n        ",
+              "columnSize": 88,
+              "columnKey": "0"
+            }
+          ],
+          "pageSize": "25"
+        },
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "Days",
+          "displayType": "raw",
+          "minValue": 0,
+          "maxValue": 100,
+          "colorThresholds": [],
+          "columnName": "Days",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##HOSTNAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultDeviceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "SSL Certificate Expiration (SSLCerts-)",
+        "sortOrder": "descending",
+        "name": "SSL Expiration",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "UptimeDays",
+            "instanceName": "*",
+            "dataSourceFullName": "Uptime- (SNMPUptime-)",
+            "name": "UptimeDays",
+            "aggregateFunction": "AVERAGE",
+            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "UptimeDays",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Average Uptime in Days",
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 2,
+                "relation": "<"
+              },
+              {
+                "level": 3,
+                "threshold": 1,
+                "relation": "<"
+              }
+            ]
+          }]
+        },
+        "timeScale": "day",
+        "displaySettings": {},
+        "name": "Host Status",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "HTTP Response Time",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ResponseTime",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "HTTP-",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "ResponseTime",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "HTTPS Response Time",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ResponseTime",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "HTTPS-",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "ResponseTime",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "Time Since Last Data Received",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "idleInterval",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Host Status (HostStatus)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "LastData",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "seconds",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 11,
+        "sizex": 2,
+        "row": 3,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "Port Response Time",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ResponseTime",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Port-",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME## port ##INSTANCE##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "ResponseTime",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 4,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "TCP Segments",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "tcpOutSegs",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## tcpOutSegs",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "tcpOutSegs",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            },
+            {
+              "dataPointName": "tcpRetransSegs",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## tcpRetransSegs",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "tcpRetransSegs",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "packets",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 4,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "UDP Datagrams",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "UDPInDatagrams",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## In",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "UDPInDatagrams",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            },
+            {
+              "dataPointName": "UDPOutDatagrams",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## Out",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "UDPOutDatagrams",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "packets/second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 2,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "12hour",
+        "displaySettings": {},
+        "name": "TCP Retransmissions",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "RetransPercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME## Retransmissions",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "RetransPercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 2,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "timeScale": "1hour",
+        "displaySettings": {},
+        "name": "UDP Drops",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "udpInErrors",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "TCP UDP stats (snmpTCPUDP)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME## UDP Drops",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "UDPDrops",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "drops/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1hour",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
