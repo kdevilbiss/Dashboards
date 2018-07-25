@@ -26,6 +26,7 @@ To see a preview of what these dashboards look like, visit the [LogicMonitor Das
 - Exchange Server Overview | Devices by Type/ Exchange Servers | hasCategory("MSExchange")
 - Local Network Latency | * | (Works without credentials for all devices)
 - Palo Alto Overview | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
+- SonicWall Overview | Devices by Type/ SonicWall | hasCategory("SonicWallFW")
 - SQL Server Overview | Devices by Type/ SQL Servers | hasCategory("MSSQL")
 - Ubiquiti Unifi Overview | Devices by Type/ Ubiquiti Unifi | unifi.user && unifi.pass
 - Under Utilized Devices - On-Prem | * | (Point at the device group you wish to target)
