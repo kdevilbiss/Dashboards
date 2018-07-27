@@ -1,6 +1,6 @@
 # Dashboards
 
-A collection of (tokenized) LogicMonitor dashboards that can be re-used across accounts. When importing, select the relevant group of devices for which you wish to visualize data. These are officially unsupported - but LogicMonitor support can always help with adjustments. 
+A collection of (tokenized) LogicMonitor dashboards that can be re-used across accounts. When importing, change the value of the ##defaultDeviceGroup## token (if needed) to select the relevant group of devices for which you wish to visualize data. These are officially unsupported - but LogicMonitor support can always help with adjustments. 
 
 Most of these dashboards rely on dynamic groups in the 'Devices by Type' device group - which can be created using the out-of-box PropertySources from LogicMonitor. (So make sure you have the latest PropertySources from the repository!)
 
@@ -15,7 +15,6 @@ To see a preview of what these dashboards look like, visit the [LogicMonitor Das
 - VMware Overview | Devices by Type/ VMware Hosts | system.virtualization =~ "VMware ESX Host"
 - Welcome | * | (Works without credentials for all devices)
 - Windows Overview | Devices by Type/ Windows Servers | isWindows()
-
 
 **Custom Dashboard Names | Expected dynamic group names | Group definitions:**
 
