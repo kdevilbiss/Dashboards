@@ -25,6 +25,7 @@ To see a preview of what these dashboards look like, visit the [LogicMonitor Das
 - EMC VNX Overview | Devices by Type/ EMC | hasCategory("EMC") || hasCategory("EMC_VNX") || hasCategory("EMC_VNX2")
 - Exchange Server Overview | Devices by Type/ Exchange Servers | hasCategory("MSExchange")
 - Local Network Latency | * | (Works without credentials for all devices)
+- LogicMonitor Portal Metrics | * | (Requires the LogicMonitor Portal Metrics custom datasource)
 - Palo Alto Overview | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
 - SonicWall Overview | Devices by Type/ SonicWall | hasCategory("SonicWallFW")
 - SQL Server Overview | Devices by Type/ SQL Servers | hasCategory("MSSQL")
