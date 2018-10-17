@@ -22,6 +22,7 @@ To see a preview of what these dashboards look like, visit the [LogicMonitor Das
 - APC Overview | Devices by Type/ APC | hasCategory("APC")
 - Checkpoint Overview | Devices by Type/ Checkpoint | system.sysoid == "1.3.6.1.4.1.2620.1.6.123.1.49"
 - Cisco ASA Overview | Devices by Type/ Cisco ASA | hasCategory("CiscoASA")
+- Cisco WLC Overview | Devices by Type/ Cisco WLC | system.displayname =~ "WLC"
 - EMC VNX Overview | Devices by Type/ EMC | hasCategory("EMC") || hasCategory("EMC_VNX") || hasCategory("EMC_VNX2")
 - Exchange Server Overview | Devices by Type/ Exchange Servers | hasCategory("MSExchange")
 - Local Network Latency | * | (Works without credentials for all devices)
