@@ -1,0 +1,753 @@
+{
+  "santabaRelease": 110,
+  "widgetTokens": [{
+    "name": "defaultDeviceGroup",
+    "value": "Devices by Type/Storage"
+  }],
+  "name": "Nimble Storage Overview",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 7,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Nimble Arrays by CPU Load",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "5MinLoadAverage",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "CPU Load (Nimble CPU load)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME## - ##INSTANCE##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "5MinLoadAverage",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "load",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 5,
+        "sizey": 7
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "list"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 1,
+        "name": "HDD Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE##",
+          "dataSourceDisplayName": "HDD Disks",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 1,
+        "name": "SSD Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE##",
+          "dataSourceDisplayName": "SSD Disks",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 6,
+        "row": 10,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Nimble Network Interfaces by Total Throughput",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "InMbps + OutMbps",
+            "display": {
+              "color": "Auto",
+              "legend": "##HOSTNAME## - ##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "TotalMbps"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "InMbps",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Interfaces- (snmpIf-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "InMbps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            },
+            {
+              "dataPointName": "OutMbps",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Interfaces- (snmpIf-)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "OutMbps",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultDeviceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "Mbps",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 6,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Nimble Volumes by Total IOPS",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "TotalReads+TotalWrites",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "IOPS"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "TotalReads",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Volume Latency (Nimble_Volume_Latency)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "TotalReads",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "Nimble Array - wb-nimble01"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "TotalWrites",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Volume Latency (Nimble_Volume_Latency)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "TotalWrites",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "Nimble Array - wb-nimble01"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "IOPS",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {"pageSize": "25"},
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "PercentUsed",
+          "displayType": "percent",
+          "minValue": 0,
+          "maxValue": 100,
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 85,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 95,
+              "relation": ">"
+            }
+          ],
+          "columnName": "PercentUsed",
+          "enableForecast": true,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultDeviceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "Volume Usage (Nimble Volume Usage)",
+        "sortOrder": "descending",
+        "name": "Top Nimble Volumes by Usage %",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 6,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Nimble Arrays by Read/Write Latency",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "ioReadTimems",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Nimble Global Stats"
+              },
+              "dataSourceFullName": "Global Stats (Nimble Global Stats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## Reads",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "ioReadTimems",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "Nimble Array - wb-nimble01"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "ioWriteTimems",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Nimble Global Stats"
+              },
+              "dataSourceFullName": "Global Stats (Nimble Global Stats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## Writes",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "ioWriteTimems",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "Nimble Array - wb-nimble01"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Nimble Arrays by IO Throughput",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "ioReadBytes",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Nimble Global Stats"
+              },
+              "dataSourceFullName": "Global Stats (Nimble Global Stats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## Read",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "ioReadBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "Nimble Array - wb-nimble01"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "ioWriteBytes",
+              "instanceName": {
+                "isGlob": false,
+                "value": "Nimble Global Stats"
+              },
+              "dataSourceFullName": "Global Stats (Nimble Global Stats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##HOSTNAME## Write",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "ioWriteBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "Nimble Array - wb-nimble01"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "bytes/sec",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 148,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            PercentUsed\n            \n        ",
+              "columnSize": 146,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 90,
+              "columnKey": "0-forecast"
+            }
+          ],
+          "pageSize": "25"
+        },
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "TotalArrayUsagePercent",
+          "displayType": "percent",
+          "minValue": 0,
+          "maxValue": 100,
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 85,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 95,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 98,
+              "relation": ">"
+            }
+          ],
+          "columnName": "PercentUsed",
+          "enableForecast": true,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultDeviceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "Array Info (Nimble Array Info)",
+        "sortOrder": "descending",
+        "name": "Top Nimbles by Total Array Usage %",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 12,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {
+          "sortDirection": "desc",
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n    Device/Website\n\n    ",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Effective Thresholds",
+              "columnKey": "alert-thresholds"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sortBy": "startEpoch"
+        },
+        "name": "Nimble Array Alerts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "host": "",
+          "rule": "",
+          "keyword": "",
+          "dataSource": "",
+          "acked": "all",
+          "cleared": "no",
+          "group": "%23%23defaultDeviceGroup%23%23"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
