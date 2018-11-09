@@ -1,8 +1,8 @@
 {
-  "santabaRelease": 110,
+  "santabaRelease": 111,
   "widgetTokens": [{
     "name": "defaultDeviceGroup",
-    "value": "Devices by Type/Storage"
+    "value": "Devices by Type/Nimble"
   }],
   "name": "Nimble Storage Overview",
   "description": "",
@@ -273,12 +273,12 @@
               "name": "TotalReads",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "Nimble Array - wb-nimble01"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultDeviceGroup##"
               }
             },
             {
@@ -298,12 +298,12 @@
               "name": "TotalWrites",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "Nimble Array - wb-nimble01"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultDeviceGroup##"
               }
             }
           ],
@@ -409,12 +409,12 @@
               "name": "ioReadTimems",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "Nimble Array - wb-nimble01"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultDeviceGroup##"
               }
             },
             {
@@ -434,12 +434,12 @@
               "name": "ioWriteTimems",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "Nimble Array - wb-nimble01"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultDeviceGroup##"
               }
             }
           ],
@@ -476,8 +476,8 @@
             {
               "dataPointName": "ioReadBytes",
               "instanceName": {
-                "isGlob": false,
-                "value": "Nimble Global Stats"
+                "isGlob": true,
+                "value": "*"
               },
               "dataSourceFullName": "Global Stats (Nimble Global Stats)",
               "consolidateFunction": "average",
@@ -490,19 +490,19 @@
               "name": "ioReadBytes",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "Nimble Array - wb-nimble01"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultDeviceGroup##"
               }
             },
             {
               "dataPointName": "ioWriteBytes",
               "instanceName": {
-                "isGlob": false,
-                "value": "Nimble Global Stats"
+                "isGlob": true,
+                "value": "*"
               },
               "dataSourceFullName": "Global Stats (Nimble Global Stats)",
               "consolidateFunction": "average",
@@ -515,12 +515,12 @@
               "name": "ioWriteBytes",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "Nimble Array - wb-nimble01"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultDeviceGroup##"
               }
             }
           ],
