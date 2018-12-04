@@ -1,0 +1,602 @@
+{
+  "santabaRelease": 112,
+  "widgetTokens": [{
+    "name": "defaultDeviceGroup",
+    "value": "Devices by Type/Aruba"
+  }],
+  "name": "Aruba Wireless Overview",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 7,
+        "sizey": 7
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "list"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 1,
+        "name": "Aruba Access Point Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE##",
+          "dataSourceDisplayName": "Aruba AP status",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 5,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {"pageSize": "10"},
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "CPUBusy",
+          "displayType": "percent",
+          "minValue": 0,
+          "maxValue": 100,
+          "colorThresholds": [{
+            "level": 2,
+            "threshold": 90,
+            "relation": ">"
+          }],
+          "columnName": "CPUBusy",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##HOSTNAME## - ##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultDeviceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "CPU (Aruba CPU)",
+        "sortOrder": "descending",
+        "name": "Top Aruba WLAN Controller CPU Usage",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 9,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {"pageSize": "25"},
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "UsedMemoryPercent",
+          "displayType": "percent",
+          "minValue": 0,
+          "maxValue": 100,
+          "colorThresholds": [{
+            "level": 2,
+            "threshold": 95,
+            "relation": ">"
+          }],
+          "columnName": "UsedMemoryPercent",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##HOSTNAME##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultDeviceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Aruba Memory Usage",
+        "sortOrder": "descending",
+        "name": "Top Aruba WLAN Controller Memory Usage",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 11,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Aruba WLAN Controller Temperature",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 25,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "InternalTemperature",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Status (Aruba status)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "Temperature",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "InternalTemperature",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "C",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 5,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Access Point Radios by Connected Users",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "NumStations",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Access Point Radios (Aruba AP Radios)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "NumStations",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "users",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 6,
+        "row": 5,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Access Points by Radio Utilization",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "APChUtilization",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Access Point Radios (Aruba AP Radios)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "APChUtilization",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "percent used",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 6,
+        "sizex": 4,
+        "row": 1,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Wireless Networks by Connected Stations",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "APStations",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "ESSID (Aruba ESSID)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "APStations",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "# stations",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 3
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 3,
+        "name": "Wireless Network Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE##",
+          "dataSourceDisplayName": "ESSID",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 8,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Auth. Servers by # Authorizations",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "SuccessfulAuths",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Aruba Authentication Servers",
+            "consolidateFunction": "max",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "SuccessfulAuths",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "per second",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 8,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Slowest Auth. Servers by Response Time",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ResponseTime",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "Aruba Authentication Servers",
+            "consolidateFunction": "max",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "ResponseTime",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultDeviceGroup##"
+            }
+          }],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 6,
+        "row": 11,
+        "sizey": 3
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 6,
+        "name": "Aruba WLAN Controller Hardware Health",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "name",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "Power Supply ##INSTANCE##",
+            "dataSourceDisplayName": "Power Supplies",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceDisplayName": "*"
+          },
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "Fan ##INSTANCE##",
+            "dataSourceDisplayName": "Fan Status",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceDisplayName": "*"
+          }
+        ]
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top WLANs by Relative Users",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 10,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "APStations",
+            "top10": true,
+            "instanceName": "*",
+            "dataSourceFullName": "ESSID (Aruba ESSID)",
+            "name": "APStations",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceDisplayName": "*",
+            "aggregate": false
+          }],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": false,
+          "pieChartItems": [{
+            "dataPointName": "APStations",
+            "color": "Auto",
+            "legend": "##INSTANCE##"
+          }],
+          "title": "Top WLANs by Relative Users "
+        },
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
