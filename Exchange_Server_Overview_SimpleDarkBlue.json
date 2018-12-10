@@ -1,10 +1,10 @@
 {
-  "santabaRelease": 110,
+  "santabaRelease": 113,
   "widgetTokens": [{
-    "name": "defaultDeviceGroup",
-    "value": "WB Services/Colocation/Exchange"
+    "name": "defaultResourceGroup",
+    "value": "Devices by Type/Exchange Servers"
   }],
-  "name": "Exchange Server Overview (Simple)",
+  "name": "Exchange Server Overview",
   "description": "",
   "widgetsConfigVersion": 2,
   "widgets": [
@@ -19,7 +19,7 @@
         "displaySettings": {},
         "name": "Exchange Server CPU Usage %",
         "description": "",
-        "theme": "newSimpleDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
@@ -36,7 +36,7 @@
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##HOSTNAME##",
+              "legend": "##RESOURCENAME##",
               "type": "line",
               "option": "custom"
             },
@@ -48,7 +48,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "%",
@@ -73,7 +73,7 @@
         "displaySettings": {},
         "name": "Exchange Server Memory Usage %",
         "description": "",
-        "theme": "newSimpleDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
@@ -90,7 +90,7 @@
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##HOSTNAME##",
+              "legend": "##RESOURCENAME##",
               "type": "line",
               "option": "custom"
             },
@@ -102,7 +102,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "%",
@@ -127,7 +127,7 @@
         "displaySettings": {},
         "name": "Exchange Server Network Throughput",
         "description": "",
-        "theme": "newSimpleDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
@@ -145,7 +145,7 @@
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## - ##INSTANCE##",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
                 "type": "line",
                 "option": "custom"
               },
@@ -157,7 +157,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -170,7 +170,7 @@
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## - ##INSTANCE##",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
                 "type": "line",
                 "option": "custom"
               },
@@ -182,7 +182,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -218,7 +218,7 @@
         "displayColumn": 9,
         "name": "Exchange Services Status",
         "displayCriticalAlert": true,
-        "theme": "newSimpleDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "sortBy": "alertSeverity",
         "timescale": "day",
@@ -226,11 +226,11 @@
         "items": [{
           "dataPointName": "*",
           "instanceName": "*",
-          "name": "##INSTANCE##",
+          "name": "##RESOURCENAME## - ##INSTANCE##",
           "dataSourceDisplayName": "Services",
           "groupBy": "instance",
           "type": "device",
-          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
           "deviceDisplayName": "*"
         }]
       }
@@ -258,15 +258,31 @@
               "columnKey": "0"
             }
           ],
-          "pageSize": "25"
+          "pageSize": "10"
         },
         "columns": [{
           "rpn": "",
           "dataPointName": "PercentUsed",
-          "displayType": "raw",
+          "displayType": "percent",
           "minValue": 0,
           "maxValue": 100,
-          "colorThresholds": [],
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 90,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 95,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 98,
+              "relation": ">"
+            }
+          ],
           "columnName": "PercentUsed",
           "enableForecast": false,
           "roundingDecimal": 2
@@ -281,16 +297,16 @@
         "type": "dynamicTable",
         "rows": [{
           "instanceName": "*",
-          "label": "##HOSTNAME## - ##INSTANCE##",
+          "label": "##RESOURCENAME## - ##INSTANCE##",
           "deviceDisplayName": "*",
-          "groupFullPath": "##defaultDeviceGroup##"
+          "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": 10,
+        "topX": 25,
         "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
         "sortOrder": "descending",
         "name": "Exchange Volume Usage %",
-        "theme": "newSimpleDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "timescale": "day"
       }
@@ -306,7 +322,7 @@
         "displaySettings": {},
         "name": "Exchange Server Volume Performance",
         "description": "",
-        "theme": "newSimpleDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
@@ -324,7 +340,7 @@
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## - ##INSTANCE##",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
                 "type": "line",
                 "option": "custom"
               },
@@ -336,7 +352,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -349,7 +365,7 @@
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## - ##INSTANCE##",
+                "legend": "##RESOURCENAME## - ##INSTANCE##",
                 "type": "line",
                 "option": "custom"
               },
@@ -361,7 +377,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -387,7 +403,7 @@
         "displaySettings": {},
         "name": "Exchange Transport Queues",
         "description": "",
-        "theme": "newSimpleDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
@@ -405,7 +421,7 @@
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## - Completed",
+                "legend": "##RESOURCENAME## - Completed",
                 "type": "line",
                 "option": "custom"
               },
@@ -417,7 +433,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -430,7 +446,7 @@
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## - Queued",
+                "legend": "##RESOURCENAME## - Queued",
                 "type": "line",
                 "option": "custom"
               },
@@ -442,7 +458,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -455,7 +471,7 @@
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## - Submitted",
+                "legend": "##RESOURCENAME## - Submitted",
                 "type": "line",
                 "option": "custom"
               },
@@ -467,7 +483,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -493,7 +509,7 @@
         "displaySettings": {},
         "name": "Exchange Client Access Requests",
         "description": "",
-        "theme": "newSimpleDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
@@ -511,7 +527,7 @@
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## - OWA Requests",
+                "legend": "##RESOURCENAME## - OWA Requests",
                 "type": "line",
                 "option": "custom"
               },
@@ -523,7 +539,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -536,7 +552,7 @@
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## - ActiveSync Requests",
+                "legend": "##RESOURCENAME## - ActiveSync Requests",
                 "type": "line",
                 "option": "custom"
               },
@@ -548,7 +564,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -561,7 +577,7 @@
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## - RPC over HTTP Requests",
+                "legend": "##RESOURCENAME## - RPC over HTTP Requests",
                 "type": "line",
                 "option": "custom"
               },
@@ -573,7 +589,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -599,7 +615,7 @@
         "displaySettings": {},
         "name": "Exchange Mailbox Database IO",
         "description": "",
-        "theme": "newSimpleDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
@@ -629,7 +645,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -654,7 +670,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -679,7 +695,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -705,7 +721,7 @@
         "displaySettings": {},
         "name": "Exchange Mailbox Database Cache Size",
         "description": "",
-        "theme": "newSimpleDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
@@ -734,7 +750,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "bytes",
@@ -759,7 +775,7 @@
         "displaySettings": {},
         "name": "Exchange Process Thread Count",
         "description": "",
-        "theme": "newSimpleDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
@@ -788,7 +804,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "count",
@@ -813,7 +829,7 @@
         "displaySettings": {},
         "name": "Exchange Mailbox Database Latency",
         "description": "",
-        "theme": "newSimpleDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
@@ -843,7 +859,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -868,7 +884,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -893,7 +909,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -919,7 +935,7 @@
         "displaySettings": {},
         "name": "Exchange Mailbox Database IO Bottlenecks",
         "description": "",
-        "theme": "newSimpleDarkBlue",
+        "theme": "newBorderDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
@@ -949,7 +965,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -974,7 +990,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -999,7 +1015,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],

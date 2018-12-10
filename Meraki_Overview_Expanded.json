@@ -1,10 +1,10 @@
 {
-  "santabaRelease": 111,
+  "santabaRelease": 113,
   "widgetTokens": [{
-    "name": "defaultDeviceGroup",
+    "name": "defaultResourceGroup",
     "value": "Devices by Type/Meraki"
   }],
-  "name": "Meraki Overview",
+  "name": "Meraki Overview Expanded",
   "description": "",
   "widgetsConfigVersion": 2,
   "widgets": [
@@ -42,7 +42,7 @@
             "dataSourceDisplayName": "Meraki Switches",
             "groupBy": "instance",
             "type": "device",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           },
           {
@@ -52,7 +52,27 @@
             "dataSourceDisplayName": "Meraki Access Point Stats",
             "groupBy": "instance",
             "type": "device",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          },
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##INSTANCE##",
+            "dataSourceDisplayName": "Meraki Gateway Stats",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          },
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##INSTANCE##",
+            "dataSourceDisplayName": "Meraki Security Appliance Stats",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }
         ]
@@ -98,7 +118,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "clients",
@@ -152,7 +172,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "clients",
@@ -194,7 +214,7 @@
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##HOSTNAME##",
+              "legend": "##RESOURCENAME##",
               "type": "area",
               "option": "custom"
             },
@@ -206,7 +226,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "ms",
@@ -270,7 +290,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -295,7 +315,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -342,7 +362,7 @@
           "instanceName": "*",
           "label": "##INSTANCE##",
           "deviceDisplayName": "*",
-          "groupFullPath": "##defaultDeviceGroup##"
+          "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
         "topX": 10,
@@ -371,7 +391,7 @@
             "dataSourceFullName": "Meraki Access Point Stats (Meraki_MR_Stats)",
             "name": "ConnectionStatus",
             "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
@@ -411,7 +431,7 @@
             "dataSourceFullName": "Meraki Switches (Meraki_MS_Stats)",
             "name": "ConnectionStatus",
             "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
@@ -446,7 +466,7 @@
           "virtualDataPoints": [],
           "counters": [{
             "name": "CloudControllers",
-            "appliesTo": "hasCategory(\"MerakiCloudController\")"
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && hasCategory(\"MerakiCloudController\")"
           }],
           "dataPoints": [],
           "bigNumberItems": [{
@@ -501,7 +521,7 @@
           "instanceName": "*",
           "label": "##INSTANCE##",
           "deviceDisplayName": "*",
-          "groupFullPath": "##defaultDeviceGroup##"
+          "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
         "topX": 10,
@@ -530,7 +550,7 @@
             "dataSourceFullName": "Meraki Gateway Stats (Meraki_Z_Stats)",
             "name": "ConnectionStatus",
             "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
@@ -570,7 +590,7 @@
             "dataSourceFullName": "Meraki Security Appliance Stats (Meraki_MX_Stats)",
             "name": "ConnectionStatus",
             "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
@@ -625,7 +645,7 @@
           "instanceName": "*",
           "label": "##INSTANCE##",
           "deviceDisplayName": "*",
-          "groupFullPath": "##defaultDeviceGroup##"
+          "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
         "topX": 10,
@@ -685,7 +705,7 @@
           "instanceName": "*",
           "label": "##INSTANCE##",
           "deviceDisplayName": "*",
-          "groupFullPath": "##defaultDeviceGroup##"
+          "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
         "topX": 10,
@@ -747,7 +767,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -772,7 +792,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -837,7 +857,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -862,7 +882,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],

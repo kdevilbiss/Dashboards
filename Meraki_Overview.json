@@ -1,7 +1,8 @@
 {
+  "santabaRelease": 113,
   "widgetTokens": [{
-    "name": "defaultDeviceGroup",
-    "value": "Devices by Type/Network"
+    "name": "defaultResourceGroup",
+    "value": "Devices by Type/Meraki"
   }],
   "name": "Meraki Overview",
   "description": "",
@@ -16,12 +17,15 @@
       },
       "config": {
         "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": true,
+          "displayAs": "list"
+        },
         "displayWarnAlert": true,
         "description": "",
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
-        "extra": "{\"displayAs\":\"list\",\"showTypeIcon\":true}",
         "displayColumn": 1,
         "name": "Meraki Alert Status",
         "displayCriticalAlert": true,
@@ -38,7 +42,7 @@
             "dataSourceDisplayName": "Meraki Switches",
             "groupBy": "instance",
             "type": "device",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           },
           {
@@ -48,7 +52,7 @@
             "dataSourceDisplayName": "Meraki Access Point Stats",
             "groupBy": "instance",
             "type": "device",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }
         ]
@@ -62,7 +66,7 @@
         "sizey": 3
       },
       "config": {
-        "extra": "",
+        "displaySettings": {},
         "name": "Top Access Points by Client Count",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -94,7 +98,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "clients",
@@ -116,7 +120,7 @@
         "sizey": 3
       },
       "config": {
-        "extra": "",
+        "displaySettings": {},
         "name": "Top Switches by Client Count",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -148,7 +152,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "clients",
@@ -170,7 +174,7 @@
         "sizey": 3
       },
       "config": {
-        "extra": "",
+        "displaySettings": {},
         "name": "Cloud Controller Ping Response Time",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -190,7 +194,7 @@
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##HOSTNAME##",
+              "legend": "##RESOURCENAME##",
               "type": "area",
               "option": "custom"
             },
@@ -202,7 +206,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "ms",
@@ -224,7 +228,7 @@
         "sizey": 3
       },
       "config": {
-        "extra": "",
+        "displaySettings": {},
         "name": "Access Point Interfaces: Total Throughput",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -266,7 +270,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -291,7 +295,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -314,7 +318,7 @@
         "sizey": 3
       },
       "config": {
-        "extra": "",
+        "displaySettings": {},
         "name": "Access Point Interfaces: Total Packet Transmission",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -356,7 +360,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -381,7 +385,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -404,27 +408,14 @@
         "sizey": 3
       },
       "config": {
+        "displaySettings": {"pageSize": "25"},
         "columns": [{
           "rpn": "",
           "dataPointName": "ClientCount",
-          "displayType": "percent",
-          "colorThresholds": [
-            {
-              "level": 2,
-              "threshold": 20,
-              "relation": ">"
-            },
-            {
-              "level": 3,
-              "threshold": 25,
-              "relation": ">"
-            },
-            {
-              "level": 4,
-              "threshold": 30,
-              "relation": ">"
-            }
-          ],
+          "displayType": "raw",
+          "minValue": 0,
+          "maxValue": 100,
+          "colorThresholds": [],
           "columnName": "ClientCount",
           "enableForecast": false,
           "roundingDecimal": 2
@@ -441,12 +432,11 @@
           "instanceName": "*",
           "label": "##INSTANCE##",
           "deviceDisplayName": "*",
-          "groupFullPath": "##defaultDeviceGroup##"
+          "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
         "topX": 10,
         "dataSourceFullName": "Meraki Access Point Stats (Meraki_MR_Stats)",
-        "extra": "{\"pageSize\":\"25\"}",
         "sortOrder": "descending",
         "name": "Top Access Points: Client Count",
         "theme": "newBorderDarkBlue",
@@ -471,7 +461,7 @@
             "dataSourceFullName": "Meraki Access Point Stats (Meraki_MR_Stats)",
             "name": "ConnectionStatus",
             "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
@@ -484,7 +474,7 @@
             "colorThresholds": null
           }]
         },
-        "extra": "",
+        "displaySettings": {},
         "name": "Access Points",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -511,7 +501,7 @@
             "dataSourceFullName": "Meraki Switches (Meraki_MS_Stats)",
             "name": "ConnectionStatus",
             "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
             "deviceDisplayName": "*"
           }],
           "bigNumberItems": [{
@@ -524,7 +514,7 @@
             "colorThresholds": null
           }]
         },
-        "extra": "",
+        "displaySettings": {},
         "name": "Switches",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -546,7 +536,7 @@
           "virtualDataPoints": [],
           "counters": [{
             "name": "CloudControllers",
-            "appliesTo": "hasCategory(\"MerakiCloudController\")"
+            "appliesTo": "join(system.groups,\",\") =~ \"##defaultResourceGroup##\" && hasCategory(\"MerakiCloudController\")"
           }],
           "dataPoints": [],
           "bigNumberItems": [{
@@ -559,7 +549,7 @@
             "colorThresholds": null
           }]
         },
-        "extra": "",
+        "displaySettings": {},
         "name": "snmp.meraki.com",
         "description": "",
         "theme": "newBorderDarkBlue",
@@ -577,27 +567,14 @@
         "sizey": 3
       },
       "config": {
+        "displaySettings": {"pageSize": "25"},
         "columns": [{
           "rpn": "",
           "dataPointName": "ClientCount",
-          "displayType": "percent",
-          "colorThresholds": [
-            {
-              "level": 2,
-              "threshold": 20,
-              "relation": ">"
-            },
-            {
-              "level": 3,
-              "threshold": 25,
-              "relation": ">"
-            },
-            {
-              "level": 4,
-              "threshold": 30,
-              "relation": ">"
-            }
-          ],
+          "displayType": "raw",
+          "minValue": 0,
+          "maxValue": 100,
+          "colorThresholds": [],
           "columnName": "ClientCount",
           "enableForecast": false,
           "roundingDecimal": 2
@@ -614,12 +591,11 @@
           "instanceName": "*",
           "label": "##INSTANCE##",
           "deviceDisplayName": "*",
-          "groupFullPath": "##defaultDeviceGroup##"
+          "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
         "topX": 10,
         "dataSourceFullName": "Meraki Switches (Meraki_MS_Stats)",
-        "extra": "{\"pageSize\":\"25\"}",
         "sortOrder": "descending",
         "name": "Top Switches: Client Count",
         "theme": "newBorderDarkBlue",
