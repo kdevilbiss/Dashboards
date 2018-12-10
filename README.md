@@ -1,6 +1,6 @@
 # Dashboards
 
-A collection of (tokenized) LogicMonitor dashboards that can be re-used across accounts. When importing, change the value of the ##defaultDeviceGroup## token (if needed) to select the relevant group of devices for which you wish to visualize data. These are officially unsupported - but LogicMonitor Support can always help with adjustments!
+A collection of (tokenized) LogicMonitor dashboards that can be re-used across accounts. When importing, change the value of the ##defaultResourceGroup## (or ##defaultDeviceGroup##) token (if needed) to select the relevant group of devices for which you wish to visualize data. These are officially unsupported - but LogicMonitor Support can always help with adjustments!
 
 Most of these dashboards rely on both the latest versions of LogicMonitor datasources, and dynamic groups in the 'Devices by Type' device group. If these groups don't exist, they can be created using the out-of-box PropertySources from LogicMonitor together with the below documentation. [So make sure you have the latest PropertySources (and DataSources) from the repository!](https://www.logicmonitor.com/support/settings/logicmodules/keeping-your-datasources-up-to-date/)
 
@@ -15,6 +15,29 @@ To see a preview of what some of these dashboards look like, visit the [LogicMon
 - VMware Overview | Devices by Type/ VMware Hosts | system.virtualization =~ "VMware ESX Host"
 - Welcome | * | (Works without credentials for all devices)
 - Windows Overview | Devices by Type/ Windows Servers | isWindows()
+
+**Default Dashboards 2.0 Names | Expected dynamic group names | Group definitions:**
+
+- Alerts | * | (Works without credentials for all devices)
+- Collectors | Devices by Type/ Collectors | hasCategory("Collectors")
+- Hyper-V | Devices by Type/ Hyper-V | hasCategory("HyperV")
+- Linux | Devices by Type/ Linux Servers | isLinux()
+- Local Network Latency | Devices by Type/* | (Works without credentials for all devices)
+- Network | Devices by Type/ Network | isNetwork()
+- NOC Alert Map | Devices by Type/ * | (Works via location property on devices)
+- Resource Utilization | Devices by Type/* | *
+- VMware vCenter | Devices by Type/ VMware Hosts | system.virtualization =~ "VMware ESX Host"
+- Welcome to LogicMonitor | * | (Works without credentials for all devices)
+- Windows | Devices by Type/ Windows Servers | isWindows()
+
+**vCenter Suite 1.0 Names | Expected dynamic group | Group definitions:**
+
+- vCenter Capacity Utilization | Devices by Type/VMware vCenters | system.virtualization =~ "vCenter"
+- vCenter Cluster Performance | Devices by Type/VMware vCenters | system.virtualization =~ "vCenter"
+- vCenter Host Performance | Devices by Type/VMware vCenters | system.virtualization =~ "vCenter"
+- vCenter Storage Performance | Devices by Type/VMware vCenters | system.virtualization =~ "vCenter"
+- vCenter Virtual Machine Performance | Devices by Type/VMware vCenters | system.virtualization =~ "vCenter"
+- vCenter VMware Overview | Devices by Type/VMware vCenters | system.virtualization =~ "vCenter"
 
 **Custom Dashboard Names | Expected dynamic group names | Group definitions:**
 
@@ -48,6 +71,7 @@ To see a preview of what some of these dashboards look like, visit the [LogicMon
 - Windows DHCP Server Overview | Devices by Type/ Windows Servers | isWindows()
 
 **Dashboard Groups Info:**
-*The Dashboard Groups folder has (at the moment) two files. They are groups/sets of dashboards packaged into a single JSON:*
-- LogicMonitor Dashboards - this is an export of the default dashboards from a brand new LogicMonitor account.
-- LogicMonitor After Dark - this is effectively version 2.0 of the above, an enhanced and all solid-darkBlue themed set of the default dashboards just mentioned.
+*The Dashboard Groups directory contains merged groups/sets of dashboards packaged into a single JSON file:*
+- LogicMonitor Dashboards 1.0 - this is an export of LM "version 1" default dashboards from a brand new LogicMonitor account.
+- LogicMonitor Dashboards 2.0 - this is an export of LM "version 2" default dashboards from a brand new LogicMonitor account.
+- vCenter Suite 1.0 - a collection of vCenter-focused dashboards that target various elements of VMware infrastructure.
