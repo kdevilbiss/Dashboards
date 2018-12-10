@@ -1,6 +1,6 @@
 # Dashboards
 
-A collection of (tokenized) LogicMonitor dashboards that can be re-used across accounts. When importing, change the value of the ##defaultDeviceGroup## token (if needed) to select the relevant group of devices for which you wish to visualize data. These are officially unsupported - but LogicMonitor Support can always help with adjustments!
+A collection of (tokenized) LogicMonitor dashboards that can be re-used across accounts. When importing, change the value of the ##defaultResourceGroup## (or ##defaultDeviceGroup##) token (if needed) to select the relevant group of devices for which you wish to visualize data. These are officially unsupported - but LogicMonitor Support can always help with adjustments!
 
 Most of these dashboards rely on both the latest versions of LogicMonitor datasources, and dynamic groups in the 'Devices by Type' device group. If these groups don't exist, they can be created using the out-of-box PropertySources from LogicMonitor together with the below documentation. [So make sure you have the latest PropertySources (and DataSources) from the repository!](https://www.logicmonitor.com/support/settings/logicmodules/keeping-your-datasources-up-to-date/)
 
