@@ -36,7 +36,7 @@
         "version" : 2,
         "displayErrorAlert" : true,
         "displayColumn" : 8,
-        "name" : "Linux Resources Alert Status",
+        "name" : "Linux Resource Alert Status",
         "displayCriticalAlert" : true,
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
@@ -1050,7 +1050,7 @@
         "topX" : 25,
         "dataSourceFullName" : "Filesystem Capacity (snmpHRDisk-)",
         "sortOrder" : "descending",
-        "name" : "Top Linux Filesystems by Capacity Utilization %",
+        "name" : "Top Linux Filesystems by Storage Utilization %",
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
         "timescale" : "day"
@@ -1064,7 +1064,7 @@
       },
       "config" : {
         "displaySettings" : { },
-        "name" : "Top Linux Filesystems by Capacity Utilization %",
+        "name" : "Top Linux Filesystems by Storage Utilization %",
         "description" : "",
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
@@ -1744,6 +1744,122 @@
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
         "timescale" : "day"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 12,
+        "row" : 11,
+        "sizey" : 4
+      },
+      "config" : {
+        "displaySettings" : {
+          "sortDirection" : "desc",
+          "isShowAll" : false,
+          "showFilter" : false,
+          "columns" : [ {
+            "visible" : false,
+            "columnLabel" : "Severity",
+            "columnKey" : "alert-severity"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Began",
+            "columnKey" : "alert-began"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Resource/Website",
+            "columnKey" : "alert-device"
+          }, {
+            "visible" : true,
+            "columnLabel" : "LogicModule",
+            "columnKey" : "alert-datasource"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Instance",
+            "columnKey" : "alert-datasource-instance"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Datapoint",
+            "columnKey" : "alert-datapoint"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Value",
+            "columnKey" : "alert-value"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Effective Thresholds",
+            "columnKey" : "alert-thresholds"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Group",
+            "columnKey" : "alert-group"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Notes",
+            "columnKey" : "alert-notes"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Acknowledged By",
+            "columnKey" : "alert-acked-by"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Acknowledged On",
+            "columnKey" : "alert-acked-on"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Cleared On",
+            "columnKey" : "alert-cleared-on"
+          }, {
+            "visible" : false,
+            "columnLabel" : "In SDT",
+            "columnKey" : "alert-in-sdt"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Alert Rule",
+            "columnKey" : "alert-rule-name"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Escalation Chain",
+            "columnKey" : "alert-escalation-chain"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Instance Description",
+            "columnKey" : "alert-datasource-instance-description"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Full Path",
+            "columnKey" : "alert-full-path"
+          } ],
+          "playSound" : {
+            "criticalAlertAudioFileName" : "",
+            "errorAlertAudioFileName" : "",
+            "warningAlertAudioFileName" : "",
+            "shouldPlay" : false
+          },
+          "fontsize" : "normal-font",
+          "sortBy" : "startEpoch"
+        },
+        "name" : "Local Network Latency Alerts",
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "filters" : {
+          "severity" : "",
+          "sdted" : "all",
+          "chain" : "",
+          "instance" : "",
+          "dataPoint" : "",
+          "host" : "",
+          "rule" : "",
+          "keyword" : "",
+          "dataSource" : "HTTP-%7CHTTPS-%7CPort-%7CPing",
+          "acked" : "all",
+          "cleared" : "no",
+          "group" : ""
+        },
+        "type" : "alert",
+        "timescale" : "day",
+        "version" : 2
       }
     } ],
     "version" : 2
@@ -4088,12 +4204,12 @@
           "columns" : [ {
             "visible" : true,
             "columnLabel" : "\n        Name\n        \n    ",
-            "columnSize" : 338,
+            "columnSize" : 293,
             "columnKey" : "device-name-1452842526600"
           }, {
             "visible" : true,
             "columnLabel" : "\n            CPUUsagePercent\n            \n        ",
-            "columnSize" : 146,
+            "columnSize" : 148,
             "columnKey" : "0"
           } ],
           "pageSize" : "25"
@@ -4365,7 +4481,7 @@
       },
       "config" : {
         "displaySettings" : {
-          "pageSize" : "25"
+          "pageSize" : "10"
         },
         "columns" : [ {
           "rpn" : "",
@@ -4393,7 +4509,7 @@
           "groupFullPath" : "##defaultResourceGroup##"
         } ],
         "version" : 2,
-        "topX" : 10,
+        "topX" : 25,
         "dataSourceFullName" : "VMware VM Performance (VMware_vCenter_VMPerformance)",
         "sortOrder" : "descending",
         "name" : "Top Virtual Machines by CPU Utilization %",
@@ -4503,7 +4619,7 @@
           "groupFullPath" : "##defaultResourceGroup##"
         } ],
         "version" : 2,
-        "topX" : 10,
+        "topX" : 25,
         "dataSourceFullName" : "VMware VM Performance (VMware_vCenter_VMPerformance)",
         "sortOrder" : "descending",
         "name" : "Top Virtual Machines by Memory Utilization %",
@@ -5666,7 +5782,7 @@
       },
       "config" : {
         "displaySettings" : { },
-        "name" : "Top Hyper-V Virtual Machines by Memory Pressure",
+        "name" : "Top Hyper-V Virtual Machines by Memory Pressure %",
         "description" : "",
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
@@ -6080,7 +6196,7 @@
         "topX" : 25,
         "dataSourceFullName" : "Volume Capacity (WinVolumeUsage-)",
         "sortOrder" : "descending",
-        "name" : "Top Hyper-V Volumes by Capacity Utilization %",
+        "name" : "Top Hyper-V Volumes by Storage Utilization %",
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
         "timescale" : "day"
@@ -6266,7 +6382,7 @@
       },
       "config" : {
         "displaySettings" : { },
-        "name" : "Top Hyper-V Volumes by Capacity Utilization %",
+        "name" : "Top Hyper-V Volumes by Storage Utilization %",
         "description" : "",
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
@@ -6873,9 +6989,9 @@
     "widgetsConfigVersion" : 2,
     "widgets" : [ {
       "position" : {
-        "col" : 7,
-        "sizex" : 3,
-        "row" : 4,
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 9,
         "sizey" : 3
       },
       "config" : {
@@ -6926,9 +7042,9 @@
       }
     }, {
       "position" : {
-        "col" : 4,
-        "sizex" : 3,
-        "row" : 4,
+        "col" : 1,
+        "sizex" : 4,
+        "row" : 9,
         "sizey" : 3
       },
       "config" : {
@@ -6981,7 +7097,7 @@
       "position" : {
         "col" : 1,
         "sizex" : 4,
-        "row" : 11,
+        "row" : 16,
         "sizey" : 3
       },
       "config" : {
@@ -7034,7 +7150,7 @@
       "position" : {
         "col" : 5,
         "sizex" : 4,
-        "row" : 17,
+        "row" : 23,
         "sizey" : 3
       },
       "config" : {
@@ -7085,14 +7201,14 @@
       }
     }, {
       "position" : {
-        "col" : 10,
-        "sizex" : 3,
-        "row" : 4,
+        "col" : 9,
+        "sizex" : 4,
+        "row" : 9,
         "sizey" : 3
       },
       "config" : {
         "displaySettings" : { },
-        "name" : "Least Utilized ESXi Datastores by Capacity Utilization %",
+        "name" : "Least Utilized ESXi Datastores by Storage Utilization %",
         "description" : "",
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
@@ -7140,12 +7256,12 @@
       "position" : {
         "col" : 9,
         "sizex" : 4,
-        "row" : 11,
+        "row" : 16,
         "sizey" : 3
       },
       "config" : {
         "displaySettings" : { },
-        "name" : "Least Utilized Windows Volumes by Capacity Utilization %",
+        "name" : "Least Utilized Windows Volumes by Storage Utilization %",
         "description" : "",
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
@@ -7193,7 +7309,7 @@
       "position" : {
         "col" : 1,
         "sizex" : 4,
-        "row" : 17,
+        "row" : 23,
         "sizey" : 3
       },
       "config" : {
@@ -7246,7 +7362,7 @@
       "position" : {
         "col" : 5,
         "sizex" : 4,
-        "row" : 11,
+        "row" : 16,
         "sizey" : 3
       },
       "config" : {
@@ -7299,12 +7415,12 @@
       "position" : {
         "col" : 9,
         "sizex" : 4,
-        "row" : 17,
+        "row" : 23,
         "sizey" : 3
       },
       "config" : {
         "displaySettings" : { },
-        "name" : "Least Utilized Linux Resources by Filesystem Capacity Utilization %",
+        "name" : "Least Utilized Linux Resources by Filesystem Utilization %",
         "description" : "",
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
@@ -7350,9 +7466,9 @@
       }
     }, {
       "position" : {
-        "col" : 4,
-        "sizex" : 3,
-        "row" : 1,
+        "col" : 1,
+        "sizex" : 4,
+        "row" : 6,
         "sizey" : 3
       },
       "config" : {
@@ -7407,9 +7523,9 @@
       }
     }, {
       "position" : {
-        "col" : 7,
-        "sizex" : 3,
-        "row" : 1,
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 6,
         "sizey" : 3
       },
       "config" : {
@@ -7464,9 +7580,9 @@
       }
     }, {
       "position" : {
-        "col" : 10,
-        "sizex" : 3,
-        "row" : 1,
+        "col" : 9,
+        "sizex" : 4,
+        "row" : 6,
         "sizey" : 3
       },
       "config" : {
@@ -7514,7 +7630,7 @@
         "topX" : 25,
         "dataSourceFullName" : "VMware Datastore Capacity (VMware_vCenter_DatastoreCapacity)",
         "sortOrder" : "ascending",
-        "name" : "Least Utilized ESXi Datastores by Capacity Utilization %",
+        "name" : "Least Utilized ESXi Datastores by Storage Utilization %",
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
         "timescale" : "day"
@@ -7523,7 +7639,7 @@
       "position" : {
         "col" : 1,
         "sizex" : 4,
-        "row" : 7,
+        "row" : 12,
         "sizey" : 4
       },
       "config" : {
@@ -7568,7 +7684,7 @@
           "groupFullPath" : "##defaultResourceGroup##"
         } ],
         "version" : 2,
-        "topX" : 10,
+        "topX" : 25,
         "dataSourceFullName" : "CPU (WinCPU)",
         "sortOrder" : "ascending",
         "name" : "Least Utilized Windows Resources by CPU Utilization %",
@@ -7580,7 +7696,7 @@
       "position" : {
         "col" : 9,
         "sizex" : 4,
-        "row" : 7,
+        "row" : 12,
         "sizey" : 4
       },
       "config" : {
@@ -7628,7 +7744,7 @@
         "topX" : 25,
         "dataSourceFullName" : "Volume Capacity (WinVolumeUsage-)",
         "sortOrder" : "ascending",
-        "name" : "Least Utilized Windows Volumes by Capacity Utilization %",
+        "name" : "Least Utilized Windows Volumes by Storage Utilization %",
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
         "timescale" : "day"
@@ -7637,7 +7753,7 @@
       "position" : {
         "col" : 5,
         "sizex" : 4,
-        "row" : 7,
+        "row" : 12,
         "sizey" : 4
       },
       "config" : {
@@ -7694,8 +7810,8 @@
       "position" : {
         "col" : 1,
         "sizex" : 4,
-        "row" : 14,
-        "sizey" : 3
+        "row" : 19,
+        "sizey" : 4
       },
       "config" : {
         "displaySettings" : {
@@ -7751,8 +7867,8 @@
       "position" : {
         "col" : 5,
         "sizex" : 4,
-        "row" : 14,
-        "sizey" : 3
+        "row" : 19,
+        "sizey" : 4
       },
       "config" : {
         "displaySettings" : {
@@ -7808,8 +7924,8 @@
       "position" : {
         "col" : 9,
         "sizex" : 4,
-        "row" : 14,
-        "sizey" : 3
+        "row" : 19,
+        "sizey" : 4
       },
       "config" : {
         "displaySettings" : {
@@ -7856,7 +7972,7 @@
         "topX" : 25,
         "dataSourceFullName" : "Filesystem Capacity (snmpHRDisk-)",
         "sortOrder" : "ascending",
-        "name" : "Least Utilized Linux Resources by Filesystem Capacity Utilization %",
+        "name" : "Least Utilized Linux Resources by Filesystem Utilization %",
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
         "timescale" : "day"
@@ -7864,7 +7980,7 @@
     }, {
       "position" : {
         "col" : 1,
-        "sizex" : 3,
+        "sizex" : 4,
         "row" : 1,
         "sizey" : 2
       },
@@ -7920,9 +8036,9 @@
       }
     }, {
       "position" : {
-        "col" : 1,
-        "sizex" : 3,
-        "row" : 3,
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 1,
         "sizey" : 2
       },
       "config" : {
@@ -7977,9 +8093,9 @@
       }
     }, {
       "position" : {
-        "col" : 1,
-        "sizex" : 3,
-        "row" : 5,
+        "col" : 9,
+        "sizex" : 4,
+        "row" : 1,
         "sizey" : 2
       },
       "config" : {
@@ -8031,6 +8147,165 @@
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
         "timescale" : "day"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 4,
+        "row" : 3,
+        "sizey" : 3
+      },
+      "config" : {
+        "displaySettings" : { },
+        "name" : "Least Utilized VMware Clusters by CPU Utilization %",
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "UsedCPUPercent",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "VMware Cluster Performance (VMware_vCenter_ClusterPerformance)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "UsedCPUPercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultResourceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : false,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "VaST"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 3,
+        "sizey" : 3
+      },
+      "config" : {
+        "displaySettings" : { },
+        "name" : "Least Utilized VMware Clusters by Memory Utilization %",
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "UsedMemoryPercent",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "VMware Cluster Performance (VMware_vCenter_ClusterPerformance)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "UsedMemoryPercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultResourceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : false,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "VaST"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
+      }
+    }, {
+      "position" : {
+        "col" : 9,
+        "sizex" : 4,
+        "row" : 3,
+        "sizey" : 3
+      },
+      "config" : {
+        "displaySettings" : { },
+        "name" : "Least Utilized VMware Clusters by Storage Utilization %",
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "graphInfo" : {
+          "virtualDataPoints" : [ ],
+          "minValue" : 0,
+          "topX" : 10,
+          "maxValue" : 100,
+          "dataPoints" : [ {
+            "dataPointName" : "UsedStoragePercent",
+            "instanceName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "dataSourceFullName" : "VMware Cluster Performance (VMware_vCenter_ClusterPerformance)",
+            "consolidateFunction" : "average",
+            "display" : {
+              "color" : "Auto",
+              "legend" : "##INSTANCE##",
+              "type" : "line",
+              "option" : "custom"
+            },
+            "name" : "UsedStoragePercent",
+            "aggregateFunction" : "SUM",
+            "deviceDisplayName" : {
+              "isGlob" : true,
+              "value" : "*"
+            },
+            "deviceGroupFullPath" : {
+              "isGlob" : true,
+              "value" : "##defaultResourceGroup##"
+            }
+          } ],
+          "verticalLabel" : "%",
+          "aggregate" : false,
+          "desc" : false,
+          "scaleUnit" : 1000,
+          "globalConsolidateFunction" : "VaST"
+        },
+        "type" : "cgraph",
+        "timescale" : "1day",
+        "version" : 2
       }
     } ],
     "version" : 2
@@ -8106,7 +8381,7 @@
         "topX" : 25,
         "dataSourceFullName" : "Volume Capacity (WinVolumeUsage-)",
         "sortOrder" : "descending",
-        "name" : "Top SQL Servers by Volume Utilization %",
+        "name" : "Top SQL Servers by Storage Utilization %",
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
         "timescale" : "day"
@@ -8177,7 +8452,7 @@
             "display" : {
               "color" : "Auto",
               "legend" : "##RESOURCENAME##",
-              "type" : "line",
+              "type" : "area",
               "option" : "custom"
             },
             "name" : "CPUBusyPercent",
@@ -8230,7 +8505,7 @@
             "display" : {
               "color" : "Auto",
               "legend" : "##RESOURCENAME##",
-              "type" : "line",
+              "type" : "area",
               "option" : "custom"
             },
             "name" : "MemoryUtilizationPercent",
@@ -8273,7 +8548,7 @@
             "display" : {
               "color" : "Auto",
               "legend" : "##RESOURCENAME## - ##INSTANCE##",
-              "type" : "line",
+              "type" : "area",
               "option" : "custom"
             },
             "name" : "totalbps"
@@ -8989,6 +9264,117 @@
         "interval" : 3,
         "timescale" : "day"
       }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 12,
+        "row" : 16,
+        "sizey" : 4
+      },
+      "config" : {
+        "displaySettings" : {
+          "sortDirection" : "desc",
+          "isShowAll" : false,
+          "showFilter" : false,
+          "columns" : [ {
+            "visible" : false,
+            "columnLabel" : "Severity",
+            "columnKey" : "alert-severity"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Began",
+            "columnKey" : "alert-began"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Resource/Website",
+            "columnKey" : "alert-device"
+          }, {
+            "visible" : true,
+            "columnLabel" : "LogicModule",
+            "columnKey" : "alert-datasource"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Instance",
+            "columnKey" : "alert-datasource-instance"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Datapoint",
+            "columnKey" : "alert-datapoint"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Value",
+            "columnKey" : "alert-value"
+          }, {
+            "visible" : true,
+            "columnLabel" : "Effective Thresholds",
+            "columnKey" : "alert-thresholds"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Group",
+            "columnKey" : "alert-group"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Notes",
+            "columnKey" : "alert-notes"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Acknowledged By",
+            "columnKey" : "alert-acked-by"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Acknowledged On",
+            "columnKey" : "alert-acked-on"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Cleared On",
+            "columnKey" : "alert-cleared-on"
+          }, {
+            "visible" : false,
+            "columnLabel" : "In SDT",
+            "columnKey" : "alert-in-sdt"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Alert Rule",
+            "columnKey" : "alert-rule-name"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Escalation Chain",
+            "columnKey" : "alert-escalation-chain"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Instance Description",
+            "columnKey" : "alert-datasource-instance-description"
+          }, {
+            "visible" : false,
+            "columnLabel" : "Full Path",
+            "columnKey" : "alert-full-path"
+          } ],
+          "playSound" : { },
+          "fontsize" : "normal-font",
+          "sortBy" : "startEpoch"
+        },
+        "name" : "SQL Server Alerts",
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "filters" : {
+          "severity" : "",
+          "sdted" : "all",
+          "chain" : "",
+          "instance" : "",
+          "dataPoint" : "",
+          "host" : "",
+          "rule" : "",
+          "keyword" : "",
+          "dataSource" : "",
+          "acked" : "all",
+          "cleared" : "no",
+          "group" : "%23%23defaultResourceGroup%23%23*"
+        },
+        "type" : "alert",
+        "timescale" : "day",
+        "version" : 2
+      }
     } ],
     "version" : 2
   }, {
@@ -9161,7 +9547,7 @@
       }
     }, {
       "position" : {
-        "col" : 1,
+        "col" : 9,
         "sizex" : 4,
         "row" : 1,
         "sizey" : 4
@@ -9178,7 +9564,7 @@
         "version" : 2,
         "displayErrorAlert" : true,
         "displayColumn" : 4,
-        "name" : "Network Resources Alert Status",
+        "name" : "Network Resource Alert Status",
         "displayCriticalAlert" : true,
         "theme" : "newSolidDarkBlue",
         "interval" : 3,
@@ -9198,8 +9584,8 @@
       }
     }, {
       "position" : {
-        "col" : 5,
-        "sizex" : 4,
+        "col" : 1,
+        "sizex" : 5,
         "row" : 1,
         "sizey" : 4
       },
@@ -9831,8 +10217,8 @@
       }
     }, {
       "position" : {
-        "col" : 9,
-        "sizex" : 4,
+        "col" : 6,
+        "sizex" : 3,
         "row" : 1,
         "sizey" : 4
       },

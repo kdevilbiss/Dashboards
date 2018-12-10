@@ -16,9 +16,9 @@
   "widgets": [
     {
       "position": {
-        "col": 7,
-        "sizex": 3,
-        "row": 4,
+        "col": 5,
+        "sizex": 4,
+        "row": 9,
         "sizey": 3
       },
       "config": {
@@ -70,9 +70,9 @@
     },
     {
       "position": {
-        "col": 4,
-        "sizex": 3,
-        "row": 4,
+        "col": 1,
+        "sizex": 4,
+        "row": 9,
         "sizey": 3
       },
       "config": {
@@ -126,7 +126,7 @@
       "position": {
         "col": 1,
         "sizex": 4,
-        "row": 11,
+        "row": 16,
         "sizey": 3
       },
       "config": {
@@ -180,7 +180,7 @@
       "position": {
         "col": 5,
         "sizex": 4,
-        "row": 17,
+        "row": 23,
         "sizey": 3
       },
       "config": {
@@ -232,14 +232,14 @@
     },
     {
       "position": {
-        "col": 10,
-        "sizex": 3,
-        "row": 4,
+        "col": 9,
+        "sizex": 4,
+        "row": 9,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Least Utilized ESXi Datastores by Capacity Utilization %",
+        "name": "Least Utilized ESXi Datastores by Storage Utilization %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -288,12 +288,12 @@
       "position": {
         "col": 9,
         "sizex": 4,
-        "row": 11,
+        "row": 16,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Least Utilized Windows Volumes by Capacity Utilization %",
+        "name": "Least Utilized Windows Volumes by Storage Utilization %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -342,7 +342,7 @@
       "position": {
         "col": 1,
         "sizex": 4,
-        "row": 17,
+        "row": 23,
         "sizey": 3
       },
       "config": {
@@ -396,7 +396,7 @@
       "position": {
         "col": 5,
         "sizex": 4,
-        "row": 11,
+        "row": 16,
         "sizey": 3
       },
       "config": {
@@ -450,12 +450,12 @@
       "position": {
         "col": 9,
         "sizex": 4,
-        "row": 17,
+        "row": 23,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Least Utilized Linux Resources by Filesystem Capacity Utilization %",
+        "name": "Least Utilized Linux Resources by Filesystem Utilization %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -502,9 +502,9 @@
     },
     {
       "position": {
-        "col": 4,
-        "sizex": 3,
-        "row": 1,
+        "col": 1,
+        "sizex": 4,
+        "row": 6,
         "sizey": 3
       },
       "config": {
@@ -562,9 +562,9 @@
     },
     {
       "position": {
-        "col": 7,
-        "sizex": 3,
-        "row": 1,
+        "col": 5,
+        "sizex": 4,
+        "row": 6,
         "sizey": 3
       },
       "config": {
@@ -622,9 +622,9 @@
     },
     {
       "position": {
-        "col": 10,
-        "sizex": 3,
-        "row": 1,
+        "col": 9,
+        "sizex": 4,
+        "row": 6,
         "sizey": 3
       },
       "config": {
@@ -674,7 +674,7 @@
         "topX": 25,
         "dataSourceFullName": "VMware Datastore Capacity (VMware_vCenter_DatastoreCapacity)",
         "sortOrder": "ascending",
-        "name": "Least Utilized ESXi Datastores by Capacity Utilization %",
+        "name": "Least Utilized ESXi Datastores by Storage Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -684,7 +684,7 @@
       "position": {
         "col": 1,
         "sizex": 4,
-        "row": 7,
+        "row": 12,
         "sizey": 4
       },
       "config": {
@@ -731,7 +731,7 @@
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": 10,
+        "topX": 25,
         "dataSourceFullName": "CPU (WinCPU)",
         "sortOrder": "ascending",
         "name": "Least Utilized Windows Resources by CPU Utilization %",
@@ -744,7 +744,7 @@
       "position": {
         "col": 9,
         "sizex": 4,
-        "row": 7,
+        "row": 12,
         "sizey": 4
       },
       "config": {
@@ -794,7 +794,7 @@
         "topX": 25,
         "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
         "sortOrder": "ascending",
-        "name": "Least Utilized Windows Volumes by Capacity Utilization %",
+        "name": "Least Utilized Windows Volumes by Storage Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -804,7 +804,7 @@
       "position": {
         "col": 5,
         "sizex": 4,
-        "row": 7,
+        "row": 12,
         "sizey": 4
       },
       "config": {
@@ -864,8 +864,8 @@
       "position": {
         "col": 1,
         "sizex": 4,
-        "row": 14,
-        "sizey": 3
+        "row": 19,
+        "sizey": 4
       },
       "config": {
         "displaySettings": {"pageSize": "10"},
@@ -924,8 +924,8 @@
       "position": {
         "col": 5,
         "sizex": 4,
-        "row": 14,
-        "sizey": 3
+        "row": 19,
+        "sizey": 4
       },
       "config": {
         "displaySettings": {"pageSize": "10"},
@@ -984,8 +984,8 @@
       "position": {
         "col": 9,
         "sizex": 4,
-        "row": 14,
-        "sizey": 3
+        "row": 19,
+        "sizey": 4
       },
       "config": {
         "displaySettings": {"pageSize": "10"},
@@ -1034,7 +1034,7 @@
         "topX": 25,
         "dataSourceFullName": "Filesystem Capacity (snmpHRDisk-)",
         "sortOrder": "ascending",
-        "name": "Least Utilized Linux Resources by Filesystem Capacity Utilization %",
+        "name": "Least Utilized Linux Resources by Filesystem Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -1043,7 +1043,7 @@
     {
       "position": {
         "col": 1,
-        "sizex": 3,
+        "sizex": 4,
         "row": 1,
         "sizey": 2
       },
@@ -1102,9 +1102,9 @@
     },
     {
       "position": {
-        "col": 1,
-        "sizex": 3,
-        "row": 3,
+        "col": 5,
+        "sizex": 4,
+        "row": 1,
         "sizey": 2
       },
       "config": {
@@ -1162,9 +1162,9 @@
     },
     {
       "position": {
-        "col": 1,
-        "sizex": 3,
-        "row": 5,
+        "col": 9,
+        "sizex": 4,
+        "row": 1,
         "sizey": 2
       },
       "config": {
@@ -1218,6 +1218,168 @@
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Least Utilized VMware Clusters by CPU Utilization %",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "UsedCPUPercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "VMware Cluster Performance (VMware_vCenter_ClusterPerformance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "UsedCPUPercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Least Utilized VMware Clusters by Memory Utilization %",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "UsedMemoryPercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "VMware Cluster Performance (VMware_vCenter_ClusterPerformance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "UsedMemoryPercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Least Utilized VMware Clusters by Storage Utilization %",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": 100,
+          "dataPoints": [{
+            "dataPointName": "UsedStoragePercent",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "VMware Cluster Performance (VMware_vCenter_ClusterPerformance)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "UsedStoragePercent",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "%",
+          "aggregate": false,
+          "desc": false,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
       }
     }
   ],

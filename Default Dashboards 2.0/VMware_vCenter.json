@@ -379,13 +379,13 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 338,
+              "columnSize": 293,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
               "columnLabel": "\n            CPUUsagePercent\n            \n        ",
-              "columnSize": 146,
+              "columnSize": 148,
               "columnKey": "0"
             }
           ],
@@ -667,7 +667,7 @@
         "sizey": 4
       },
       "config": {
-        "displaySettings": {"pageSize": "25"},
+        "displaySettings": {"pageSize": "10"},
         "columns": [{
           "rpn": "",
           "dataPointName": "CpuUsagePercent",
@@ -694,7 +694,7 @@
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": 10,
+        "topX": 25,
         "dataSourceFullName": "VMware VM Performance (VMware_vCenter_VMPerformance)",
         "sortOrder": "descending",
         "name": "Top Virtual Machines by CPU Utilization %",
@@ -808,7 +808,7 @@
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": 10,
+        "topX": 25,
         "dataSourceFullName": "VMware VM Performance (VMware_vCenter_VMPerformance)",
         "sortOrder": "descending",
         "name": "Top Virtual Machines by Memory Utilization %",

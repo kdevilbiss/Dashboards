@@ -109,7 +109,7 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Hyper-V Virtual Machines by Memory Pressure",
+        "name": "Top Hyper-V Virtual Machines by Memory Pressure %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -536,7 +536,7 @@
         "topX": 25,
         "dataSourceFullName": "Volume Capacity (WinVolumeUsage-)",
         "sortOrder": "descending",
-        "name": "Top Hyper-V Volumes by Capacity Utilization %",
+        "name": "Top Hyper-V Volumes by Storage Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -731,7 +731,7 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Hyper-V Volumes by Capacity Utilization %",
+        "name": "Top Hyper-V Volumes by Storage Utilization %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,

@@ -172,7 +172,7 @@
     },
     {
       "position": {
-        "col": 1,
+        "col": 9,
         "sizex": 4,
         "row": 1,
         "sizey": 4
@@ -189,7 +189,7 @@
         "version": 2,
         "displayErrorAlert": true,
         "displayColumn": 4,
-        "name": "Network Resources Alert Status",
+        "name": "Network Resource Alert Status",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -210,8 +210,8 @@
     },
     {
       "position": {
-        "col": 5,
-        "sizex": 4,
+        "col": 1,
+        "sizex": 5,
         "row": 1,
         "sizey": 4
       },
@@ -863,8 +863,8 @@
     },
     {
       "position": {
-        "col": 9,
-        "sizex": 4,
+        "col": 6,
+        "sizex": 3,
         "row": 1,
         "sizey": 4
       },

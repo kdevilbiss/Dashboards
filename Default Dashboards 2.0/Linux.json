@@ -27,7 +27,7 @@
         "version": 2,
         "displayErrorAlert": true,
         "displayColumn": 8,
-        "name": "Linux Resources Alert Status",
+        "name": "Linux Resource Alert Status",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -1095,7 +1095,7 @@
         "topX": 25,
         "dataSourceFullName": "Filesystem Capacity (snmpHRDisk-)",
         "sortOrder": "descending",
-        "name": "Top Linux Filesystems by Capacity Utilization %",
+        "name": "Top Linux Filesystems by Storage Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -1110,7 +1110,7 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Linux Filesystems by Capacity Utilization %",
+        "name": "Top Linux Filesystems by Storage Utilization %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
