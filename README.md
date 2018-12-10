@@ -71,7 +71,7 @@ To see a preview of what some of these dashboards look like, visit the [LogicMon
 - Windows DHCP Server Overview | Devices by Type/ Windows Servers | isWindows()
 
 **Dashboard Groups Info:**
-*The Dashboard Groups folder has (at the moment) two files. They are groups/sets of dashboards packaged into a single JSON:*
+*The Dashboard Groups directory contains merged groups/sets of dashboards packaged into a single JSON file:*
 - LogicMonitor Dashboards 1.0 - this is an export of LM "version 1" default dashboards from a brand new LogicMonitor account.
 - LogicMonitor Dashboards 2.0 - this is an export of LM "version 2" default dashboards from a brand new LogicMonitor account.
 - vCenter Suite 1.0 - a collection of vCenter-focused dashboards that target various elements of VMware infrastructure.
