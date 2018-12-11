@@ -1,0 +1,247 @@
+{
+  "santabaRelease": 113,
+  "widgetTokens": [{
+    "name": "defaultResourceGroup",
+    "value": "Devices by Type/Windows Servers"
+  }],
+  "name": "Microsoft Message Queue (MSMQ)",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "ackChecked": true,
+        "displaySettings": {
+          "showTypeIcon": false,
+          "displayAs": "table"
+        },
+        "displayWarnAlert": true,
+        "description": "",
+        "type": "noc",
+        "version": 2,
+        "displayErrorAlert": true,
+        "displayColumn": 9,
+        "name": "MSMQ Service Alert Status",
+        "displayCriticalAlert": true,
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "sortBy": "alertSeverity",
+        "timescale": "day",
+        "sdtChecked": true,
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##RESOURCENAME## ",
+          "dataSourceDisplayName": "MSMQ Service-",
+          "groupBy": "device",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "*"
+        }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Queues by Queued Messages",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "MessagesInQueue",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "MSMQ-",
+            "consolidateFunction": "max",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME## ##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "MessagesInQueue",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "messages in queue",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {"pageSize": "10"},
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "MessagesInQueue",
+          "displayType": "raw",
+          "minValue": 0,
+          "maxValue": 100,
+          "colorThresholds": [],
+          "columnName": "MessagesInQueue",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME## - ##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "MSMQ-",
+        "sortOrder": "descending",
+        "name": "Top Queues by Queued Messages",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 7,
+        "sizey": 5
+      },
+      "config": {
+        "displaySettings": {"pageSize": "10"},
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "BytesInQueue",
+          "displayType": "raw",
+          "minValue": 0,
+          "maxValue": 100,
+          "colorThresholds": [],
+          "columnName": "BytesInQueue",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME## - ##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "MSMQ-",
+        "sortOrder": "descending",
+        "name": "Top Queues by Bytes in Queue",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top Queues by Bytes in Queue",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "BytesInQueue",
+            "instanceName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "dataSourceFullName": "MSMQ-",
+            "consolidateFunction": "max",
+            "display": {
+              "color": "Auto",
+              "legend": "##RESOURCENAME## ##INSTANCE##",
+              "type": "stack",
+              "option": "custom"
+            },
+            "name": "BytesInQueue",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": true,
+              "value": "*"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "##defaultResourceGroup##"
+            }
+          }],
+          "verticalLabel": "bytes in queue",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
