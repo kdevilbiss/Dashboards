@@ -17,7 +17,7 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Virtual Machines by CPU Utilization %",
+        "name": "Top VMs by CPU Utilization %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -100,7 +100,7 @@
         "topX": 10,
         "dataSourceFullName": "VMware VM Performance (VMware_vCenter_VMPerformance)",
         "sortOrder": "descending",
-        "name": "Top Virtual Machines by CPU Utilization %",
+        "name": "Top VMs by CPU Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -109,9 +109,9 @@
     {
       "position": {
         "col": 5,
-        "sizex": 4,
+        "sizex": 5,
         "row": 8,
-        "sizey": 4
+        "sizey": 3
       },
       "config": {
         "displaySettings": {},
@@ -125,7 +125,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "line",
+              "type": "area",
               "option": "custom"
             },
             "name": "TotalOps"
@@ -205,7 +205,7 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Virtual Machines by Memory Utilization %",
+        "name": "Top VMs by Memory Utilization %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -304,7 +304,7 @@
         "topX": 10,
         "dataSourceFullName": "VMware VM Performance (VMware_vCenter_VMPerformance)",
         "sortOrder": "descending",
-        "name": "Top Virtual Machines by Memory Utilization %",
+        "name": "Top VMs by Memory Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -314,8 +314,8 @@
       "position": {
         "col": 1,
         "sizex": 4,
-        "row": 8,
-        "sizey": 4
+        "row": 12,
+        "sizey": 3
       },
       "config": {
         "displaySettings": {},
@@ -339,7 +339,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "area",
+              "type": "stack",
               "option": "custom"
             },
             "name": "CPUReadyperVCPUPercent",
@@ -366,9 +366,9 @@
     },
     {
       "position": {
-        "col": 9,
-        "sizex": 4,
-        "row": 8,
+        "col": 5,
+        "sizex": 8,
+        "row": 11,
         "sizey": 4
       },
       "config": {
@@ -383,7 +383,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "line",
+              "type": "area",
               "option": "custom"
             },
             "name": "Total"
@@ -503,7 +503,7 @@
         "topX": 25,
         "dataSourceFullName": "VMware VM Disk Capacity (VMware_vCenter_VMDiskCapacity)",
         "sortOrder": "descending",
-        "name": "Top Virtual Machines by VM Disk Utilization %",
+        "name": "Top VMs by VM Disk Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -518,7 +518,7 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Virtual Machines by VM Disk Utilization %",
+        "name": "Top VMs by VM Disk Utilization %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -567,7 +567,7 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 12,
+        "row": 15,
         "sizey": 4
       },
       "config": {
@@ -671,7 +671,7 @@
           "fontsize": "normal-font",
           "sortBy": "startEpoch"
         },
-        "name": "vCenter Alerts",
+        "name": "vCenter Virtual Machine Alerts",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -684,7 +684,7 @@
           "host": "",
           "rule": "",
           "keyword": "",
-          "dataSource": "",
+          "dataSource": "VMware%20*",
           "acked": "all",
           "cleared": "no",
           "group": "%23%23defaultResourceGroup%23%23*"
@@ -699,7 +699,7 @@
         "col": 10,
         "sizex": 3,
         "row": 4,
-        "sizey": 4
+        "sizey": 7
       },
       "config": {
         "ackChecked": true,
@@ -810,6 +810,66 @@
         "type": "bigNumber",
         "timescale": "day",
         "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 8,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {"pageSize": "10"},
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "CPUReadyPercent",
+          "displayType": "percent",
+          "minValue": 0,
+          "maxValue": 100,
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 5,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 10,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 15,
+              "relation": ">"
+            }
+          ],
+          "columnName": "CPUReadyPercent",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE##",
+          "deviceDisplayName": "*",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "VMware VM Performance (VMware_vCenter_VMPerformance)",
+        "sortOrder": "descending",
+        "name": "Top Virtual Machines by CPU Ready %",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
       }
     }
   ],

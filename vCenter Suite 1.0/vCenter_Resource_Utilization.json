@@ -4,7 +4,7 @@
     "name": "defaultResourceGroup",
     "value": "Devices by Type/VMware vCenters"
   }],
-  "name": "vCenter Capacity Utilization",
+  "name": "vCenter Resource Utilization",
   "description": "",
   "widgetsConfigVersion": 2,
   "widgets": [
@@ -17,7 +17,7 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Least Utilized VMware Datastores by Capacity Utilization %",
+        "name": "Least Utilized VMware Datastores by Storage Utilization %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -37,7 +37,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "line",
+              "type": "area",
               "option": "custom"
             },
             "name": "PercentUsed",
@@ -116,7 +116,7 @@
         "topX": 25,
         "dataSourceFullName": "VMware Datastore Capacity (VMware_vCenter_DatastoreCapacity)",
         "sortOrder": "ascending",
-        "name": "Least Utilized VMware Datastores by Capacity Utilization %",
+        "name": "Least Utilized VMware Datastores by Storage Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -151,7 +151,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "line",
+              "type": "area",
               "option": "custom"
             },
             "name": "CPUUsagePercent",
@@ -265,7 +265,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "line",
+              "type": "area",
               "option": "custom"
             },
             "name": "MemoryUsagePercent",
@@ -559,7 +559,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "line",
+              "type": "area",
               "option": "custom"
             },
             "name": "UsedCPUPercent",
@@ -613,7 +613,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "line",
+              "type": "area",
               "option": "custom"
             },
             "name": "UsedMemoryPercent",
@@ -667,7 +667,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "line",
+              "type": "area",
               "option": "custom"
             },
             "name": "UsedStoragePercent",
@@ -866,7 +866,7 @@
         "topX": 25,
         "dataSourceFullName": "VMware VM Disk Capacity (VMware_vCenter_VMDiskCapacity)",
         "sortOrder": "ascending",
-        "name": "Least Utilized VMware VM Disks by Capacity Utilization %",
+        "name": "Least Utilized VMware VM Disks by Storage Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -989,7 +989,7 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Least Utilized VMware VM Disks by Capacity Utilization %",
+        "name": "Least Utilized VMware VM Disks by Storage Utilization %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,

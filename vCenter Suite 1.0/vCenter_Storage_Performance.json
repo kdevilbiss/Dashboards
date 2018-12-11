@@ -62,7 +62,7 @@
         "topX": 10,
         "dataSourceFullName": "VMware Datastore Capacity (VMware_vCenter_DatastoreCapacity)",
         "sortOrder": "descending",
-        "name": "Top Datastores by Percent Used",
+        "name": "Top Datastores by Storage Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -147,7 +147,7 @@
         "version": 2,
         "displayErrorAlert": true,
         "displayColumn": 2,
-        "name": "VMware DataStore Status",
+        "name": "VMware Datastore Status",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -363,7 +363,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "line",
+              "type": "area",
               "option": "custom"
             },
             "name": "ReadCommands",
@@ -417,7 +417,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "line",
+              "type": "area",
               "option": "custom"
             },
             "name": "WriteCommands",
@@ -471,7 +471,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "line",
+              "type": "area",
               "option": "custom"
             },
             "name": "ReadLatency",
@@ -525,7 +525,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "line",
+              "type": "area",
               "option": "custom"
             },
             "name": "WriteLatency",

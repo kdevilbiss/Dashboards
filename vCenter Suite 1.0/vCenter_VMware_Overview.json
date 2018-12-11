@@ -553,7 +553,7 @@
             "display": {
               "color": "Auto",
               "legend": "##INSTANCE##",
-              "type": "line",
+              "type": "area",
               "option": "custom"
             },
             "name": "PercentUsed",
@@ -1001,12 +1001,12 @@
       "position": {
         "col": 4,
         "sizex": 3,
-        "row": 23,
+        "row": 24,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Virtual Machines by CPU Utilization %",
+        "name": "Top VMs by CPU Utilization %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -1056,7 +1056,7 @@
         "col": 4,
         "sizex": 3,
         "row": 19,
-        "sizey": 4
+        "sizey": 5
       },
       "config": {
         "displaySettings": {"pageSize": "25"},
@@ -1089,7 +1089,7 @@
         "topX": 10,
         "dataSourceFullName": "VMware VM Performance (VMware_vCenter_VMPerformance)",
         "sortOrder": "descending",
-        "name": "Top Virtual Machines by CPU Utilization %",
+        "name": "Top VMs by CPU Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -1099,7 +1099,7 @@
       "position": {
         "col": 1,
         "sizex": 4,
-        "row": 26,
+        "row": 27,
         "sizey": 4
       },
       "config": {
@@ -1189,12 +1189,12 @@
       "position": {
         "col": 7,
         "sizex": 3,
-        "row": 23,
+        "row": 24,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Virtual Machines by Memory Utilization %",
+        "name": "Top VMs by Memory Utilization %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -1244,7 +1244,7 @@
         "col": 7,
         "sizex": 3,
         "row": 19,
-        "sizey": 4
+        "sizey": 5
       },
       "config": {
         "displaySettings": {"pageSize": "10"},
@@ -1293,7 +1293,7 @@
         "topX": 10,
         "dataSourceFullName": "VMware VM Performance (VMware_vCenter_VMPerformance)",
         "sortOrder": "descending",
-        "name": "Top Virtual Machines by Memory Utilization %",
+        "name": "Top VMs by Memory Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -1303,12 +1303,12 @@
       "position": {
         "col": 1,
         "sizex": 3,
-        "row": 23,
+        "row": 24,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Virtual Machines by vCPU Ready %",
+        "name": "Top VMs by vCPU Ready %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -1357,7 +1357,7 @@
       "position": {
         "col": 9,
         "sizex": 4,
-        "row": 26,
+        "row": 27,
         "sizey": 4
       },
       "config": {
@@ -1448,7 +1448,7 @@
         "col": 10,
         "sizex": 3,
         "row": 19,
-        "sizey": 4
+        "sizey": 5
       },
       "config": {
         "displaySettings": {"pageSize": "10"},
@@ -1492,7 +1492,7 @@
         "topX": 25,
         "dataSourceFullName": "VMware VM Disk Capacity (VMware_vCenter_VMDiskCapacity)",
         "sortOrder": "descending",
-        "name": "Top Virtual Machines by VM Disk Utilization %",
+        "name": "Top VMs by VM Disk Utilization %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -1502,12 +1502,12 @@
       "position": {
         "col": 10,
         "sizex": 3,
-        "row": 23,
+        "row": 24,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Virtual Machines by VM Disk Utilization %",
+        "name": "Top VMs by VM Disk Utilization %",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -1556,7 +1556,7 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 30,
+        "row": 31,
         "sizey": 4
       },
       "config": {
@@ -1688,7 +1688,7 @@
         "col": 1,
         "sizex": 3,
         "row": 19,
-        "sizey": 4
+        "sizey": 5
       },
       "config": {
         "ackChecked": true,
@@ -1817,7 +1817,7 @@
       "position": {
         "col": 5,
         "sizex": 4,
-        "row": 26,
+        "row": 27,
         "sizey": 4
       },
       "config": {
