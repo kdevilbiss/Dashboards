@@ -41,34 +41,32 @@ To see a preview of what some of these dashboards look like, visit the [LogicMon
 
 **Custom Dashboard Names | Expected dynamic group names | Group definitions:**
 
-- Active Directory Overview | Devices by Type/ Domain Controllers | hasCategory("MicrosoftDomainController")
-- APC Overview | Devices by Type/ APC | hasCategory("APC")
-- Aruba Wireless Overview | Devices by Type/ Aruba | hasCategory("Aruba")
-- Brocade Overview | Devices by Type/ Brocade | hasCategory("Brocade")
-- Checkpoint Overview | Devices by Type/ Checkpoint | system.sysoid == "1.3.6.1.4.1.2620.1.6.123.1.49"
-- Cisco ASA Overview | Devices by Type/ Cisco ASA | hasCategory("CiscoASA")
-- Cisco WLC Overview | Devices by Type/ Cisco WLC | system.displayname =~ "WLC"
+- Active Directory | Devices by Type/ Domain Controllers | hasCategory("MicrosoftDomainController")
+- APC | Devices by Type/ APC | hasCategory("APC")
+- Aruba Wireless | Devices by Type/ Aruba | hasCategory("Aruba")
+- Brocade | Devices by Type/ Brocade | hasCategory("Brocade")
+- Checkpoint | Devices by Type/ Checkpoint | system.sysoid == "1.3.6.1.4.1.2620.1.6.123.1.49"
+- Cisco ASA | Devices by Type/ Cisco ASA | hasCategory("CiscoASA")
+- Cisco WLC | Devices by Type/ Cisco WLC | system.displayname =~ "WLC"
 - Dell iDRAC Hardware Status | Devices by Type/ Dell iDRAC | hasCategory("DellDRACDetail")
-- EMC VNX Overview | Devices by Type/ EMC | hasCategory("EMC") || hasCategory("EMC_VNX") || hasCategory("EMC_VNX2")
-- Exchange Server Overview | Devices by Type/ Exchange Servers | hasCategory("MSExchange")
-- F5 BIG-IP Overview | Devices by Type/ F5 | hasCategory("F5")
-- Fortinet Fortigate Overview | Devices by Type/ Fortinet | hasCategory("Fortigate")
-- Hyper-V Overview | Devices by Type/ Hyper-V | hasCategory("HyperV")
-- Local Network Latency | * | (Works without credentials for all devices)
+- EMC VNX | Devices by Type/ EMC | hasCategory("EMC") || hasCategory("EMC_VNX") || hasCategory("EMC_VNX2")
+- Exchange Server | Devices by Type/ Exchange Servers | hasCategory("MSExchange")
+- F5 BIG-IP | Devices by Type/ F5 | hasCategory("F5")
+- Fortinet Fortigate | Devices by Type/ Fortinet | hasCategory("Fortigate")
 - LogicMonitor Portal Metrics | * | (Requires the LogicMonitor Portal Metrics custom datasource)
-- Meraki Overview | Devices by Type/ Meraki | hasCategory("MerakiCloudController")
-- Meraki Overview Expanded | Devices by Type/ Meraki | hasCategory("MerakiCloudController")
+- Meraki | Devices by Type/ Meraki | hasCategory("MerakiCloudController")
+- Meraki  Expanded | Devices by Type/ Meraki | hasCategory("MerakiCloudController")
 - Nimble Storage | Devices by Type/ Nimble | hasCategory("Nimble")
-- Palo Alto Overview | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
-- Pure Storage Overview | Devices by Type/ Pure Storage | purestorage.apitoken.pass
-- SonicWall Overview | Devices by Type/ SonicWall | hasCategory("SonicWallFW")
-- SQL Server Overview | Devices by Type/ SQL Servers | hasCategory("MSSQL")
-- SQL Server Overview (JDBC)| Devices by Type/ SQL Servers | hasCategory("MSSQL")  *For the latest MSSQL DataSources*
-- Ubiquiti Unifi Overview | Devices by Type/ Ubiquiti Unifi | unifi.user && unifi.pass
+- Palo Alto | Devices by Type/ Palo Alto | hasCategory("PaloAlto")
+- Pure Storage | Devices by Type/ Pure Storage | purestorage.apitoken.pass
+- SonicWall | Devices by Type/ SonicWall | hasCategory("SonicWallFW")
+- SQL Server | Devices by Type/ SQL Servers | hasCategory("MSSQL")
+- SQL Server (JDBC)| Devices by Type/ SQL Servers | hasCategory("MSSQL")  *For the latest MSSQL DataSources*
+- Ubiquiti Unifi | Devices by Type/ Ubiquiti Unifi | unifi.user && unifi.pass
 - Under Utilized Devices - On-Prem | * | (Point at the device group you wish to target)
 - Under Utilized Devices - Public Cloud | AWS or Azure account | (Requires a local collector to be installed and monitoring cloud VMs)
-- Web Server Overview | Devices by Type/ Web Servers | hasCategory("MicrosoftIIS")
-- Windows DHCP Server Overview | Devices by Type/ Windows Servers | isWindows()
+- Web Server | Devices by Type/ Web Servers | hasCategory("MicrosoftIIS")
+- Windows DHCP Server | Devices by Type/ Windows Servers | isWindows()
 
 **Dashboard Groups Info:**
 *The Dashboard Groups directory contains merged groups/sets of dashboards packaged into a single JSON file:*
