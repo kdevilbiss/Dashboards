@@ -65,6 +65,9 @@ To see a preview of what some of these dashboards look like, visit the [LogicMon
 - Ubiquiti Unifi | Devices by Type/ Ubiquiti Unifi | unifi.user && unifi.pass
 - Under Utilized Devices - On-Prem | * | (Point at the device group you wish to target)
 - Under Utilized Devices - Public Cloud | AWS or Azure account | (Requires a local collector to be installed and monitoring cloud VMs)
+- VMware_ESXi | Devices by Type/ VMware Hosts | system.virtualization =~ "VMware ESXi Host" (ESXi-Only, v.3 modules)
+- VMware_vCenter_v1 | Devices by Type/ VMware vCenters | system.virtualization =~ "VMware ESXi vCenter" (Uses v.2 modules)
+- VMware_vCenter_v2 | Devices by Type/ VMware vCenters | system.virtualization =~ "VMware ESXi vCenter" (Uses v.3 modules)
 - Web Server | Devices by Type/ Web Servers | hasCategory("MicrosoftIIS")
 - Windows DHCP Server | Devices by Type/ Windows Servers | isWindows()
 
