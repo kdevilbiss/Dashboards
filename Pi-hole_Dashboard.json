@@ -1,0 +1,717 @@
+{
+  "santabaRelease": 115,
+  "widgetTokens": [{
+    "name": "defaultResourceGroup",
+    "value": "Devices by Type/Linux Servers"
+  }],
+  "name": "Pi-hole Dashboard",
+  "description": "",
+  "widgetsConfigVersion": 2,
+  "widgets": [
+    {
+      "position": {
+        "col": 1,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "dns_queries_today",
+            "instanceName": "*",
+            "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+            "name": "dns_queries_today",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "dns_queries_today",
+            "useCommaSeparators": true,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "DNS Queries",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Total DNS Queries Today",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "ads_percentage_today",
+            "instanceName": "*",
+            "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+            "name": "ads_percentage_today",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "ads_percentage_today",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 2,
+            "position": 1,
+            "rightLabel": "Blocked Query %",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Queries Blocked Today",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 10,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "domains_being_blocked",
+            "instanceName": "*",
+            "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+            "name": "domains_being_blocked",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "domains_being_blocked",
+            "useCommaSeparators": true,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Blocked Domains",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Total Blacklisted Domains",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 4,
+        "sizex": 3,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "ads_blocked_today",
+            "instanceName": "*",
+            "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+            "name": "ads_blocked_today",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "*"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "ads_blocked_today",
+            "useCommaSeparators": true,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Ads Blocked",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Ads Blocked Today",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "DNS Queries",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "dns_queries_today",
+              "instanceName": {
+                "isGlob": false,
+                "value": "DNS_Server_Pihole_Summary"
+              },
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "black",
+                "legend": "total queries",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "dns_queries_today",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "kd-dev2"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "ads_blocked_today",
+              "instanceName": {
+                "isGlob": false,
+                "value": "DNS_Server_Pihole_Summary"
+              },
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "red",
+                "legend": "ads blocked",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "ads_blocked_today",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "kd-dev2"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "queries_cached",
+              "instanceName": {
+                "isGlob": false,
+                "value": "DNS_Server_Pihole_Summary"
+              },
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "blue",
+                "legend": "queries cached",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "queries_cached",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "kd-dev2"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "queries_forwarded",
+              "instanceName": {
+                "isGlob": false,
+                "value": "DNS_Server_Pihole_Summary"
+              },
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "queries forwarded",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "queries_forwarded",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "kd-dev2"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "# queries",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 8,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Unique Domains",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "unique_domains",
+            "instanceName": {
+              "isGlob": false,
+              "value": "DNS_Server_Pihole_Summary"
+            },
+            "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "olive",
+              "legend": "unique domains",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "unique_domains",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": false,
+              "value": "kd-dev2"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "*"
+            }
+          }],
+          "verticalLabel": "# domains",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 6,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Ads Blocked",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [{
+            "dataPointName": "ads_blocked_today",
+            "instanceName": {
+              "isGlob": false,
+              "value": "DNS_Server_Pihole_Summary"
+            },
+            "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+            "consolidateFunction": "average",
+            "display": {
+              "color": "red",
+              "legend": "ads blocked",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "ads_blocked_today",
+            "aggregateFunction": "SUM",
+            "deviceDisplayName": {
+              "isGlob": false,
+              "value": "kd-dev2"
+            },
+            "deviceGroupFullPath": {
+              "isGlob": true,
+              "value": "*"
+            }
+          }],
+          "verticalLabel": "# blocked",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "DNS Replies",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": 0,
+          "topX": 0,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "reply_CNAME",
+              "instanceName": {
+                "isGlob": false,
+                "value": "DNS_Server_Pihole_Summary"
+              },
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "blue",
+                "legend": "CNAME",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "reply_CNAME",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "kd-dev2"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "reply_IP",
+              "instanceName": {
+                "isGlob": false,
+                "value": "DNS_Server_Pihole_Summary"
+              },
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "olive",
+                "legend": "IP",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "reply_IP",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "kd-dev2"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "reply_NODATA",
+              "instanceName": {
+                "isGlob": false,
+                "value": "DNS_Server_Pihole_Summary"
+              },
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "yellow",
+                "legend": "NODATA",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "reply_NODATA",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "kd-dev2"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            },
+            {
+              "dataPointName": "reply_NXDOMAIN",
+              "instanceName": {
+                "isGlob": false,
+                "value": "DNS_Server_Pihole_Summary"
+              },
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "orange2",
+                "legend": "NXDOMAIN",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "reply_NXDOMAIN",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": false,
+                "value": "kd-dev2"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "*"
+              }
+            }
+          ],
+          "verticalLabel": "# replies",
+          "aggregate": true,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "1day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 6,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "DNS Server Replies",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "reply_CNAME",
+              "top10": true,
+              "instanceName": "*",
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "name": "reply_CNAME",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": false
+            },
+            {
+              "dataPointName": "reply_IP",
+              "top10": true,
+              "instanceName": "*",
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "name": "reply_IP",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": false
+            },
+            {
+              "dataPointName": "reply_NODATA",
+              "top10": true,
+              "instanceName": "*",
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "name": "reply_NODATA",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": false
+            },
+            {
+              "dataPointName": "reply_NXDOMAIN",
+              "top10": true,
+              "instanceName": "*",
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "name": "reply_NXDOMAIN",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": false
+            }
+          ],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": true,
+          "pieChartItems": [
+            {
+              "dataPointName": "reply_NXDOMAIN",
+              "color": "Auto",
+              "legend": "NXDOMAIN"
+            },
+            {
+              "dataPointName": "reply_NODATA",
+              "color": "Auto",
+              "legend": "NO DATA"
+            },
+            {
+              "dataPointName": "reply_IP",
+              "color": "Auto",
+              "legend": "IP ADDRESS"
+            },
+            {
+              "dataPointName": "reply_CNAME",
+              "color": "Auto",
+              "legend": "CNAME"
+            }
+          ],
+          "title": "DNS Server Replies"
+        },
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 6,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "DNS Server Queries",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "pieChart",
+        "timescale": "day",
+        "pieChartInfo": {
+          "maxSlicesCanBeShown": 25,
+          "virtualDataPoints": [],
+          "showLabelsAndLinesOnPC": true,
+          "counters": [],
+          "dataPoints": [
+            {
+              "dataPointName": "ads_blocked_today",
+              "top10": true,
+              "instanceName": "*",
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "name": "ads_blocked_today",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": false
+            },
+            {
+              "dataPointName": "queries_cached",
+              "top10": true,
+              "instanceName": "*",
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "name": "queries_cached",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": false
+            },
+            {
+              "dataPointName": "queries_forwarded",
+              "top10": true,
+              "instanceName": "*",
+              "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
+              "name": "queries_forwarded",
+              "aggregateFunction": "SUM",
+              "deviceGroupFullPath": "##defaultResourceGroup##",
+              "deviceDisplayName": "*",
+              "aggregate": false
+            }
+          ],
+          "hideZeroPercentSlices": false,
+          "groupRemainingAsOthers": true,
+          "pieChartItems": [
+            {
+              "dataPointName": "queries_forwarded",
+              "color": "Auto",
+              "legend": "Forwarded"
+            },
+            {
+              "dataPointName": "queries_cached",
+              "color": "Auto",
+              "legend": "Cached"
+            },
+            {
+              "dataPointName": "ads_blocked_today",
+              "color": "Auto",
+              "legend": "Blocked"
+            }
+          ],
+          "title": "DNS Server Queries"
+        },
+        "version": 2
+      }
+    }
+  ],
+  "version": 2
+}
