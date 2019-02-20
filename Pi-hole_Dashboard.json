@@ -184,7 +184,7 @@
         "graphInfo": {
           "virtualDataPoints": [],
           "minValue": 0,
-          "topX": 0,
+          "topX": 10,
           "maxValue": "NaN",
           "dataPoints": [
             {
@@ -196,7 +196,7 @@
               "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
               "consolidateFunction": "average",
               "display": {
-                "color": "black",
+                "color": "Auto",
                 "legend": "total queries",
                 "type": "line",
                 "option": "custom"
@@ -204,12 +204,12 @@
               "name": "dns_queries_today",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "kd-dev2"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -221,7 +221,7 @@
               "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
               "consolidateFunction": "average",
               "display": {
-                "color": "red",
+                "color": "Auto",
                 "legend": "ads blocked",
                 "type": "stack",
                 "option": "custom"
@@ -229,12 +229,12 @@
               "name": "ads_blocked_today",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "kd-dev2"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -246,7 +246,7 @@
               "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
               "consolidateFunction": "average",
               "display": {
-                "color": "blue",
+                "color": "Auto",
                 "legend": "queries cached",
                 "type": "stack",
                 "option": "custom"
@@ -254,8 +254,8 @@
               "name": "queries_cached",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "kd-dev2"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -271,7 +271,7 @@
               "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
               "consolidateFunction": "average",
               "display": {
-                "color": "olive",
+                "color": "Auto",
                 "legend": "queries forwarded",
                 "type": "stack",
                 "option": "custom"
@@ -279,17 +279,17 @@
               "name": "queries_forwarded",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "kd-dev2"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
           "verticalLabel": "# queries",
-          "aggregate": true,
+          "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
           "globalConsolidateFunction": "VaST"
@@ -334,12 +334,12 @@
             "name": "unique_domains",
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
-              "isGlob": false,
-              "value": "kd-dev2"
+              "isGlob": true,
+              "value": "*"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "# domains",
@@ -369,7 +369,7 @@
         "graphInfo": {
           "virtualDataPoints": [],
           "minValue": 0,
-          "topX": 0,
+          "topX": 10,
           "maxValue": "NaN",
           "dataPoints": [{
             "dataPointName": "ads_blocked_today",
@@ -380,7 +380,7 @@
             "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
             "consolidateFunction": "average",
             "display": {
-              "color": "red",
+              "color": "Auto",
               "legend": "ads blocked",
               "type": "area",
               "option": "custom"
@@ -388,16 +388,16 @@
             "name": "ads_blocked_today",
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
-              "isGlob": false,
-              "value": "kd-dev2"
+              "isGlob": true,
+              "value": "*"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "# blocked",
-          "aggregate": true,
+          "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
           "globalConsolidateFunction": "default"
@@ -423,7 +423,7 @@
         "graphInfo": {
           "virtualDataPoints": [],
           "minValue": 0,
-          "topX": 0,
+          "topX": 10,
           "maxValue": "NaN",
           "dataPoints": [
             {
@@ -435,7 +435,7 @@
               "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
               "consolidateFunction": "average",
               "display": {
-                "color": "blue",
+                "color": "Auto",
                 "legend": "CNAME",
                 "type": "stack",
                 "option": "custom"
@@ -443,12 +443,12 @@
               "name": "reply_CNAME",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "kd-dev2"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -460,7 +460,7 @@
               "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
               "consolidateFunction": "average",
               "display": {
-                "color": "olive",
+                "color": "Auto",
                 "legend": "IP",
                 "type": "stack",
                 "option": "custom"
@@ -468,12 +468,12 @@
               "name": "reply_IP",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "kd-dev2"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -485,7 +485,7 @@
               "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
               "consolidateFunction": "average",
               "display": {
-                "color": "yellow",
+                "color": "Auto",
                 "legend": "NODATA",
                 "type": "stack",
                 "option": "custom"
@@ -493,12 +493,12 @@
               "name": "reply_NODATA",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "kd-dev2"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -510,7 +510,7 @@
               "dataSourceFullName": "DNS Server Summary (DNS_Server_Pihole_Summary)",
               "consolidateFunction": "average",
               "display": {
-                "color": "orange2",
+                "color": "Auto",
                 "legend": "NXDOMAIN",
                 "type": "stack",
                 "option": "custom"
@@ -518,17 +518,17 @@
               "name": "reply_NXDOMAIN",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
-                "isGlob": false,
-                "value": "kd-dev2"
+                "isGlob": true,
+                "value": "*"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
           "verticalLabel": "# replies",
-          "aggregate": true,
+          "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
           "globalConsolidateFunction": "default"
