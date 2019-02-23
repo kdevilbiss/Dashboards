@@ -1,5 +1,5 @@
 {
-  "santabaRelease": 113,
+  "santabaRelease": 115,
   "widgetTokens": [{
     "name": "defaultResourceGroup",
     "value": "Devices by Type/Windows Servers"
@@ -641,6 +641,7 @@
           "dataPointName": "PercentTimeinGC",
           "displayType": "percent",
           "minValue": 0,
+          "unitLabel": "",
           "maxValue": 100,
           "colorThresholds": [
             {
