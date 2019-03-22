@@ -1079,12 +1079,12 @@
             "name": "node_uptime",
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
-              "isGlob": false,
-              "value": "NetApp Cluster - bc-netapp"
+              "isGlob": true,
+              "value": "*"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "day(s)",
