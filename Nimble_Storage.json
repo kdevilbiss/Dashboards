@@ -1,12 +1,13 @@
 {
-  "santabaRelease": 111,
+  "santabaRelease": 116,
   "widgetTokens": [{
-    "name": "defaultDeviceGroup",
-    "value": "Devices by Type/Nimble"
+    "name": "defaultResourceGroup",
+    "value": "Devices by Type/Storage"
   }],
-  "name": "Nimble Storage Overview",
+  "name": "Nimble Storage",
   "description": "",
   "widgetsConfigVersion": 2,
+  "type": "dashboard",
   "widgets": [
     {
       "position": {
@@ -36,7 +37,7 @@
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##HOSTNAME## - ##INSTANCE##",
+              "legend": "##RESOURCENAME## - ##INSTANCE##",
               "type": "area",
               "option": "custom"
             },
@@ -48,7 +49,7 @@
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "load",
@@ -95,7 +96,7 @@
           "dataSourceDisplayName": "HDD Disks",
           "groupBy": "instance",
           "type": "device",
-          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
           "deviceDisplayName": "*"
         }]
       }
@@ -133,7 +134,7 @@
           "dataSourceDisplayName": "SSD Disks",
           "groupBy": "instance",
           "type": "device",
-          "deviceGroupFullPath": "##defaultDeviceGroup##",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
           "deviceDisplayName": "*"
         }]
       }
@@ -156,7 +157,7 @@
             "rpn": "InMbps + OutMbps",
             "display": {
               "color": "Auto",
-              "legend": "##HOSTNAME## - ##INSTANCE##",
+              "legend": "##RESOURCENAME## - ##INSTANCE##",
               "type": "line",
               "option": "custom"
             },
@@ -188,7 +189,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -213,7 +214,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -278,7 +279,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -303,7 +304,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -332,6 +333,7 @@
           "dataPointName": "PercentUsed",
           "displayType": "percent",
           "minValue": 0,
+          "unitLabel": "",
           "maxValue": 100,
           "colorThresholds": [
             {
@@ -361,7 +363,7 @@
           "instanceName": "*",
           "label": "##INSTANCE##",
           "deviceDisplayName": "*",
-          "groupFullPath": "##defaultDeviceGroup##"
+          "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
         "topX": 25,
@@ -402,7 +404,7 @@
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## Reads",
+                "legend": "##RESOURCENAME## Reads",
                 "type": "line",
                 "option": "custom"
               },
@@ -414,7 +416,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -427,7 +429,7 @@
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## Writes",
+                "legend": "##RESOURCENAME## Writes",
                 "type": "line",
                 "option": "custom"
               },
@@ -439,7 +441,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -476,14 +478,14 @@
             {
               "dataPointName": "ioReadBytes",
               "instanceName": {
-                "isGlob": true,
-                "value": "*"
+                "isGlob": false,
+                "value": "Nimble Global Stats"
               },
               "dataSourceFullName": "Global Stats (Nimble Global Stats)",
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## Read",
+                "legend": "##RESOURCENAME## Read",
                 "type": "area",
                 "option": "custom"
               },
@@ -495,20 +497,20 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
               "dataPointName": "ioWriteBytes",
               "instanceName": {
-                "isGlob": true,
-                "value": "*"
+                "isGlob": false,
+                "value": "Nimble Global Stats"
               },
               "dataSourceFullName": "Global Stats (Nimble Global Stats)",
               "consolidateFunction": "average",
               "display": {
                 "color": "Auto",
-                "legend": "##HOSTNAME## Write",
+                "legend": "##RESOURCENAME## Write",
                 "type": "area",
                 "option": "custom"
               },
@@ -520,7 +522,7 @@
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -571,6 +573,7 @@
           "dataPointName": "TotalArrayUsagePercent",
           "displayType": "percent",
           "minValue": 0,
+          "unitLabel": "",
           "maxValue": 100,
           "colorThresholds": [
             {
@@ -605,13 +608,13 @@
           "instanceName": "*",
           "label": "##INSTANCE##",
           "deviceDisplayName": "*",
-          "groupFullPath": "##defaultDeviceGroup##"
+          "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
         "topX": 25,
         "dataSourceFullName": "Array Info (Nimble Array Info)",
         "sortOrder": "descending",
-        "name": "Top Nimbles by Total Array Usage %",
+        "name": "Top Nimble Arrays by Total Usage %",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -626,7 +629,6 @@
       },
       "config": {
         "displaySettings": {
-          "sortDirection": "desc",
           "isShowAll": false,
           "showFilter": false,
           "columns": [
@@ -723,7 +725,7 @@
           ],
           "playSound": {},
           "fontsize": "normal-font",
-          "sortBy": "startEpoch"
+          "sort": "-startEpoch"
         },
         "name": "Nimble Array Alerts",
         "description": "",
@@ -741,7 +743,7 @@
           "dataSource": "",
           "acked": "all",
           "cleared": "no",
-          "group": "%23%23defaultDeviceGroup%23%23"
+          "group": "%23%23defaultResourceGroup%23%23"
         },
         "type": "alert",
         "timescale": "day",
