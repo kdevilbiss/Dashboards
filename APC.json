@@ -1,12 +1,19 @@
 {
-  "santabaRelease": 107,
-  "widgetTokens": [{
-    "name": "defaultDeviceGroup",
-    "value": "Devices by Type/APC"
-  }],
-  "name": "APC Overview",
+  "santabaRelease": 126,
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "Devices by Type/APC"
+    },
+    {
+      "name": "defaultResourceName",
+      "value": "*"
+    }
+  ],
+  "name": "APC",
   "description": "",
   "widgetsConfigVersion": 2,
+  "type": "dashboard",
   "widgets": [
     {
       "position": {
@@ -16,7 +23,6 @@
         "sizey": 2
       },
       "config": {
-        "timeScale": "12hour",
         "displaySettings": {},
         "name": "Top Interfaces by Egress Throughput",
         "description": "",
@@ -54,11 +60,11 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "bps",
@@ -80,7 +86,6 @@
         "sizey": 2
       },
       "config": {
-        "timeScale": "12hour",
         "displaySettings": {},
         "name": "Top Interfaces by Ingress Throughput",
         "description": "",
@@ -118,11 +123,11 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "bps",
@@ -144,7 +149,6 @@
         "sizey": 3
       },
       "config": {
-        "timeScale": "12hour",
         "displaySettings": {},
         "name": "Ping Round-Trip Time",
         "description": "",
@@ -173,11 +177,11 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "ms",
@@ -208,8 +212,8 @@
             "dataSourceFullName": "Uptime- (SNMP_Engine_Uptime-)",
             "name": "UptimeDays",
             "aggregateFunction": "AVERAGE",
-            "deviceGroupFullPath": "##defaultDeviceGroup##",
-            "deviceDisplayName": "*"
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
           }],
           "bigNumberItems": [{
             "dataPointName": "UptimeDays",
@@ -232,7 +236,6 @@
             ]
           }]
         },
-        "timeScale": "day",
         "displaySettings": {},
         "name": "Host Status",
         "description": "",
@@ -247,13 +250,12 @@
       "position": {
         "col": 1,
         "sizex": 2,
-        "row": 10,
+        "row": 8,
         "sizey": 2
       },
       "config": {
-        "timeScale": "12hour",
         "displaySettings": {},
-        "name": "HTTPS Status",
+        "name": "HTTP Status",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -268,7 +270,7 @@
               "isGlob": true,
               "value": "*"
             },
-            "dataSourceFullName": "HTTPS-",
+            "dataSourceFullName": "HTTP (HTTP-)",
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
@@ -280,11 +282,11 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "#",
@@ -306,7 +308,6 @@
         "sizey": 2
       },
       "config": {
-        "timeScale": "12hour",
         "displaySettings": {},
         "name": "Time Since Last Data Received",
         "description": "",
@@ -335,11 +336,11 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "seconds",
@@ -361,7 +362,6 @@
         "sizey": 2
       },
       "config": {
-        "timeScale": "12hour",
         "displaySettings": {},
         "name": "TCP Retransmissions",
         "description": "",
@@ -390,11 +390,11 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "%",
@@ -416,7 +416,6 @@
         "sizey": 2
       },
       "config": {
-        "timeScale": "1hour",
         "displaySettings": {},
         "name": "UDP Drops",
         "description": "",
@@ -445,11 +444,11 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "drops/sec",
@@ -471,7 +470,6 @@
         "sizey": 3
       },
       "config": {
-        "timeScale": "1hour",
         "displaySettings": {},
         "name": "Battery Temperature",
         "description": "",
@@ -492,7 +490,7 @@
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##INSTANCE##",
+              "legend": "##RESOURCENAME## - ##INSTANCE##",
               "type": "area",
               "option": "custom"
             },
@@ -500,11 +498,11 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "Celsius",
@@ -526,7 +524,6 @@
         "sizey": 3
       },
       "config": {
-        "timeScale": "1day",
         "displaySettings": {},
         "name": "UPS Capacity",
         "description": "",
@@ -555,11 +552,11 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "%",
@@ -581,7 +578,6 @@
         "sizey": 3
       },
       "config": {
-        "timeScale": "2hour",
         "displaySettings": {},
         "name": "Battery Runtime Remaining",
         "description": "",
@@ -620,11 +616,11 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceName##"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             },
             {
@@ -645,11 +641,11 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceName##"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
-                "value": "##defaultDeviceGroup##"
+                "value": "##defaultResourceGroup##"
               }
             }
           ],
@@ -672,7 +668,6 @@
         "sizey": 3
       },
       "config": {
-        "timeScale": "1hour",
         "displaySettings": {},
         "name": "Reasons for Running on Battery",
         "description": "",
@@ -701,11 +696,11 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "#",
@@ -727,7 +722,6 @@
         "sizey": 2
       },
       "config": {
-        "timeScale": "1day",
         "displaySettings": {},
         "name": "UPS Output Line Current",
         "description": "",
@@ -765,11 +759,11 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "Amps",
@@ -791,7 +785,6 @@
         "sizey": 2
       },
       "config": {
-        "timeScale": "1day",
         "displaySettings": {},
         "name": "UPS Output Line Load",
         "description": "",
@@ -820,11 +813,11 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "%",
@@ -846,7 +839,6 @@
         "sizey": 3
       },
       "config": {
-        "timeScale": "1day",
         "displaySettings": {},
         "name": "UPS Load",
         "description": "",
@@ -875,11 +867,11 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
-              "value": "##defaultDeviceGroup##"
+              "value": "##defaultResourceGroup##"
             }
           }],
           "verticalLabel": "%",
@@ -902,10 +894,9 @@
       },
       "config": {
         "ackChecked": true,
-        "timeScale": "day",
         "displaySettings": {
           "showTypeIcon": true,
-          "displayAs": "table"
+          "displayAs": "list"
         },
         "displayWarnAlert": true,
         "description": "",
@@ -917,7 +908,7 @@
         "displayCriticalAlert": true,
         "theme": "newBorderDarkBlue",
         "interval": 3,
-        "sortBy": "name",
+        "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
         "items": [{
@@ -927,9 +918,154 @@
           "dataSourceDisplayName": "*",
           "groupBy": "device",
           "type": "device",
-          "deviceGroupFullPath": "##defaultDeviceGroup##",
-          "deviceDisplayName": "*"
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "##defaultResourceName##"
         }]
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 12,
+        "row": 10,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
+            {
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Effective Thresholds",
+              "columnKey": "alert-thresholds"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
+            }
+          ],
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
+        },
+        "name": "APC Alerts",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "host": "%23%23defaultResourceName%23%23",
+          "rule": "",
+          "keyword": "",
+          "dataSource": "",
+          "acked": "all",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
+        },
+        "type": "alert",
+        "timescale": "day",
+        "version": 2
       }
     }
   ],
