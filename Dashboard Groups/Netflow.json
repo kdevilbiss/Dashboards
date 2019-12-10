@@ -1,0 +1,1081 @@
+{
+  "santabaRelease" : 129,
+  "widgetTokens" : [ {
+    "name" : "defaultResourceName",
+    "value" : "*"
+  } ],
+  "name" : "Netflow",
+  "subGroups" : [ ],
+  "description" : "Change the ##defaultResourceName## token to the name of a device to populate the dashboards.",
+  "type" : "dashboardgroup",
+  "dashboards" : [ {
+    "santabaRelease" : 129,
+    "widgetTokens" : [ ],
+    "name" : "Netflow Overview",
+    "description" : "",
+    "widgetsConfigVersion" : 2,
+    "type" : "dashboard",
+    "widgets" : [ {
+      "position" : {
+        "col" : 6,
+        "sizex" : 7,
+        "row" : 6,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopApplicationsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "Top Talkers",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 6,
+        "sizex" : 7,
+        "row" : 21,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopFlowsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "Top Flows",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 12,
+        "row" : 1,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "name" : "Netflow Throughput",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "type" : "netflowgraph",
+        "timescale" : "2days",
+        "deviceId" : 0,
+        "version" : 2,
+        "graph" : "total",
+        "deviceDisplayName" : "##defaultResourceName##"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 11,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopEndpointsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "source",
+        "name" : "Top Source Endpoints",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 16,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopEndpointsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "destination",
+        "name" : "Top Destination Endpoints",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 26,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopPortsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "Top Ports",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 31,
+        "sizey" : 4
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "QoSTable",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "QoS Table",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 5,
+        "row" : 6,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopApplicationsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "Top Talkers",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newBorderDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 11,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopEndpointsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "source",
+        "name" : "Top Source Endpoints",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newBorderDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 16,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopEndpointsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "destination",
+        "name" : "Top Destination Endpoints",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newBorderDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 5,
+        "row" : 21,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopFlowsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "Top Flows - Pie Chart",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newBorderDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 26,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopPortsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "Top Ports - Pie Chart",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newBorderDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "sizex" : 6,
+        "sizey" : 4
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "QoSTable",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "QoS Table - Pie Chart",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newBorderDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    } ],
+    "version" : 2
+  }, {
+    "santabaRelease" : 129,
+    "widgetTokens" : [ ],
+    "name" : "Top Sources and Destinations",
+    "description" : "",
+    "widgetsConfigVersion" : 2,
+    "type" : "dashboard",
+    "widgets" : [ {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 4,
+        "sizey" : 6
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopEndpointsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "destination",
+        "name" : "Top Destination Endpoints - Pie Chart",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 50,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newBorderDarkBlue",
+        "interval" : 3,
+        "timescale" : "2days"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 4,
+        "sizey" : 6
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopEndpointsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "source",
+        "name" : "Top Source Endpoints - Pie Chart",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 50,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newBorderDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 10,
+        "sizey" : 10
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopEndpointsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "source",
+        "name" : "Top Source Endpoints",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 50,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 10,
+        "sizey" : 10
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopEndpointsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "destination",
+        "name" : "Top Destination Endpoints",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 50,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "timescale" : "2days"
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 1,
+        "sizey" : 3
+      },
+      "config" : {
+        "displaySettings" : { },
+        "name" : "Outbound Throughput",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "rightwards"
+        },
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "type" : "netflowgraph",
+        "timescale" : "1day",
+        "deviceId" : 0,
+        "version" : 2,
+        "graph" : "total",
+        "deviceDisplayName" : "##defaultResourceName##"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 1,
+        "sizey" : 3
+      },
+      "config" : {
+        "displaySettings" : { },
+        "name" : "Inbound Throughput",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "leftwards"
+        },
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "type" : "netflowgraph",
+        "timescale" : "1day",
+        "deviceId" : 0,
+        "version" : 2,
+        "graph" : "total",
+        "deviceDisplayName" : "##defaultResourceName##"
+      }
+    } ],
+    "version" : 2
+  }, {
+    "santabaRelease" : 129,
+    "widgetTokens" : [ ],
+    "name" : "Top Talkers",
+    "description" : "",
+    "widgetsConfigVersion" : 2,
+    "type" : "dashboard",
+    "widgets" : [ {
+      "position" : {
+        "col" : 1,
+        "sizex" : 12,
+        "row" : 1,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "name" : "Netflow Throughput",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "type" : "netflowgraph",
+        "timescale" : "1day",
+        "deviceId" : 0,
+        "version" : 2,
+        "graph" : "total",
+        "deviceDisplayName" : "##defaultResourceName##"
+      }
+    }, {
+      "position" : {
+        "col" : 8,
+        "sizex" : 5,
+        "row" : 6,
+        "sizey" : 7
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopApplicationsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "Top Talkers - Pie Chart",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newBorderDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 7,
+        "row" : 6,
+        "sizey" : 7
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopApplicationsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "Top Talkers",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 50,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    } ],
+    "version" : 2
+  }, {
+    "santabaRelease" : 129,
+    "widgetTokens" : [ ],
+    "name" : "Top Ports",
+    "description" : "",
+    "widgetsConfigVersion" : 2,
+    "type" : "dashboard",
+    "widgets" : [ {
+      "position" : {
+        "col" : 9,
+        "sizex" : 4,
+        "row" : 1,
+        "sizey" : 4
+      },
+      "config" : {
+        "displaySettings" : { },
+        "name" : "All",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "type" : "netflowgraph",
+        "timescale" : "2days",
+        "deviceId" : 0,
+        "version" : 2,
+        "graph" : "total",
+        "deviceDisplayName" : "##defaultResourceName##"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 5,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopPortsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "Top Ports",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 5,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopPortsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "Top Ports - Pie Chart",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newBorderDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 5,
+        "sizex" : 4,
+        "row" : 1,
+        "sizey" : 4
+      },
+      "config" : {
+        "displaySettings" : { },
+        "name" : "HTTPS",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "443",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "type" : "netflowgraph",
+        "timescale" : "2days",
+        "deviceId" : 0,
+        "version" : 2,
+        "graph" : "total",
+        "deviceDisplayName" : "##defaultResourceName##"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 4,
+        "row" : 1,
+        "sizey" : 4
+      },
+      "config" : {
+        "displaySettings" : { },
+        "name" : "HTTP",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "80",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "type" : "netflowgraph",
+        "timescale" : "2days",
+        "deviceId" : 0,
+        "version" : 2,
+        "graph" : "total",
+        "deviceDisplayName" : "##defaultResourceName##"
+      }
+    } ],
+    "version" : 2
+  }, {
+    "santabaRelease" : 129,
+    "widgetTokens" : [ ],
+    "name" : "Top Flows",
+    "description" : "",
+    "widgetsConfigVersion" : 2,
+    "type" : "dashboard",
+    "widgets" : [ {
+      "position" : {
+        "col" : 1,
+        "sizex" : 12,
+        "row" : 1,
+        "sizey" : 5
+      },
+      "config" : {
+        "displaySettings" : { },
+        "name" : "Top Flows",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 10,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "description" : "",
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "type" : "netflowgraph",
+        "timescale" : "2days",
+        "deviceId" : 0,
+        "version" : 2,
+        "graph" : "total",
+        "deviceDisplayName" : "##defaultResourceName##"
+      }
+    }, {
+      "position" : {
+        "col" : 1,
+        "sizex" : 7,
+        "row" : 6,
+        "sizey" : 6
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopFlowsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "Top Flows",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 50,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 8,
+        "sizex" : 5,
+        "row" : 6,
+        "sizey" : 6
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "TopFlowsByHost",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "Top Flows - Pie Chart",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 50,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newBorderDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    } ],
+    "version" : 2
+  }, {
+    "santabaRelease" : 129,
+    "widgetTokens" : [ ],
+    "name" : "QoS Table",
+    "description" : "",
+    "widgetsConfigVersion" : 2,
+    "type" : "dashboard",
+    "widgets" : [ {
+      "position" : {
+        "col" : 1,
+        "sizex" : 6,
+        "row" : 1,
+        "sizey" : 9
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "QoSTable",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "QoS Table",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 50,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newSolidDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    }, {
+      "position" : {
+        "col" : 7,
+        "sizex" : 6,
+        "row" : 1,
+        "sizey" : 9
+      },
+      "config" : {
+        "displaySettings" : { },
+        "dataType" : "QoSTable",
+        "description" : "",
+        "type" : "netflow",
+        "deviceId" : 0,
+        "version" : 2,
+        "deviceDisplayName" : "##defaultResourceName##",
+        "filter" : "all",
+        "name" : "QoS Table - Pie Chart",
+        "netflowFilter" : {
+          "nodeB" : "",
+          "protocol" : "tcp,udp",
+          "top" : 50,
+          "ifIdx" : -1,
+          "ifName" : "N/A",
+          "qosType" : "all",
+          "ports" : "",
+          "nodeA" : "",
+          "direction" : "bidirectional"
+        },
+        "theme" : "newBorderDarkBlue",
+        "interval" : 3,
+        "timescale" : "1day"
+      }
+    } ],
+    "version" : 2
+  } ],
+  "version" : 1
+}
