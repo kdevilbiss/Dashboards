@@ -66,7 +66,7 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 436,
+              "columnSize": 426,
               "columnKey": "device-name-1452842526600"
             },
             {
@@ -114,7 +114,7 @@
             {
               "visible": true,
               "columnLabel": "\n            Verified Users\n            \n        ",
-              "columnSize": 160,
+              "columnSize": 162,
               "columnKey": "7"
             }
           ],
@@ -246,11 +246,33 @@
       "position": {
         "col": 1,
         "sizex": 6,
-        "row": 5,
+        "row": 8,
         "sizey": 6
       },
       "config": {
-        "displaySettings": {"pageSize": "15"},
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 593,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Health\n            \n        ",
+              "columnSize": 156,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Status\n            \n        ",
+              "columnSize": 151,
+              "columnKey": "1"
+            }
+          ],
+          "pageSize": "15"
+        },
         "columns": [
           {
             "rpn": "",
@@ -337,7 +359,7 @@
       "position": {
         "col": 7,
         "sizex": 6,
-        "row": 5,
+        "row": 8,
         "sizey": 6
       },
       "config": {
@@ -384,7 +406,7 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 88,
+              "columnSize": 127,
               "columnKey": "device-name-1452842526600"
             },
             {
@@ -408,7 +430,7 @@
             {
               "visible": true,
               "columnLabel": "\n            Total\n            \n        ",
-              "columnSize": 178,
+              "columnSize": 135,
               "columnKey": "3"
             }
           ],
@@ -492,7 +514,7 @@
       "position": {
         "col": 1,
         "sizex": 12,
-        "row": 11,
+        "row": 14,
         "sizey": 4
       },
       "config": {
@@ -632,6 +654,297 @@
         },
         "type": "alert",
         "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 4,
+        "row": 5,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Zoom User Activity (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "active",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Zoom User Stats (Zoom_User_Stats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Active Users",
+                "type": "area",
+                "option": "custom"
+              },
+              "name": "active",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "total",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Zoom User Stats (Zoom_User_Stats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Total Users",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "total",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 4,
+        "row": 5,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Zoom User Plans (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "basic_plan",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Zoom User Stats (Zoom_User_Stats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Basic Plan Users",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "basic_plan",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "licensed_plan",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Zoom User Stats (Zoom_User_Stats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Licensed Plan Users",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "licensed_plan",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "onprem_plan",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Zoom User Stats (Zoom_User_Stats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## On-Premises Plan Users",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "onprem_plan",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "sizex": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Zoom User Verification (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [],
+          "minValue": "NaN",
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "verified",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Zoom User Stats (Zoom_User_Stats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Verified Users",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "verified",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "unverified",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Zoom User Stats (Zoom_User_Stats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Unverified Users",
+                "type": "stack",
+                "option": "custom"
+              },
+              "name": "unverified",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "total",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Zoom User Stats (Zoom_User_Stats)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": "Auto",
+                "legend": "##RESOURCENAME## Total Users",
+                "type": "line",
+                "option": "custom"
+              },
+              "name": "total",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "ms",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
         "version": 2
       }
     }
