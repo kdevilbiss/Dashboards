@@ -1,25 +1,32 @@
 {
-  "santabaRelease": 113,
-  "widgetTokens": [{
-    "name": "defaultResourceGroup",
-    "value": "Devices by Type/Meraki"
-  }],
-  "name": "Meraki Overview",
+  "santabaRelease": 131,
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "Devices by Type/Meraki"
+    },
+    {
+      "name": "defaultResourceName",
+      "value": "*"
+    }
+  ],
+  "name": "Meraki",
   "description": "",
   "widgetsConfigVersion": 2,
+  "type": "dashboard",
   "widgets": [
     {
       "position": {
         "col": 11,
         "sizex": 2,
-        "row": 1,
-        "sizey": 6
+        "row": 4,
+        "sizey": 7
       },
       "config": {
         "ackChecked": true,
         "displaySettings": {
-          "showTypeIcon": true,
-          "displayAs": "list"
+          "showTypeIcon": false,
+          "displayAs": "table"
         },
         "displayWarnAlert": true,
         "description": "",
@@ -43,7 +50,7 @@
             "groupBy": "instance",
             "type": "device",
             "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
+            "deviceDisplayName": "##defaultResourceName##"
           },
           {
             "dataPointName": "*",
@@ -53,14 +60,34 @@
             "groupBy": "instance",
             "type": "device",
             "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
+            "deviceDisplayName": "##defaultResourceName##"
+          },
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##INSTANCE##",
+            "dataSourceDisplayName": "Meraki Gateway Stats",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          },
+          {
+            "dataPointName": "*",
+            "instanceName": "*",
+            "name": "##INSTANCE##",
+            "dataSourceDisplayName": "Meraki Security Appliance Stats",
+            "groupBy": "instance",
+            "type": "device",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
           }
         ]
       }
     },
     {
       "position": {
-        "col": 7,
+        "col": 3,
         "sizex": 4,
         "row": 1,
         "sizey": 3
@@ -94,7 +121,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -116,7 +143,7 @@
       "position": {
         "col": 7,
         "sizex": 4,
-        "row": 4,
+        "row": 1,
         "sizey": 3
       },
       "config": {
@@ -148,7 +175,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -168,14 +195,14 @@
     },
     {
       "position": {
-        "col": 1,
-        "sizex": 7,
-        "row": 7,
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "Cloud Controller Ping Response Time",
+        "name": "Cloud Controller Ping",
         "description": "",
         "theme": "newBorderDarkBlue",
         "interval": 3,
@@ -202,7 +229,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -222,10 +249,10 @@
     },
     {
       "position": {
-        "col": 3,
+        "col": 7,
         "sizex": 4,
-        "row": 1,
-        "sizey": 3
+        "row": 7,
+        "sizey": 2
       },
       "config": {
         "displaySettings": {},
@@ -266,7 +293,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceName##"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -291,7 +318,7 @@
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceName##"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -306,117 +333,60 @@
           "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
-        "timescale": "1day",
+        "timescale": "12hour",
         "version": 2
       }
     },
     {
       "position": {
         "col": 3,
-        "sizex": 4,
+        "sizex": 2,
         "row": 4,
         "sizey": 3
       },
       "config": {
-        "displaySettings": {},
-        "name": "Access Point Interfaces: Total Packet Transmission",
-        "description": "",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [{
-            "rpn": "SentPackets + ReceivedPackets",
-            "display": {
-              "color": "Auto",
-              "legend": "##INSTANCE##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "TotalPackets"
-          }],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": "NaN",
-          "dataPoints": [
+        "displaySettings": {
+          "columns": [
             {
-              "dataPointName": "SentPackets",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "Meraki Access Point Interfaces (Meraki_MR_Interfaces)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": null,
-                "legend": null,
-                "type": "line",
-                "option": "none"
-              },
-              "name": "SentPackets",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 183,
+              "columnKey": "device-name-1452842526600"
             },
             {
-              "dataPointName": "ReceivedPackets",
-              "instanceName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "dataSourceFullName": "Meraki Access Point Interfaces (Meraki_MR_Interfaces)",
-              "consolidateFunction": "average",
-              "display": {
-                "color": null,
-                "legend": null,
-                "type": "line",
-                "option": "none"
-              },
-              "name": "ReceivedPackets",
-              "aggregateFunction": "SUM",
-              "deviceDisplayName": {
-                "isGlob": true,
-                "value": "*"
-              },
-              "deviceGroupFullPath": {
-                "isGlob": true,
-                "value": "##defaultResourceGroup##"
-              }
+              "visible": true,
+              "columnLabel": "\n            Clients\n            \n        ",
+              "columnSize": 115,
+              "columnKey": "0"
             }
           ],
-          "verticalLabel": "packets",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "default"
+          "pageSize": "5"
         },
-        "type": "cgraph",
-        "timescale": "1day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 8,
-        "sizex": 3,
-        "row": 7,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {"pageSize": "25"},
         "columns": [{
           "rpn": "",
           "dataPointName": "ClientCount",
-          "displayType": "raw",
+          "displayType": "colorBar",
           "minValue": 0,
-          "maxValue": 100,
-          "colorThresholds": [],
-          "columnName": "ClientCount",
+          "unitLabel": "",
+          "maxValue": 50,
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 15,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 20,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 30,
+              "relation": ">"
+            }
+          ],
+          "columnName": "Clients",
           "enableForecast": false,
           "roundingDecimal": 2
         }],
@@ -431,14 +401,14 @@
         "rows": [{
           "instanceName": "*",
           "label": "##INSTANCE##",
-          "deviceDisplayName": "*",
+          "deviceDisplayName": "##defaultResourceName##",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
         "topX": 10,
         "dataSourceFullName": "Meraki Access Point Stats (Meraki_MR_Stats)",
         "sortOrder": "descending",
-        "name": "Top Access Points: Client Count",
+        "name": "Top Access Points",
         "theme": "newBorderDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -462,7 +432,7 @@
             "name": "ConnectionStatus",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
+            "deviceDisplayName": "##defaultResourceName##"
           }],
           "bigNumberItems": [{
             "dataPointName": "ConnectionStatus",
@@ -488,7 +458,7 @@
       "position": {
         "col": 1,
         "sizex": 2,
-        "row": 5,
+        "row": 9,
         "sizey": 2
       },
       "config": {
@@ -502,7 +472,7 @@
             "name": "ConnectionStatus",
             "aggregateFunction": "SUM",
             "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
+            "deviceDisplayName": "##defaultResourceName##"
           }],
           "bigNumberItems": [{
             "dataPointName": "ConnectionStatus",
@@ -561,21 +531,211 @@
     },
     {
       "position": {
-        "col": 11,
+        "col": 9,
         "sizex": 2,
-        "row": 7,
+        "row": 4,
         "sizey": 3
       },
       "config": {
-        "displaySettings": {"pageSize": "25"},
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 181,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Clients\n            \n        ",
+              "columnSize": 117,
+              "columnKey": "0"
+            }
+          ],
+          "pageSize": "5"
+        },
         "columns": [{
           "rpn": "",
           "dataPointName": "ClientCount",
-          "displayType": "raw",
+          "displayType": "colorBar",
           "minValue": 0,
-          "maxValue": 100,
-          "colorThresholds": [],
-          "columnName": "ClientCount",
+          "unitLabel": "",
+          "maxValue": 120,
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 60,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 75,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 100,
+              "relation": ">"
+            }
+          ],
+          "columnName": "Clients",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "By number of clients",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Meraki Switches (Meraki_MS_Stats)",
+        "sortOrder": "descending",
+        "name": "Top Switches",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 7,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "ConnectionStatus",
+            "instanceName": "*",
+            "dataSourceFullName": "Meraki Gateway Stats (Meraki_Z_Stats)",
+            "name": "ConnectionStatus",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "ConnectionStatus",
+            "useCommaSeparators": false,
+            "bottomLabel": "Online",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Gateways",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Gateways",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 1,
+        "sizex": 2,
+        "row": 5,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [],
+          "dataPoints": [{
+            "dataPointName": "ConnectionStatus",
+            "instanceName": "*",
+            "dataSourceFullName": "Meraki Security Appliance Stats (Meraki_MX_Stats)",
+            "name": "ConnectionStatus",
+            "aggregateFunction": "SUM",
+            "deviceGroupFullPath": "##defaultResourceGroup##",
+            "deviceDisplayName": "##defaultResourceName##"
+          }],
+          "bigNumberItems": [{
+            "dataPointName": "ConnectionStatus",
+            "useCommaSeparators": false,
+            "bottomLabel": "Online",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "Firewalls",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "Firewalls",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 5,
+        "sizex": 2,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 178,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Clients\n            \n        ",
+              "columnSize": 120,
+              "columnKey": "0"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "ClientCount",
+          "displayType": "colorBar",
+          "minValue": 0,
+          "unitLabel": "",
+          "maxValue": 500,
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 100,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 200,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 300,
+              "relation": ">"
+            }
+          ],
+          "columnName": "Clients",
           "enableForecast": false,
           "roundingDecimal": 2
         }],
@@ -590,17 +750,274 @@
         "rows": [{
           "instanceName": "*",
           "label": "##INSTANCE##",
-          "deviceDisplayName": "*",
+          "deviceDisplayName": "##defaultResourceName##",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
         "topX": 10,
-        "dataSourceFullName": "Meraki Switches (Meraki_MS_Stats)",
+        "dataSourceFullName": "Meraki Security Appliance Stats (Meraki_MX_Stats)",
         "sortOrder": "descending",
-        "name": "Top Switches: Client Count",
+        "name": "Top Firewalls",
         "theme": "newBorderDarkBlue",
         "interval": 3,
         "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 2,
+        "row": 4,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 175,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Clients\n            \n        ",
+              "columnSize": 123,
+              "columnKey": "0"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [{
+          "rpn": "",
+          "dataPointName": "ClientCount",
+          "displayType": "colorBar",
+          "minValue": 0,
+          "unitLabel": "",
+          "maxValue": 10,
+          "colorThresholds": [
+            {
+              "level": 2,
+              "threshold": 5,
+              "relation": ">"
+            },
+            {
+              "level": 3,
+              "threshold": 7,
+              "relation": ">"
+            },
+            {
+              "level": 4,
+              "threshold": 10,
+              "relation": ">"
+            }
+          ],
+          "columnName": "Clients",
+          "enableForecast": false,
+          "roundingDecimal": 2
+        }],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 10,
+        "dataSourceFullName": "Meraki Gateway Stats (Meraki_Z_Stats)",
+        "sortOrder": "descending",
+        "name": "Top Gateways",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 3,
+        "sizex": 4,
+        "row": 7,
+        "sizey": 4
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Firewall Interfaces: Total Throughput",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "SentBytes + ReceivedBytes",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "TotalBytes"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "SentBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Meraki Security Appliance Interfaces (Meraki_MX_Interfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "SentBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "ReceivedBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Meraki Security Appliance Interfaces (Meraki_MX_Interfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "ReceivedBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "VaST"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 4,
+        "row": 9,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Gateway Interfaces: Total Throughput",
+        "description": "",
+        "theme": "newBorderDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "SentBytes + ReceivedBytes",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE##",
+              "type": "line",
+              "option": "custom"
+            },
+            "name": "TotalBytes"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "SentBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Meraki Gateway Interfaces (Meraki_Z_Interfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "SentBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "ReceivedBytes",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "Meraki Gateway Interfaces (Meraki_Z_Interfaces)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "ReceivedBytes",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "bytes",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "12hour",
+        "version": 2
       }
     }
   ],
