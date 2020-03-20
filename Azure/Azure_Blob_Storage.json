@@ -1,8 +1,8 @@
 {
-  "santabaRelease": 125,
+  "santabaRelease": 131,
   "widgetTokens": [{
-    "name": "defaultResourceGroup",
-    "value": "Azure*"
+    "name": "defaultResourceName",
+    "value": "*"
   }],
   "name": "Azure Blob Storage",
   "description": "",
@@ -14,30 +14,30 @@
         "col": 7,
         "sizex": 6,
         "row": 11,
-        "sizey": 3
+        "sizey": 4
       },
       "config": {
         "displaySettings": {},
-        "name": "Azure Blob Storage Objects by Least Availability",
+        "name": "Azure Blob Storage Objects by Least Availability (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
           "minValue": 0,
-          "topX": 25,
+          "topX": 10,
           "maxValue": 100,
           "dataPoints": [{
             "dataPointName": "Availability",
             "instanceName": {
-              "isGlob": false,
-              "value": "Microsoft_Azure_BlobStorage"
+              "isGlob": true,
+              "value": "*"
             },
             "dataSourceFullName": "Azure Blob Storage (Microsoft_Azure_BlobStorage)",
             "consolidateFunction": "average",
             "display": {
               "color": "Auto",
-              "legend": "##RESOURCENAME## Availability",
+              "legend": "##RESOURCENAME##",
               "type": "area",
               "option": "custom"
             },
@@ -45,7 +45,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -59,70 +59,16 @@
           "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
-        "timescale": "1day",
+        "timescale": "2days",
         "version": 2
       }
     },
     {
       "position": {
         "col": 1,
-        "sizex": 6,
-        "row": 11,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "Azure Blob Storage Objects by Most Availability",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 25,
-          "maxValue": 100,
-          "dataPoints": [{
-            "dataPointName": "Availability",
-            "instanceName": {
-              "isGlob": false,
-              "value": "Microsoft_Azure_BlobStorage"
-            },
-            "dataSourceFullName": "Azure Blob Storage (Microsoft_Azure_BlobStorage)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME## Availability",
-              "type": "area",
-              "option": "custom"
-            },
-            "name": "Availability",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
-            }
-          }],
-          "verticalLabel": "%",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "default"
-        },
-        "type": "cgraph",
-        "timescale": "1day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 5,
-        "sizex": 8,
-        "row": 14,
-        "sizey": 3
+        "sizex": 12,
+        "row": 15,
+        "sizey": 4
       },
       "config": {
         "displaySettings": {
@@ -235,11 +181,16 @@
               "columnKey": "alert-dependent-alerts"
             }
           ],
-          "playSound": {},
+          "playSound": {
+            "criticalAlertAudioFileName": "",
+            "errorAlertAudioFileName": "",
+            "warningAlertAudioFileName": "",
+            "shouldPlay": false
+          },
           "fontsize": "normal-font",
           "sort": "-startEpoch"
         },
-        "name": "Blob Storage Alerts",
+        "name": "Azure Blob Storage Object Alerts",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -249,11 +200,13 @@
           "chain": "",
           "instance": "",
           "dataPoint": "",
-          "host": "",
           "rule": "",
-          "keyword": "",
-          "dataSource": "",
           "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "%23%23defaultResourceName%23%23",
+          "keyword": "",
+          "dataSource": "Azure%20Blob%20Storage",
           "cleared": "no",
           "group": "%23%23defaultResourceGroup%23%23*"
         },
@@ -272,7 +225,7 @@
       "config": {
         "ackChecked": true,
         "displaySettings": {
-          "showTypeIcon": false,
+          "showTypeIcon": true,
           "displayAs": "table"
         },
         "displayWarnAlert": true,
@@ -280,8 +233,8 @@
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
-        "displayColumn": 5,
-        "name": "Blob Storage Object Alert Status",
+        "displayColumn": 6,
+        "name": "Azure Blob Storage Object Alert Status",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -296,7 +249,7 @@
           "groupBy": "device",
           "type": "device",
           "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "*"
+          "deviceDisplayName": "##defaultResourceName##"
         }]
       }
     },
@@ -313,25 +266,25 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 305,
+              "columnSize": 348,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
               "columnLabel": "\n            Availability\n            \n        ",
-              "columnSize": 76,
+              "columnSize": 109,
               "columnKey": "0"
             },
             {
               "visible": true,
               "columnLabel": "\n            Ingress\n            \n        ",
-              "columnSize": 67,
+              "columnSize": 103,
               "columnKey": "1"
             },
             {
               "visible": true,
               "columnLabel": "\n            Egress\n            \n        ",
-              "columnSize": 67,
+              "columnSize": 102,
               "columnKey": "2"
             },
             {
@@ -342,24 +295,24 @@
             },
             {
               "visible": true,
-              "columnLabel": "\n            SuccessE2ELatency\n            \n        ",
-              "columnSize": 122,
+              "columnLabel": "\n            End-to-End Latency\n            \n        ",
+              "columnSize": 126,
               "columnKey": "4"
             },
             {
               "visible": true,
-              "columnLabel": "\n            SuccessServerLatency\n            \n        ",
-              "columnSize": 137,
+              "columnLabel": "\n            Server Latency\n            \n        ",
+              "columnSize": 100,
               "columnKey": "5"
             },
             {
               "visible": true,
               "columnLabel": "\n            Status\n            \n        ",
-              "columnSize": 65,
+              "columnSize": 72,
               "columnKey": "6"
             }
           ],
-          "pageSize": "25"
+          "pageSize": "15"
         },
         "columns": [
           {
@@ -395,7 +348,7 @@
             "dataPointName": "Ingress",
             "displayType": "raw",
             "minValue": 0,
-            "unitLabel": "",
+            "unitLabel": " bytes",
             "maxValue": 100,
             "colorThresholds": [],
             "columnName": "Ingress",
@@ -407,7 +360,7 @@
             "dataPointName": "Egress",
             "displayType": "raw",
             "minValue": 0,
-            "unitLabel": "",
+            "unitLabel": " bytes",
             "maxValue": 100,
             "colorThresholds": [],
             "columnName": "Egress",
@@ -434,7 +387,7 @@
             "unitLabel": "ms",
             "maxValue": 100,
             "colorThresholds": [],
-            "columnName": "SuccessE2ELatency",
+            "columnName": "End-to-End Latency",
             "enableForecast": false,
             "roundingDecimal": 2
           },
@@ -446,7 +399,7 @@
             "unitLabel": "ms",
             "maxValue": 100,
             "colorThresholds": [],
-            "columnName": "SuccessServerLatency",
+            "columnName": "Server Latency",
             "enableForecast": false,
             "roundingDecimal": 2
           },
@@ -488,16 +441,16 @@
         },
         "type": "dynamicTable",
         "rows": [{
-          "instanceName": "*",
+          "instanceName": "##defaultResourceName##",
           "label": "##RESOURCENAME##",
           "deviceDisplayName": "*",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": -1,
+        "topX": 25,
         "dataSourceFullName": "Azure Blob Storage (Microsoft_Azure_BlobStorage)",
         "sortOrder": "descending",
-        "name": "Blob Storage Object Overview",
+        "name": "Azure Blob Storage Objects (Real-time)",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -512,7 +465,7 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Azure Blob Storage Objects by Latency",
+        "name": "Top Azure Blob Storage Objects by Total Latency (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -528,28 +481,28 @@
             "name": "Total"
           }],
           "minValue": 0,
-          "topX": 10,
+          "topX": 5,
           "maxValue": "NaN",
           "dataPoints": [
             {
               "dataPointName": "SuccessE2ELatency",
               "instanceName": {
-                "isGlob": false,
-                "value": "Microsoft_Azure_BlobStorage"
+                "isGlob": true,
+                "value": "*"
               },
               "dataSourceFullName": "Azure Blob Storage (Microsoft_Azure_BlobStorage)",
               "consolidateFunction": "average",
               "display": {
-                "color": "Auto",
-                "legend": "##RESOURCENAME## End-to-End",
-                "type": "stack",
-                "option": "custom"
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
               },
               "name": "SuccessE2EServerLatency",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceName##"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -559,22 +512,22 @@
             {
               "dataPointName": "SuccessServerLatency",
               "instanceName": {
-                "isGlob": false,
-                "value": "Microsoft_Azure_BlobStorage"
+                "isGlob": true,
+                "value": "*"
               },
               "dataSourceFullName": "Azure Blob Storage (Microsoft_Azure_BlobStorage)",
               "consolidateFunction": "average",
               "display": {
-                "color": "Auto",
-                "legend": "##RESOURCENAME## Server",
-                "type": "stack",
-                "option": "custom"
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
               },
               "name": "SuccessServerLatency",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceName##"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -582,14 +535,14 @@
               }
             }
           ],
-          "verticalLabel": "milliseconds",
+          "verticalLabel": "ms",
           "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
           "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
-        "timescale": "1day",
+        "timescale": "2days",
         "version": 2
       }
     },
@@ -602,7 +555,7 @@
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Azure Blob Storage Objects by Throughput",
+        "name": "Top Azure Blob Storage Objects by Total Throughput (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -612,7 +565,7 @@
             "display": {
               "color": "Auto",
               "legend": "##RESOURCENAME## Total",
-              "type": "line",
+              "type": "stack",
               "option": "custom"
             },
             "name": "Total"
@@ -624,22 +577,22 @@
             {
               "dataPointName": "Egress",
               "instanceName": {
-                "isGlob": false,
-                "value": "Microsoft_Azure_BlobStorage"
+                "isGlob": true,
+                "value": "*"
               },
               "dataSourceFullName": "Azure Blob Storage (Microsoft_Azure_BlobStorage)",
               "consolidateFunction": "average",
               "display": {
-                "color": "Auto",
-                "legend": "##RESOURCENAME## Outbound",
-                "type": "stack",
-                "option": "custom"
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
               },
               "name": "Egress",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceName##"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -649,22 +602,22 @@
             {
               "dataPointName": "Ingress",
               "instanceName": {
-                "isGlob": false,
-                "value": "Microsoft_Azure_BlobStorage"
+                "isGlob": true,
+                "value": "*"
               },
               "dataSourceFullName": "Azure Blob Storage (Microsoft_Azure_BlobStorage)",
               "consolidateFunction": "average",
               "display": {
-                "color": "Auto",
-                "legend": "##RESOURCENAME## Inbound",
-                "type": "stack",
-                "option": "custom"
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
               },
               "name": "Ingress",
               "aggregateFunction": "SUM",
               "deviceDisplayName": {
                 "isGlob": true,
-                "value": "*"
+                "value": "##defaultResourceName##"
               },
               "deviceGroupFullPath": {
                 "isGlob": true,
@@ -679,33 +632,33 @@
           "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
-        "timescale": "1day",
+        "timescale": "2days",
         "version": 2
       }
     },
     {
       "position": {
         "col": 1,
-        "sizex": 4,
-        "row": 14,
-        "sizey": 3
+        "sizex": 6,
+        "row": 11,
+        "sizey": 4
       },
       "config": {
         "displaySettings": {},
-        "name": "Top Azure Blob Storage Objects by Transaction Rate",
+        "name": "Top Azure Blob Storage Objects by Transaction Rate (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "graphInfo": {
           "virtualDataPoints": [],
           "minValue": 0,
-          "topX": 25,
+          "topX": 10,
           "maxValue": "NaN",
           "dataPoints": [{
             "dataPointName": "Transactions",
             "instanceName": {
-              "isGlob": false,
-              "value": "Microsoft_Azure_BlobStorage"
+              "isGlob": true,
+              "value": "*"
             },
             "dataSourceFullName": "Azure Blob Storage (Microsoft_Azure_BlobStorage)",
             "consolidateFunction": "average",
@@ -719,21 +672,21 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
               "value": "##defaultResourceGroup##"
             }
           }],
-          "verticalLabel": "transactions/sec",
+          "verticalLabel": "requests/sec",
           "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
           "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
-        "timescale": "1day",
+        "timescale": "2days",
         "version": 2
       }
     }
