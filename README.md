@@ -7,15 +7,17 @@ These dashboards largely rely on both the latest versions of LogicMonitor dataso
 To see a preview of what some of these dashboards look like, visit the [LogicMonitor Dashboard Gallery](https://www.logicmonitor.com/sales/dashboards/index.html).
 
 
-**Default Dashboards 3.0 Names | Expected dynamic group names | Group definitions:**
+**Default Dashboards 3.0** 
 
-Alerting
+Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
+
+**Alerting**
 - Alert List | * | (No specific group requirement)
 - Alert Overview | * | (No specific group requirement)
 - Geo_Alert_Map | * | (No specific group requirement)
 - SLA_Overview | * | (No specific group requirement)
 
-Applications
+**Applications**
 - Apache | Devices by Type/ Linux Servers | isLinux()
 - Citrix XenApp / XenDesktop | * | (No specific group requirement)
 - Docker | Devices by Type/ Linux Servers | isLinux()
@@ -23,35 +25,35 @@ Applications
 - Office 365 | * | (No specific group requirement)
 - Zoom | * | (No specific group requirement)
 
-Capacity Management
+**Capacity Management**
 - Resource Utilization | * | (No specific group requirement)
 - Under Utilized Devices - On-Prem | * | (Point at the device group you wish to target)
 - Under Utilized Devices - Public Cloud | AWS or Azure account | (Requires a local collector to be installed and monitoring cloud VMs)
 
-Databases
+**Databases**
 - SQL Server | Devices by Type/ SQL Servers | hasCategory("MSSQL")
 
-Hardware
+**Hardware**
 - APC | * | (No specific group requirement)
 - Dell iDRAC | * | (No specific group requirement)
 - HP iLO | * | (No specific group requirement)
 
-Kubernetes
+**Kubernetes**
 - Kubernetes Cluster Overview | * | (No specific group requirement)
 - k8s Cluster | * | (No specific group requirement)
 - k8s Pods | * | (No specific group requirement)
 
-Linux
+**Linux**
 - Linux | Devices by Type/ Linux Servers | isLinux()
 - Linux (SSH) | Devices by Type/ Linux Servers | isLinux()
 
-LogicMonitor
+**LogicMonitor**
 - Collectors | Devices by Type/ Collectors | hasCategory("Collectors")
 - LogicMonitor Portal Metrics | * | (Requires the LogicMonitor Portal Metrics custom datasource)
 - Resource Utilization | * | (No specific group requirement)
 - Welcome to LogicMonitor | * | (No specific group requirement)
 
-Microsoft
+**Microsoft**
 - Active Directory | Devices by Type/ Windows Servers | isWindows()
 - DHCP Servers | Devices by Type/ Windows Servers | isWindows()
 - DNS Servers | Devices by Type/ Windows Servers | isWindows()
@@ -64,7 +66,7 @@ Microsoft
 - Remote Desktop Server | Devices by Type/ Windows Servers | isWindows()
 - Windows | Devices by Type/ Windows Servers | isWindows()
 
-Network
+**Network**
 - Aruba Wireless | Devices by Type/ Aruba | hasCategory("Aruba")
 - Brocade | Devices by Type/ Brocade | hasCategory("Brocade")
 - Checkpoint | Devices by Type/ Checkpoint | system.sysoid == "1.3.6.1.4.1.2620.1.6.123.1.49"
@@ -79,12 +81,12 @@ Network
 - SonicWall | Devices by Type/ SonicWall | hasCategory("SonicWallFW")
 - Ubiquiti Unifi | Devices by Type/ Network | isNetwork()
 
-Storage
+**Storage**
 - EMC VNX | Devices by Type/ EMC | hasCategory("EMC") || hasCategory("EMC_VNX") || hasCategory("EMC_VNX2")
 - Nimble Storage | Devices by Type/ Nimble | hasCategory("Nimble")
 - Pure Storage | Devices by Type/ Pure Storage | purestorage.apitoken.pass
 
-Virtualization
+**Virtualization**
 - Cisco Hyperflex | * | (No specific group requirement)
 - Hyper-V | Devices by Type/ Hyper-V | hasCategory("HyperV")
 - Nutanix | * | (No specific group requirement)
