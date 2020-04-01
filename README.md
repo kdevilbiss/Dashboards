@@ -27,8 +27,8 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 
 **Capacity Management**
 - Resource Utilization | * | (No specific group requirement)
-- Under Utilized Devices - On-Prem | * | (Point at the device group you wish to target)
-- Under Utilized Devices - Public Cloud | AWS or Azure account | (Requires a local collector to be installed and monitoring cloud VMs)
+- Under Utilized Devices - On-Prem | * | (Target the device group you wish to visualize)
+- Under Utilized Devices - Public Cloud | AWS or Azure account | (Requires local collector monitoring of cloud VMs)
 
 **Databases**
 - SQL Server | Devices by Type/ SQL Servers | hasCategory("MSSQL")
@@ -49,7 +49,7 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 
 **LogicMonitor**
 - Collectors | Devices by Type/ Collectors | hasCategory("Collectors")
-- LogicMonitor Portal Metrics | * | (Requires the LogicMonitor Portal Metrics custom datasource)
+- LogicMonitor Portal Metrics | * | (Requires the LogicMonitor Portal Metrics datasource)
 - Resource Utilization | * | (No specific group requirement)
 - Welcome to LogicMonitor | * | (No specific group requirement)
 
@@ -83,6 +83,8 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 
 **Storage**
 - EMC VNX | Devices by Type/ EMC | hasCategory("EMC") || hasCategory("EMC_VNX") || hasCategory("EMC_VNX2")
+- HP 3PAR | * | (No specific group requirement)
+- NetApp | * | (No specific group requirement)
 - Nimble Storage | Devices by Type/ Nimble | hasCategory("Nimble")
 - Pure Storage | Devices by Type/ Pure Storage | purestorage.apitoken.pass
 
@@ -90,5 +92,5 @@ Format: Dashboard Name | Required Dynamic Group Name | Dynamic Group Definition
 - Cisco Hyperflex | * | (No specific group requirement)
 - Hyper-V | Devices by Type/ Hyper-V | hasCategory("HyperV")
 - Nutanix | * | (No specific group requirement)
-- vSphere_ESXi_Overview | Devices by Type/ VMware Hosts | system.virtualization =~ "VMware ESXi Host" (ESXi-Only, v.3 modules)
-- vSphere_vCenter_Overview | Devices by Type/ VMware vCenters | system.virtualization =~ "VMware ESXi vCenter" (Uses v.3 modules)
+- vSphere_ESXi_Overview | Devices by Type/ VMware Hosts | system.virtualization =~ "VMware ESXi Host"
+- vSphere_vCenter_Overview | Devices by Type/ VMware vCenters | system.virtualization =~ "VMware ESXi vCenter"
