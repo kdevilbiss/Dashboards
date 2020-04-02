@@ -6,6 +6,7 @@ These dashboards largely rely on both the latest versions of LogicMonitor dataso
 
 To see a preview of what some of these dashboards look like, visit the [LogicMonitor Dashboard Gallery](https://www.logicmonitor.com/sales/dashboards/index.html).
 
+To download all dashboards as a single file, see [LogicMonitor Dashboards](https://github.com/kdevilbiss/Dashboards/blob/master/Dashboard%20Groups/LogicMonitor%20Dashboards.json) in the [Dashboard Groups](https://github.com/kdevilbiss/Dashboards/tree/master/Dashboard%20Groups) directory.
 
 **Default Dashboards 3.0** 
 
