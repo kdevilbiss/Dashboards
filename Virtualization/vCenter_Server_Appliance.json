@@ -1,9 +1,15 @@
 {
-  "santabaRelease": 120,
-  "widgetTokens": [{
-    "name": "defaultResourceGroup",
-    "value": "Devices by Type/VMware vCenters"
-  }],
+  "santabaRelease": 133,
+  "widgetTokens": [
+    {
+      "name": "defaultResourceGroup",
+      "value": "*"
+    },
+    {
+      "name": "defaultResourceName",
+      "value": "*"
+    }
+  ],
   "name": "vCenter Server Appliance",
   "description": "",
   "widgetsConfigVersion": 2,
@@ -12,7 +18,7 @@
     {
       "position": {
         "col": 1,
-        "sizex": 3,
+        "sizex": 4,
         "row": 3,
         "sizey": 2
       },
@@ -22,178 +28,118 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 266,
+              "columnSize": 143,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
               "columnLabel": "\n            CPU Utilization\n            \n        ",
-              "columnSize": 175,
+              "columnSize": 120,
               "columnKey": "0"
-            }
-          ],
-          "pageSize": "10"
-        },
-        "columns": [{
-          "rpn": "",
-          "dataPointName": "cpu_util",
-          "displayType": "percent",
-          "minValue": 0,
-          "unitLabel": "",
-          "maxValue": 100,
-          "colorThresholds": [{
-            "level": 2,
-            "threshold": 80,
-            "relation": ">"
-          }],
-          "columnName": "CPU Utilization",
-          "enableForecast": false,
-          "roundingDecimal": 2
-        }],
-        "description": "",
-        "forecast": {
-          "severity": "warn",
-          "confidence": 70,
-          "timeRange": "Last 30 days",
-          "algorithm": "Linear"
-        },
-        "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##RESOURCENAME##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
-        "version": 2,
-        "topX": 10,
-        "dataSourceFullName": "VCSA CPU (VMware_VCSA_CPU)",
-        "sortOrder": "descending",
-        "name": "VCSA CPU Utilization",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "timescale": "day"
-      }
-    },
-    {
-      "position": {
-        "col": 4,
-        "sizex": 3,
-        "row": 3,
-        "sizey": 2
-      },
-      "config": {
-        "displaySettings": {
-          "columns": [
-            {
-              "visible": true,
-              "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 240,
-              "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Memory Utilization\n            \n        ",
-              "columnSize": 201,
-              "columnKey": "0"
-            }
-          ],
-          "pageSize": "10"
-        },
-        "columns": [{
-          "rpn": "",
-          "dataPointName": "memory_usage",
-          "displayType": "percent",
-          "minValue": 0,
-          "unitLabel": "",
-          "maxValue": 100,
-          "colorThresholds": [
-            {
-              "level": 2,
-              "threshold": 85,
-              "relation": ">="
-            },
-            {
-              "level": 3,
-              "threshold": 95,
-              "relation": ">="
-            }
-          ],
-          "columnName": "Memory Utilization",
-          "enableForecast": false,
-          "roundingDecimal": 2
-        }],
-        "description": "",
-        "forecast": {
-          "severity": "warn",
-          "confidence": 70,
-          "timeRange": "Last 30 days",
-          "algorithm": "Linear"
-        },
-        "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##RESOURCENAME##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
-        "version": 2,
-        "topX": 10,
-        "dataSourceFullName": "VCSA Memory (VMware_VCSA_Memory)",
-        "sortOrder": "descending",
-        "name": "VCSA Memory Utilization",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "timescale": "day"
-      }
-    },
-    {
-      "position": {
-        "col": 10,
-        "sizex": 3,
-        "row": 3,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {
-          "columns": [
-            {
-              "visible": true,
-              "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 164,
-              "columnKey": "device-name-1452842526600"
+              "columnLabel": "\n            Frequency\n            \n        ",
+              "columnSize": 71,
+              "columnKey": "1"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Filesystem Utilization\n            \n        ",
-              "columnSize": 267,
-              "columnKey": "0"
+              "columnLabel": "\n            System Load\n            \n        ",
+              "columnSize": 90,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Steal\n            \n        ",
+              "columnSize": 124,
+              "columnKey": "3"
             }
           ],
           "pageSize": "5"
         },
-        "columns": [{
-          "rpn": "",
-          "dataPointName": "storage_util_filesystem",
-          "displayType": "percent",
-          "minValue": 0,
-          "unitLabel": "",
-          "maxValue": 100,
-          "colorThresholds": [
-            {
-              "level": 2,
-              "threshold": 85,
-              "relation": ">="
-            },
-            {
-              "level": 3,
-              "threshold": 95,
-              "relation": ">="
-            }
-          ],
-          "columnName": "Filesystem Utilization",
-          "enableForecast": false,
-          "roundingDecimal": 2
-        }],
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "cpu_util",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 80,
+                "relation": ">="
+              },
+              {
+                "level": 3,
+                "threshold": 90,
+                "relation": ">="
+              },
+              {
+                "level": 4,
+                "threshold": 95,
+                "relation": ">="
+              }
+            ],
+            "columnName": "CPU Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Frequency/1000/1000/1000",
+            "dataPointName": "cpu_total_frequency",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GHz",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Frequency",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "cpu_system_load",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "System Load",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "cpu_steal",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 10,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 25,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 50,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Steal",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -204,87 +150,15 @@
         "type": "dynamicTable",
         "rows": [{
           "instanceName": "*",
-          "label": "##RESOURCENAME## / ##INSTANCE##",
-          "deviceDisplayName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "##defaultResourceName##",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": 10,
-        "dataSourceFullName": "VCSA Filesystems (VMware_VCSA_FilesystemCapacity)",
+        "topX": 25,
+        "dataSourceFullName": "VCSA CPU (VMware_VCSA_CPU)",
         "sortOrder": "descending",
-        "name": "VCSA Filesystem Utilization",
-        "theme": "newBorderDarkBlue",
-        "interval": 3,
-        "timescale": "day"
-      }
-    },
-    {
-      "position": {
-        "col": 1,
-        "sizex": 4,
-        "row": 10,
-        "sizey": 3
-      },
-      "config": {
-        "displaySettings": {
-          "columns": [
-            {
-              "visible": true,
-              "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 185,
-              "columnKey": "device-name-1452842526600"
-            },
-            {
-              "visible": true,
-              "columnLabel": "\n            Statistics Utilization\n            \n        ",
-              "columnSize": 259,
-              "columnKey": "0"
-            }
-          ],
-          "pageSize": "10"
-        },
-        "columns": [{
-          "rpn": "",
-          "dataPointName": "directory_utilized",
-          "displayType": "percent",
-          "minValue": 0,
-          "unitLabel": "",
-          "maxValue": 100,
-          "colorThresholds": [
-            {
-              "level": 2,
-              "threshold": 85,
-              "relation": ">="
-            },
-            {
-              "level": 3,
-              "threshold": 95,
-              "relation": ">="
-            }
-          ],
-          "columnName": "Statistics Utilization",
-          "enableForecast": false,
-          "roundingDecimal": 2
-        }],
-        "description": "",
-        "forecast": {
-          "severity": "warn",
-          "confidence": 70,
-          "timeRange": "Last 30 days",
-          "algorithm": "Linear"
-        },
-        "type": "dynamicTable",
-        "rows": [{
-          "instanceName": "*",
-          "label": "##RESOURCENAME## / ##INSTANCE##",
-          "deviceDisplayName": "*",
-          "groupFullPath": "##defaultResourceGroup##"
-        }],
-        "version": 2,
-        "topX": 10,
-        "dataSourceFullName": "VCSA VCDB (VMware_VCSA_VCDB)",
-        "sortOrder": "descending",
-        "name": "VCSA Database Utilization",
+        "name": "VCSA CPU Utilization",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
@@ -292,8 +166,8 @@
     },
     {
       "position": {
-        "col": 7,
-        "sizex": 3,
+        "col": 5,
+        "sizex": 4,
         "row": 3,
         "sizey": 2
       },
@@ -303,30 +177,102 @@
             {
               "visible": true,
               "columnLabel": "\n        Name\n        \n    ",
-              "columnSize": 288,
+              "columnSize": 146,
               "columnKey": "device-name-1452842526600"
             },
             {
               "visible": true,
-              "columnLabel": "\n            Swap Utilization\n            \n        ",
-              "columnSize": 153,
+              "columnLabel": "\n            Memory Utilization\n            \n        ",
+              "columnSize": 139,
               "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Used\n            \n        ",
+              "columnSize": 83,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Total\n            \n        ",
+              "columnSize": 81,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Swap Rate\n            \n        ",
+              "columnSize": 99,
+              "columnKey": "3"
             }
           ],
-          "pageSize": "10"
+          "pageSize": "5"
         },
-        "columns": [{
-          "rpn": "",
-          "dataPointName": "storage_util_filesystem",
-          "displayType": "percent",
-          "minValue": 0,
-          "unitLabel": "",
-          "maxValue": 100,
-          "colorThresholds": [],
-          "columnName": "Swap Utilization",
-          "enableForecast": false,
-          "roundingDecimal": 2
-        }],
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "memory_usage",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 85,
+                "relation": ">="
+              },
+              {
+                "level": 3,
+                "threshold": 90,
+                "relation": ">="
+              },
+              {
+                "level": 4,
+                "threshold": 95,
+                "relation": ">="
+              }
+            ],
+            "columnName": "Memory Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Used/1024/1024/1024",
+            "dataPointName": "memory_utilization",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Used",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Total/1024/1024/1024",
+            "dataPointName": "memory_total",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Total",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "",
+            "dataPointName": "swap_pageRate",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " pages/sec.",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Swap Rate",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
         "description": "",
         "forecast": {
           "severity": "warn",
@@ -338,31 +284,31 @@
         "rows": [{
           "instanceName": "*",
           "label": "##RESOURCENAME##",
-          "deviceDisplayName": "*",
+          "deviceDisplayName": "##defaultResourceName##",
           "groupFullPath": "##defaultResourceGroup##"
         }],
         "version": 2,
-        "topX": 10,
-        "dataSourceFullName": "VCSA Swap (VMware_VCSA_Swap)",
+        "topX": 25,
+        "dataSourceFullName": "VCSA Memory (VMware_VCSA_Memory)",
         "sortOrder": "descending",
-        "name": "VCSA Swap Utilization",
-        "theme": "newBorderDarkBlue",
+        "name": "VCSA Memory Utilization",
+        "theme": "newSolidDarkBlue",
         "interval": 3,
         "timescale": "day"
       }
     },
     {
       "position": {
-        "col": 10,
-        "sizex": 3,
-        "row": 10,
-        "sizey": 3
+        "col": 1,
+        "sizex": 12,
+        "row": 8,
+        "sizey": 2
       },
       "config": {
         "ackChecked": true,
         "displaySettings": {
-          "showTypeIcon": true,
-          "displayAs": "list"
+          "showTypeIcon": false,
+          "displayAs": "table"
         },
         "displayWarnAlert": true,
         "description": "",
@@ -370,7 +316,7 @@
         "version": 2,
         "displayErrorAlert": true,
         "displayColumn": 8,
-        "name": "vCenter Appliance Service Status",
+        "name": "vCenter Services",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -378,21 +324,269 @@
         "timescale": "day",
         "sdtChecked": true,
         "items": [{
-          "dataPointName": "serviceState",
+          "dataPointName": "*",
           "instanceName": "*",
-          "name": "##INSTANCE##",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
           "dataSourceDisplayName": "VCSA Services",
           "groupBy": "instance",
           "type": "device",
           "deviceGroupFullPath": "##defaultResourceGroup##",
-          "deviceDisplayName": "*"
+          "deviceDisplayName": "##defaultResourceName##"
         }]
       }
     },
     {
       "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 6,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 203,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Swap Utilization\n            \n        ",
+              "columnSize": 142,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Used\n            \n        ",
+              "columnSize": 83,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Total\n            \n        ",
+              "columnSize": 120,
+              "columnKey": "2"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "swap_util",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 80,
+                "relation": ">"
+              },
+              {
+                "level": 3,
+                "threshold": 85,
+                "relation": ">"
+              },
+              {
+                "level": 4,
+                "threshold": 90,
+                "relation": ">"
+              }
+            ],
+            "columnName": "Swap Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Used/1024/1024",
+            "dataPointName": "swap_used",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " MB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Used",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Total/1024/1024",
+            "dataPointName": "swap_total",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " MB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Total",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 30 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##RESOURCENAME##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "VCSA Swap (VMware_VCSA_Swap)",
+        "sortOrder": "descending",
+        "name": "VCSA Swap Utilization",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
+        "col": 9,
+        "sizex": 4,
+        "row": 3,
+        "sizey": 3
+      },
+      "config": {
+        "displaySettings": {
+          "columns": [
+            {
+              "visible": true,
+              "columnLabel": "\n        Name\n        \n    ",
+              "columnSize": 165,
+              "columnKey": "device-name-1452842526600"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Filesystem Utilization\n            \n        ",
+              "columnSize": 142,
+              "columnKey": "0"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 86,
+              "columnKey": "0-forecast"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Used\n            \n        ",
+              "columnSize": 83,
+              "columnKey": "1"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 86,
+              "columnKey": "1-forecast"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n            Total\n            \n        ",
+              "columnSize": 103,
+              "columnKey": "2"
+            },
+            {
+              "visible": true,
+              "columnLabel": "\n                    Days Until Alert\n                ",
+              "columnSize": 85,
+              "columnKey": "2-forecast"
+            }
+          ],
+          "pageSize": "5"
+        },
+        "columns": [
+          {
+            "rpn": "",
+            "dataPointName": "storage_util_filesystem",
+            "displayType": "percent",
+            "minValue": 0,
+            "unitLabel": "",
+            "maxValue": 100,
+            "colorThresholds": [
+              {
+                "level": 2,
+                "threshold": 85,
+                "relation": ">="
+              },
+              {
+                "level": 3,
+                "threshold": 90,
+                "relation": ">="
+              },
+              {
+                "level": 4,
+                "threshold": 95,
+                "relation": ">="
+              }
+            ],
+            "columnName": "Filesystem Utilization",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Used/1024/1024",
+            "dataPointName": "storage_used_filesystem",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Used",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          },
+          {
+            "rpn": "Total/1024/1024",
+            "dataPointName": "storage_totalsize_filesystem",
+            "displayType": "raw",
+            "minValue": 0,
+            "unitLabel": " GB",
+            "maxValue": 100,
+            "colorThresholds": [],
+            "columnName": "Total",
+            "enableForecast": false,
+            "roundingDecimal": 2
+          }
+        ],
+        "description": "",
+        "forecast": {
+          "severity": "warn",
+          "confidence": 70,
+          "timeRange": "Last 7 days",
+          "algorithm": "Linear"
+        },
+        "type": "dynamicTable",
+        "rows": [{
+          "instanceName": "*",
+          "label": "##INSTANCE##",
+          "deviceDisplayName": "##defaultResourceName##",
+          "groupFullPath": "##defaultResourceGroup##"
+        }],
+        "version": 2,
+        "topX": 25,
+        "dataSourceFullName": "VCSA Filesystems (VMware_VCSA_FilesystemCapacity)",
+        "sortOrder": "descending",
+        "name": "VCSA Filesystem Utilization",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "timescale": "day"
+      }
+    },
+    {
+      "position": {
         "col": 1,
-        "sizex": 12,
+        "sizex": 10,
         "row": 1,
         "sizey": 2
       },
@@ -407,58 +601,36 @@
         "type": "noc",
         "version": 2,
         "displayErrorAlert": true,
-        "displayColumn": 8,
-        "name": "vCenter Appliance Health Status",
+        "displayColumn": 7,
+        "name": "VCSA Health Status",
         "displayCriticalAlert": true,
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "sortBy": "alertSeverity",
         "timescale": "day",
         "sdtChecked": true,
-        "items": [
-          {
-            "dataPointName": "*",
-            "instanceName": "*",
-            "name": "Appliance: ##RESOURCENAME##",
-            "dataSourceDisplayName": "VCSA*",
-            "groupBy": "device",
-            "type": "device",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
-          },
-          {
-            "dataPointName": "status",
-            "instanceName": "*",
-            "name": "Backups: ##RESOURCENAME##",
-            "dataSourceDisplayName": "VCSA Backups",
-            "groupBy": "device",
-            "type": "device",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
-          },
-          {
-            "dataPointName": "health_status",
-            "instanceName": "*",
-            "name": "Health: ##INSTANCE##",
-            "dataSourceDisplayName": "VCSA Health",
-            "groupBy": "instance",
-            "type": "device",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
-          }
-        ]
+        "items": [{
+          "dataPointName": "*",
+          "instanceName": "*",
+          "name": "##INSTANCE## - ##RESOURCENAME##",
+          "dataSourceDisplayName": "VCSA Health",
+          "groupBy": "instance",
+          "type": "device",
+          "deviceGroupFullPath": "##defaultResourceGroup##",
+          "deviceDisplayName": "##defaultResourceName##"
+        }]
       }
     },
     {
       "position": {
         "col": 1,
-        "sizex": 3,
+        "sizex": 4,
         "row": 5,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "VCSA CPU Utilization Trend",
+        "name": "VCSA CPU Utilization (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -474,7 +646,7 @@
               "value": "*"
             },
             "dataSourceFullName": "VCSA CPU (VMware_VCSA_CPU)",
-            "consolidateFunction": "average",
+            "consolidateFunction": "max",
             "display": {
               "color": "Auto",
               "legend": "##RESOURCENAME##",
@@ -485,7 +657,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -505,14 +677,14 @@
     },
     {
       "position": {
-        "col": 4,
-        "sizex": 3,
+        "col": 5,
+        "sizex": 4,
         "row": 5,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "VCSA Memory Utilization Trend",
+        "name": "VCSA Memory Utilization (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
@@ -539,7 +711,7 @@
             "aggregateFunction": "SUM",
             "deviceDisplayName": {
               "isGlob": true,
-              "value": "*"
+              "value": "##defaultResourceName##"
             },
             "deviceGroupFullPath": {
               "isGlob": true,
@@ -553,112 +725,94 @@
           "globalConsolidateFunction": "VaST"
         },
         "type": "cgraph",
-        "timescale": "1day",
+        "timescale": "7days",
         "version": 2
       }
     },
     {
       "position": {
-        "col": 7,
-        "sizex": 3,
-        "row": 5,
-        "sizey": 3
+        "col": 1,
+        "sizex": 6,
+        "row": 10,
+        "sizey": 5
       },
       "config": {
         "displaySettings": {},
-        "name": "VCSA Swap Utilization Trend",
+        "name": "Top VCSA Network Interfaces by Total Throughput (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": 100,
-          "dataPoints": [{
-            "dataPointName": "storage_util_filesystem",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "VCSA Swap (VMware_VCSA_Swap)",
-            "consolidateFunction": "average",
+          "virtualDataPoints": [{
+            "rpn": "net_rx_activity + net_tx_activity",
             "display": {
               "color": "Auto",
-              "legend": "##RESOURCENAME##",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
               "type": "area",
               "option": "custom"
             },
-            "name": "storage_util_filesystem",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
-            }
+            "name": "totalActivity"
           }],
-          "verticalLabel": "%",
-          "aggregate": false,
-          "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
-        },
-        "type": "cgraph",
-        "timescale": "1day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 10,
-        "sizex": 3,
-        "row": 6,
-        "sizey": 2
-      },
-      "config": {
-        "displaySettings": {},
-        "name": "VCSA Filesystem Utilization Trend",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "graphInfo": {
-          "virtualDataPoints": [],
           "minValue": 0,
           "topX": 10,
-          "maxValue": 100,
-          "dataPoints": [{
-            "dataPointName": "storage_util_filesystem",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "net_rx_activity",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VCSA Network (VMware_VCSA_Network)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "net_rx_activity",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             },
-            "dataSourceFullName": "VCSA Filesystems (VMware_VCSA_FilesystemCapacity)",
-            "consolidateFunction": "average",
-            "display": {
-              "color": "Auto",
-              "legend": "##RESOURCENAME## / ##INSTANCE##",
-              "type": "line",
-              "option": "custom"
-            },
-            "name": "storage_util_filesystem",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
+            {
+              "dataPointName": "net_tx_activity",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VCSA Network (VMware_VCSA_Network)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "net_tx_activity",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
             }
-          }],
-          "verticalLabel": "%",
+          ],
+          "verticalLabel": "bps",
           "aggregate": false,
           "desc": true,
-          "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
+          "scaleUnit": 1024,
+          "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
         "timescale": "2days",
@@ -667,52 +821,213 @@
     },
     {
       "position": {
-        "col": 5,
-        "sizex": 5,
+        "col": 11,
+        "sizex": 2,
+        "row": 1,
+        "sizey": 2
+      },
+      "config": {
+        "bigNumberInfo": {
+          "virtualDataPoints": [],
+          "counters": [{
+            "name": "vcenters",
+            "appliesTo": "system.virtualization =~ \"vcenter\""
+          }],
+          "dataPoints": [],
+          "bigNumberItems": [{
+            "dataPointName": "vcenters",
+            "useCommaSeparators": false,
+            "bottomLabel": "",
+            "rounding": 0,
+            "position": 1,
+            "rightLabel": "vCenter Resources",
+            "colorThresholds": null
+          }]
+        },
+        "displaySettings": {},
+        "name": "vCenter Count",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "type": "bigNumber",
+        "timescale": "day",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
         "row": 10,
         "sizey": 3
       },
       "config": {
         "displaySettings": {},
-        "name": "VCSA Database Utilization Trend",
+        "name": "Top VCSA Network Interfaces by Total Drops (Trend)",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
         "graphInfo": {
-          "virtualDataPoints": [],
-          "minValue": 0,
-          "topX": 10,
-          "maxValue": 100,
-          "dataPoints": [{
-            "dataPointName": "directory_utilized",
-            "instanceName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "dataSourceFullName": "VCSA VCDB (VMware_VCSA_VCDB)",
-            "consolidateFunction": "average",
+          "virtualDataPoints": [{
+            "rpn": "net_rx_drop + net_tx_drop",
             "display": {
               "color": "Auto",
-              "legend": "##RESOURCENAME## / ##INSTANCE##",
-              "type": "line",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "area",
               "option": "custom"
             },
-            "name": "directory_utilized",
-            "aggregateFunction": "SUM",
-            "deviceDisplayName": {
-              "isGlob": true,
-              "value": "*"
-            },
-            "deviceGroupFullPath": {
-              "isGlob": true,
-              "value": "##defaultResourceGroup##"
-            }
+            "name": "total"
           }],
-          "verticalLabel": "%",
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "net_rx_drop",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VCSA Network (VMware_VCSA_Network)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "net_rx_drop",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "net_tx_drop",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VCSA Network (VMware_VCSA_Network)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "net_tx_drop",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "drops/sample",
           "aggregate": false,
           "desc": true,
           "scaleUnit": 1000,
-          "globalConsolidateFunction": "VaST"
+          "globalConsolidateFunction": "default"
+        },
+        "type": "cgraph",
+        "timescale": "2days",
+        "version": 2
+      }
+    },
+    {
+      "position": {
+        "col": 7,
+        "sizex": 6,
+        "row": 13,
+        "sizey": 2
+      },
+      "config": {
+        "displaySettings": {},
+        "name": "Top VCSA Network Interfaces by Total Errors (Trend)",
+        "description": "",
+        "theme": "newSolidDarkBlue",
+        "interval": 3,
+        "graphInfo": {
+          "virtualDataPoints": [{
+            "rpn": "net_rx_error + net_tx_error",
+            "display": {
+              "color": "Auto",
+              "legend": "##INSTANCE## - ##RESOURCENAME##",
+              "type": "area",
+              "option": "custom"
+            },
+            "name": "total"
+          }],
+          "minValue": 0,
+          "topX": 10,
+          "maxValue": "NaN",
+          "dataPoints": [
+            {
+              "dataPointName": "net_rx_error",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VCSA Network (VMware_VCSA_Network)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "net_rx_error",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            },
+            {
+              "dataPointName": "net_tx_error",
+              "instanceName": {
+                "isGlob": true,
+                "value": "*"
+              },
+              "dataSourceFullName": "VCSA Network (VMware_VCSA_Network)",
+              "consolidateFunction": "average",
+              "display": {
+                "color": null,
+                "legend": null,
+                "type": "line",
+                "option": "none"
+              },
+              "name": "net_tx_error",
+              "aggregateFunction": "SUM",
+              "deviceDisplayName": {
+                "isGlob": true,
+                "value": "##defaultResourceName##"
+              },
+              "deviceGroupFullPath": {
+                "isGlob": true,
+                "value": "##defaultResourceGroup##"
+              }
+            }
+          ],
+          "verticalLabel": "errors/sample",
+          "aggregate": false,
+          "desc": true,
+          "scaleUnit": 1000,
+          "globalConsolidateFunction": "default"
         },
         "type": "cgraph",
         "timescale": "2days",
@@ -722,132 +1037,155 @@
     {
       "position": {
         "col": 1,
-        "sizex": 4,
-        "row": 8,
-        "sizey": 2
+        "sizex": 12,
+        "row": 15,
+        "sizey": 5
       },
       "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [
+        "displaySettings": {
+          "isShowAll": false,
+          "showFilter": false,
+          "columns": [
             {
-              "rpn": "(((size/1024)/1024)/1024)",
-              "name": "size_GB"
+              "visible": false,
+              "columnLabel": "Severity",
+              "columnKey": "alert-severity"
             },
             {
-              "rpn": "((size/1024)/1024)",
-              "name": "size_MB"
+              "visible": true,
+              "columnLabel": "Began",
+              "columnKey": "alert-began"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Resource/Website",
+              "columnKey": "alert-device"
+            },
+            {
+              "visible": true,
+              "columnLabel": "LogicModule",
+              "columnKey": "alert-datasource"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Instance",
+              "columnKey": "alert-datasource-instance"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Datapoint",
+              "columnKey": "alert-datapoint"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Value",
+              "columnKey": "alert-value"
+            },
+            {
+              "visible": true,
+              "columnLabel": "Effective Thresholds",
+              "columnKey": "alert-thresholds"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Group",
+              "columnKey": "alert-group"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Notes",
+              "columnKey": "alert-notes"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged By",
+              "columnKey": "alert-acked-by"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Acknowledged On",
+              "columnKey": "alert-acked-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Cleared On",
+              "columnKey": "alert-cleared-on"
+            },
+            {
+              "visible": false,
+              "columnLabel": "In SDT",
+              "columnKey": "alert-in-sdt"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Alert Rule",
+              "columnKey": "alert-rule-name"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Escalation Chain",
+              "columnKey": "alert-escalation-chain"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Instance Description",
+              "columnKey": "alert-datasource-instance-description"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Full Path",
+              "columnKey": "alert-full-path"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Routing State",
+              "columnKey": "alert-routing-state"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependency Role",
+              "columnKey": "alert-dependency-role"
+            },
+            {
+              "visible": false,
+              "columnLabel": "Dependent Alerts",
+              "columnKey": "alert-dependent-alerts"
             }
           ],
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "size",
-            "instanceName": "*",
-            "dataSourceFullName": "VCSA Backups (VMware_VCSA_Backups)",
-            "name": "size",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "size_MB",
-            "useCommaSeparators": false,
-            "bottomLabel": "MB",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Last Backup Size",
-            "colorThresholds": null
-          }]
+          "playSound": {},
+          "fontsize": "normal-font",
+          "sort": "-startEpoch"
         },
-        "displaySettings": {},
-        "name": "VCSA Backups",
+        "name": "VCSA Alerts",
         "description": "",
         "theme": "newSolidDarkBlue",
         "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 5,
-        "sizex": 4,
-        "row": 8,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "duration",
-            "instanceName": "*",
-            "dataSourceFullName": "VCSA Backups (VMware_VCSA_Backups)",
-            "name": "duration",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "duration",
-            "useCommaSeparators": false,
-            "bottomLabel": "Seconds",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Last Backup Duration",
-            "colorThresholds": null
-          }]
+        "filters": {
+          "severity": "",
+          "sdted": "all",
+          "chain": "",
+          "instance": "",
+          "dataPoint": "",
+          "rule": "",
+          "acked": "all",
+          "dependencyRoutingState": "",
+          "dependencyRole": "",
+          "host": "%23%23defaultResourceName%23%23",
+          "keyword": "",
+          "dataSource": "*VCSA*",
+          "cleared": "no",
+          "group": "%23%23defaultResourceGroup%23%23*"
         },
-        "displaySettings": {},
-        "name": "VCSA Backups",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
-        "timescale": "day",
-        "version": 2
-      }
-    },
-    {
-      "position": {
-        "col": 9,
-        "sizex": 4,
-        "row": 8,
-        "sizey": 2
-      },
-      "config": {
-        "bigNumberInfo": {
-          "virtualDataPoints": [],
-          "counters": [],
-          "dataPoints": [{
-            "dataPointName": "progress",
-            "instanceName": "*",
-            "dataSourceFullName": "VCSA Backups (VMware_VCSA_Backups)",
-            "name": "progress",
-            "aggregateFunction": "SUM",
-            "deviceGroupFullPath": "##defaultResourceGroup##",
-            "deviceDisplayName": "*"
-          }],
-          "bigNumberItems": [{
-            "dataPointName": "progress",
-            "useCommaSeparators": false,
-            "bottomLabel": "",
-            "rounding": 0,
-            "position": 1,
-            "rightLabel": "Last Backup Completion %",
-            "colorThresholds": null
-          }]
-        },
-        "displaySettings": {},
-        "name": "VCSA Backups",
-        "description": "",
-        "theme": "newSolidDarkBlue",
-        "interval": 3,
-        "type": "bigNumber",
+        "type": "alert",
         "timescale": "day",
         "version": 2
       }
     }
   ],
-  "version": 2
+  "version": 2,
+  "group": {
+    "name": "Virtualization",
+    "fullPath": "LogicMonitor Dashboards/Virtualization",
+    "description": ""
+  }
 }
